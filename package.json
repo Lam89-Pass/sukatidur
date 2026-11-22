@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-muhamad-nur-salam",
+  "version": "1.0.0",
+  "description": "Portofolio Muhamad Nur Salam - Network Engineering, IT Infrastructure & Cybersecurity",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node dev.js",
+    "start": "node dev.js"
+  },
+  "keywords": [
+    "portfolio",
+    "network-engineering",
+    "it-infrastructure",
+    "cybersecurity",
+    "muhamad-nur-salam"
+  ],
+  "author": "Muhamad Nur Salam",
+  "license": "MIT"
+}

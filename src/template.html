@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Muhamad Nur Salam - Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity.">
+    <meta name="keywords" content="Muhamad Nur Salam, Alam, Portofolio, Network Engineering, IT Infrastructure, Cybersecurity, Teknik Informatika, Universitas Pasundan, Bandung, Mikrotik, Linux, Docker, Cisco Packet Tracer">
+    <meta name="author" content="Muhamad Nur Salam">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Muhamad Nur Salam | Network Engineering &amp; IT Infrastructure"/>
+    <meta property="og:description" content="Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://alam.my.id/"/>
+    <meta property="og:site_name" content="Muhamad Nur Salam">
+    
+    <!-- Standard Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://files.ituaku.com/assets/websites/favicon/favicon32.png">
+    
+    <title>Muhamad Nur Salam | Network Engineering, IT Infrastructure &amp; Cybersecurity</title>
+    
+    <!-- Vendor CSS -->
+    <!-- FontAwesome 6 (Local bundle + CDN fallback, 100% offline & CORS-safe) -->
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/plugins/swiper.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/plugins/odometer.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/vendor/fancybox6/fancybox/fancybox.css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/style.css">
+
+    <style>
+        body {
+            background: #162660;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        .tmp-portfolio {
+            border: 1px solid rgba(241, 228, 209, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #101c48;
+        }
+        #expertise .service-item.mleave .fa-solid, #expertise .service-item.mleave .fa-brands {
+            color: #111;
+        }
+        #expertise .fa-solid, #expertise .fa-brands {
+            color: #aaa;
+            font-size: 25px;
+        }
+        #collaborations .fa-building-columns {
+            font-size: 25px;
+        }
+        #techstack .fa-solid {
+            font-size: 25px;
+        }
+        .tmp-arrow-icon-btn i {
+            margin-left: -9px !important;
+        }
+        .project-details-swiper-wrapper .project-details-swiper-btn .project-swiper-button-next i, 
+        .project-details-swiper-wrapper .project-details-swiper-btn .project-swiper-button-prev i {
+            font-weight: 600;
+        }
+        .project-details-area-wrapper .project-details-content-wrap .docs p {
+            color: var(--color-gray);
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+        .section_languages .logo-img {
+            overflow: hidden;
+        }
+        .section-certificate-img .tmp-btn, .section-showcase .tmp-btn {
+            margin: auto;
+            display: block;
+            width: fit-content;
+        }
+        .section-showcase .tmp-btn {
+            margin-bottom: 30px;   
+        }
+        .tmp-btn {
+            background: #F1E4D1;
+            color: #162660;
+            font-weight: 600;
+        }
+        .tmp-btn:hover {
+            background-color: #F1E4D1;
+            color: #162660;
+        }
+        .tmp-menu-bars {
+            border: 2px solid #F1E4D1;
+            color: #162660;
+        }
+        .tmp-menu-bars:hover {
+            color: #F1E4D1;
+        }
+        .tmp-menu-bars::after {
+            background: #F1E4D1;
+        }
+        .ready-chatting-option label {
+            background: #F1E4D1;
+            color: #162660;
+        }
+        .ready-chatting-option label i {
+            color: #162660;
+        }
+        .banner-three-main-wrapper .texts-one {
+            font-size: 140px;
+        }
+        .banner-three-main-wrapper .texts-two {
+            font-size: 140px;
+        }
+        .header--sticky.sticky {
+            background: #081546;
+        }
+        @media (min-width: 1268px) {
+            .banner-three-main-wrapper .inner .title {
+                font-size: 72px;
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1120px) {
+            .banner-three-main-wrapper .inner .title {
+                font-size: 52px;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .banner-three-main-wrapper .inner .title {
+                font-size: 48px;
+            }
+        }
+        .social-link a:hover {
+            color: #162660;
+        }
+        .social-link a::after {
+            background: #F1E4D1;
+        }
+        .social-link.banner a {
+            background: #2A3B77;
+        }
+        .social-link.banner a:hover {
+            color: #162660;
+        }
+        .social-link.banner a::after {
+            background: #F1E4D1;
+        }
+        .service-card-v1 .service-card-icon {
+            color: #F1E4D1;
+        }
+        .tmponhover::after {
+            background: #030B2A;
+        }
+        .resume-widget .resume-single {
+            background: #2A3B77;
+        }
+        .scrollToTop .water {
+            background-color: #F1E4D1;
+        }
+        .scrollToTop .water svg use {
+            fill: #F1E4D1 !important;
+        }
+        @media only screen and (max-width: 767px) {
+            .support-company-logo img {
+                max-height: 100px;
+            }
+            .tmp-skill-area .heading-h6 {
+                width: calc(100% - 75px);
+            }
+            .banner-three-main-wrapper .texts-one,
+            .banner-three-main-wrapper .texts-two {
+                font-size: 60px;
+            }
+        }
+        @media only screen and (max-width: 575px) {
+            .support-company-logo {
+                padding: 10px 0;
+            }
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(241, 228, 209, 0.12);
+            color: #F1E4D1;
+            border: 1px solid rgba(241, 228, 209, 0.25);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+        .skill-tag:hover {
+            background: #F1E4D1;
+            color: #162660;
+            transform: translateY(-2px);
+        }
+        .education-experience-card {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="color-primary-2nd">
+
+    <!-- include: src/sections/header.html -->
+
+    <!-- include: src/sections/hero.html -->
+
+    <!-- include: src/sections/highlights.html -->
+
+    <!-- include: src/sections/about.html -->
+
+    <!-- include: src/sections/services.html -->
+
+    <!-- include: src/sections/skills.html -->
+
+    <!-- include: src/sections/experience.html -->
+
+    <!-- include: src/sections/education.html -->
+
+    <!-- include: src/sections/certifications.html -->
+
+    <!-- include: src/sections/portfolios.html -->
+
+    <!-- include: src/sections/cta.html -->
+
+    <!-- include: src/sections/footer.html -->
+
+    <!-- Scripts -->
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/jquery.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/jquery-ui.min.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/waypoints.min.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/odometer.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/appear.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/jquery-one-page-nav.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/swiper.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/gsap.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/splittext.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/scrolltigger.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/scrolltoplugins.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/smoothscroll.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/bootstrap.min.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/waw.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/isotop.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/animation.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/contact.form.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/backtop.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/text-type.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/vendor/fancybox6/fancybox/fancybox.umd.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/main.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Fancybox.bind("[data-fancybox]", {});
+        });
+
+        // Smooth scroll for nav links
+        $(".scroll").on("click", function(event){
+            event.preventDefault();
+            if($(this).hasClass('close-after')){
+                $(this).closest('.tmp-popup-mobile-menu').removeClass('active');
+            }
+            var target = $(this.hash);
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 40
+                }, 900);
+            }
+        });
+    </script>
+</body>
+</html>

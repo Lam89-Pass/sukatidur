@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Muhamad Nur Salam - Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity.">
+    <meta name="keywords" content="Muhamad Nur Salam, Alam, Portofolio, Network Engineering, IT Infrastructure, Cybersecurity, Teknik Informatika, Universitas Pasundan, Bandung, Mikrotik, Linux, Docker, Cisco Packet Tracer">
+    <meta name="author" content="Muhamad Nur Salam">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Muhamad Nur Salam | Network Engineering &amp; IT Infrastructure"/>
+    <meta property="og:description" content="Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://alam.my.id/"/>
+    <meta property="og:site_name" content="Muhamad Nur Salam">
+    
+    <!-- Standard Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://files.ituaku.com/assets/websites/favicon/favicon32.png">
+    
+    <title>Muhamad Nur Salam | Network Engineering, IT Infrastructure &amp; Cybersecurity</title>
+    
+    <!-- Vendor CSS -->
+    <!-- FontAwesome 6 (Local bundle + CDN fallback, 100% offline & CORS-safe) -->
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/plugins/swiper.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/plugins/odometer.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/vendor/fancybox6/fancybox/fancybox.css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="https://files.ituaku.com/assets/websites/themes/personal1/css/style.css">
+
+    <style>
+        body {
+            background: #162660;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        .tmp-portfolio {
+            border: 1px solid rgba(241, 228, 209, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #101c48;
+        }
+        #expertise .service-item.mleave .fa-solid, #expertise .service-item.mleave .fa-brands {
+            color: #111;
+        }
+        #expertise .fa-solid, #expertise .fa-brands {
+            color: #aaa;
+            font-size: 25px;
+        }
+        #collaborations .fa-building-columns {
+            font-size: 25px;
+        }
+        #techstack .fa-solid {
+            font-size: 25px;
+        }
+        .tmp-arrow-icon-btn i {
+            margin-left: -9px !important;
+        }
+        .project-details-swiper-wrapper .project-details-swiper-btn .project-swiper-button-next i, 
+        .project-details-swiper-wrapper .project-details-swiper-btn .project-swiper-button-prev i {
+            font-weight: 600;
+        }
+        .project-details-area-wrapper .project-details-content-wrap .docs p {
+            color: var(--color-gray);
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+        .section_languages .logo-img {
+            overflow: hidden;
+        }
+        .section-certificate-img .tmp-btn, .section-showcase .tmp-btn {
+            margin: auto;
+            display: block;
+            width: fit-content;
+        }
+        .section-showcase .tmp-btn {
+            margin-bottom: 30px;   
+        }
+        .tmp-btn {
+            background: #F1E4D1;
+            color: #162660;
+            font-weight: 600;
+        }
+        .tmp-btn:hover {
+            background-color: #F1E4D1;
+            color: #162660;
+        }
+        .tmp-menu-bars {
+            border: 2px solid #F1E4D1;
+            color: #162660;
+        }
+        .tmp-menu-bars:hover {
+            color: #F1E4D1;
+        }
+        .tmp-menu-bars::after {
+            background: #F1E4D1;
+        }
+        .ready-chatting-option label {
+            background: #F1E4D1;
+            color: #162660;
+        }
+        .ready-chatting-option label i {
+            color: #162660;
+        }
+        .banner-three-main-wrapper .texts-one {
+            font-size: 140px;
+        }
+        .banner-three-main-wrapper .texts-two {
+            font-size: 140px;
+        }
+        .header--sticky.sticky {
+            background: #081546;
+        }
+        @media (min-width: 1268px) {
+            .banner-three-main-wrapper .inner .title {
+                font-size: 72px;
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1120px) {
+            .banner-three-main-wrapper .inner .title {
+                font-size: 52px;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .banner-three-main-wrapper .inner .title {
+                font-size: 48px;
+            }
+        }
+        .social-link a:hover {
+            color: #162660;
+        }
+        .social-link a::after {
+            background: #F1E4D1;
+        }
+        .social-link.banner a {
+            background: #2A3B77;
+        }
+        .social-link.banner a:hover {
+            color: #162660;
+        }
+        .social-link.banner a::after {
+            background: #F1E4D1;
+        }
+        .service-card-v1 .service-card-icon {
+            color: #F1E4D1;
+        }
+        .tmponhover::after {
+            background: #030B2A;
+        }
+        .resume-widget .resume-single {
+            background: #2A3B77;
+        }
+        .scrollToTop .water {
+            background-color: #F1E4D1;
+        }
+        .scrollToTop .water svg use {
+            fill: #F1E4D1 !important;
+        }
+        @media only screen and (max-width: 767px) {
+            .support-company-logo img {
+                max-height: 100px;
+            }
+            .tmp-skill-area .heading-h6 {
+                width: calc(100% - 75px);
+            }
+            .banner-three-main-wrapper .texts-one,
+            .banner-three-main-wrapper .texts-two {
+                font-size: 60px;
+            }
+        }
+        @media only screen and (max-width: 575px) {
+            .support-company-logo {
+                padding: 10px 0;
+            }
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(241, 228, 209, 0.12);
+            color: #F1E4D1;
+            border: 1px solid rgba(241, 228, 209, 0.25);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+        .skill-tag:hover {
+            background: #F1E4D1;
+            color: #162660;
+            transform: translateY(-2px);
+        }
+        .education-experience-card {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="color-primary-2nd">
+
+    <!-- BEGIN SECTION: header.html -->
+<!-- Header & Navigation Area -->
+<header class="tmp-header-area-start header-one header--sticky header--transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="#home_sec" style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 26px; font-weight: 800; color: #F1E4D1; letter-spacing: 1.5px; font-family: var(--font-primary, sans-serif);">ALAM<span style="color: #ffaa40;">.</span></span>
+                        </a>
+                    </div>
+                    <nav class="tmp-mainmenu-nav d-none d-xl-block">
+                        <ul class="tmp-mainmenu">
+                            <li><a href="#home_sec" class="scroll">Home</a></li>
+                            <li><a href="#section_about" class="scroll">Tentang</a></li>
+                            <li><a href="#section_services" class="scroll">Layanan</a></li>
+                            <li><a href="#section_expertise" class="scroll">Keahlian</a></li>
+                            <li><a href="#section_experiences" class="scroll">Pengalaman</a></li>
+                            <li><a href="#section_education" class="scroll">Pendidikan</a></li>
+                            <li><a href="#section_certifications" class="scroll">Sertifikasi</a></li>
+                            <li><a href="#section_portfolios" class="scroll">Portofolio</a></li>
+                            <li><a href="#section_contact" class="scroll">Kontak</a></li>
+                        </ul>
+                    </nav>
+                    <div class="tmp-header-right">
+                        <div class="social-share-wrapper d-none d-md-block">
+                            <div class="social-link">
+                                <a href="https://wa.me/6285603103375" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="mailto:aaallaaamm03@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="https://alam.my.id" target="_blank" title="Website"><i class="fa-solid fa-globe"></i></a>
+                                <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="actions-area">
+                            <div class="tmp-side-collups-area d-none d-xl-block">
+                                <button class="tmp-menu-bars tmp_button_active" aria-label="Toggle Sidebar"><i class="fa-solid fa-bars-staggered"></i></button>
+                            </div>
+                            <div class="tmp-side-collups-area d-block d-xl-none">
+                                <button class="tmp-menu-bars humberger_menu_active" aria-label="Toggle Mobile Menu"><i class="fa-solid fa-bars-staggered"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Desktop Offcanvas Sidebar -->
+<div class="d-none d-xl-block">
+    <div class="tmp-sidebar-area tmp_side_bar">
+        <div class="inner">
+            <div class="top-area">
+                <a href="#home_sec" class="logo" style="text-decoration: none;">
+                    <span style="font-size: 26px; font-weight: 800; color: #F1E4D1; letter-spacing: 1.5px;">ALAM<span style="color: #ffaa40;">.</span></span>
+                </a>
+                <div class="close-icon-area">
+                    <button class="tmp-round-action-btn close_side_menu_active" aria-label="Close Sidebar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="image-area-feature">
+                    <a href="#home_sec">
+                        <picture>
+                            <source srcset="assets/images/profile.webp" type="image/webp">
+                            <img src="assets/images/profile.png" alt="Muhamad Nur Salam" style="border-radius: 12px; width: 100%; max-height: 340px; object-fit: cover; object-position: top center; display: block;">
+                        </picture>
+                    </a>
+                </div>
+                <h5 class="title mt--30">Network Engineering, IT Infrastructure &amp; Cybersecurity Specialist</h5>
+                <p class="disc">Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan keahlian dalam konfigurasi &amp; troubleshooting jaringan, subnetting, VLAN, routing, Mikrotik, virtualisasi, serta administrasi sistem Linux. Berpengalaman sebagai teknisi komputer, QA, dan software engineering.</p>
+                <div class="short-contact-area">
+                    <!-- single contact information -->
+                    <div class="single-contact">
+                        <i class="fa-solid fa-phone"></i>
+                        <div class="information tmp-link-animation">
+                            <span>Hubungi / WhatsApp</span>
+                            <a href="https://wa.me/6285603103375" target="_blank" class="number">085603103375</a>
+                        </div>
+                    </div>
+                    <!-- single contact information -->
+                    <div class="single-contact">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div class="information tmp-link-animation">
+                            <span>Email Saya</span>
+                            <a href="mailto:aaallaaamm03@gmail.com" class="number">aaallaaamm03@gmail.com</a>
+                        </div>
+                    </div>
+                    <!-- single contact information -->
+                    <div class="single-contact">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        <div class="information tmp-link-animation">
+                            <span>Lokasi / Domisili</span>
+                            <span class="number">Tubagus Ismail Dalam, Dago, Bandung</span>
+                        </div>
+                    </div>
+                    <!-- single contact information -->
+                    <div class="single-contact">
+                        <i class="fa-solid fa-globe"></i>
+                        <div class="information tmp-link-animation">
+                            <span>Website Pribadi</span>
+                            <a href="https://alam.my.id" target="_blank" class="number">alam.my.id</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- social area start -->
+                <div class="social-wrapper mt--20">
+                    <span class="subtitle">Temukan Saya</span>
+                    <div class="social-link">
+                        <a href="https://wa.me/6285603103375" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="mailto:aaallaaamm03@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://alam.my.id" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="overlay_close_side_menu close_side_menu_active" href="javascript:void(0);"></a>
+</div>
+
+<!-- Mobile Popup Menu -->
+<div class="d-block d-xl-none">
+    <div class="tmp-popup-mobile-menu">
+        <div class="inner">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="#home_sec" class="logo-area" style="text-decoration: none;">
+                        <span style="font-size: 24px; font-weight: 800; color: #F1E4D1; letter-spacing: 1px;">ALAM<span style="color: #ffaa40;">.</span></span>
+                    </a>
+                </div>
+                <div class="close-menu">
+                    <button class="close-button tmp-round-action-btn" aria-label="Close Menu">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <ul class="tmp-mainmenu">
+                <li><a href="#home_sec" class="scroll close-after">Home</a></li>
+                <li><a href="#section_about" class="scroll close-after">Tentang</a></li>
+                <li><a href="#section_services" class="scroll close-after">Layanan</a></li>
+                <li><a href="#section_expertise" class="scroll close-after">Keahlian</a></li>
+                <li><a href="#section_experiences" class="scroll close-after">Pengalaman</a></li>
+                <li><a href="#section_education" class="scroll close-after">Pendidikan</a></li>
+                <li><a href="#section_certifications" class="scroll close-after">Sertifikasi</a></li>
+                <li><a href="#section_portfolios" class="scroll close-after">Portofolio</a></li>
+                <li><a href="#section_contact" class="scroll close-after">Kontak</a></li>
+            </ul>
+            <div class="social-wrapper mt--40">
+                <span class="subtitle">Temukan Saya</span>
+                <div class="social-link">
+                    <a href="https://wa.me/6285603103375" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:aaallaaamm03@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://alam.my.id" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                    <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION: header.html -->
+
+    <!-- BEGIN SECTION: hero.html -->
+<!-- Hero / Banner Section -->
+<div class="rpp-banner-three-area as-section" id="home_sec">
+    <div class="container">
+        <div class="banner-three-main-wrapper">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="inner">
+                        <span class="sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">Halo, saya</span>
+                        <h1 class="title tmp-scroll-trigger tmp-fade-in animation-order-2">Muhamad Nur Salam</h1>
+                        <div class="button-area-banner-three tmp-scroll-trigger tmp-fade-in animation-order-3" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <a class="tmp-btn hover-icon-reverse radius-round scroll" href="#section_about">
+                                <span class="icon-reverse-wrapper">
+                                    <span class="btn-text">Tentang Saya</span>
+                                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                                </span>
+                            </a>
+                            <a class="tmp-btn hover-icon-reverse radius-round" href="cv-muhamad-nur-salam.pdf" target="_blank" style="background: rgba(241, 228, 209, 0.1); border: 1px solid #F1E4D1; color: #F1E4D1;">
+                                <span class="icon-reverse-wrapper">
+                                    <span class="btn-text">Unduh CV</span>
+                                    <span class="btn-icon"><i class="fa-solid fa-download"></i></span>
+                                    <span class="btn-icon"><i class="fa-solid fa-download"></i></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="banner-right-content">
+                        <div class="about-me tmp-scroll-trigger tmp-fade-in animation-order-1">
+                            <h3 class="title">About Me</h3>
+                            <p class="para tmp-title-split">Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity. Memiliki pemahaman dalam konfigurasi & troubleshooting jaringan, administrasi sistem Linux, teknisi komputer, serta software development.</p>
+                        </div>
+                        <div class="find-me-on mt--40 tmp-scroll-trigger tmp-fade-in animation-order-2">
+                            <h2 class="find-me-on-title">Find me on</h2>
+                            <div class="social-link banner">
+                                <a href="https://wa.me/6285603103375" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="mailto:aaallaaamm03@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="https://alam.my.id" target="_blank" title="Website"><i class="fa-solid fa-globe"></i></a>
+                                <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-benner-img-three">
+                <picture>
+                    <source srcset="assets/images/profile.webp" type="image/webp">
+                    <img class="tmp-scroll-trigger tmp-zoom-in animation-order-2" src="assets/images/profile.png" alt="Muhamad Nur Salam" loading="eager">
+                </picture>
+            </div>
+            <h2 class="texts-one up-down-2">Network Engineer</h2>
+            <h2 class="texts-two up-down">IT Infrastructure</h2>
+        </div>
+    </div>
+</div>
+<!-- END SECTION: hero.html -->
+
+    <!-- BEGIN SECTION: highlights.html -->
+<!-- Highlight Cards / Competency Overview -->
+<section class="service-area tmp-section-gapTop">
+    <div class="container">
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
+                    <div class="service-card-icon">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h4 class="service-title"><a href="#section_expertise">Network Engineering &amp; Troubleshooting</a></h4>
+                    <p class="service-para">Pemahaman kuat dalam subnetting, VLAN, routing OSPF, konfigurasi router Mikrotik, cabling, dan simulasi Cisco Packet Tracer.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
+                    <div class="service-card-icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h4 class="service-title"><a href="#section_services">IT Infrastructure &amp; Linux SysAdmin</a></h4>
+                    <p class="service-para">Administrasi sistem operasi Linux, konfigurasi Web Server (Nginx/Apache), virtualisasi sistem, Docker containerization, dan dasar AWS.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
+                    <div class="service-card-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="service-title"><a href="#section_experiences">Software Engineering &amp; QA Testing</a></h4>
+                    <p class="service-para">Pengembangan web modern berbasis React.js, Next.js, Laravel, Golang, serta pengujian perangkat lunak terstruktur dengan Postman &amp; Git.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
+                    <div class="service-card-icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h4 class="service-title"><a href="#section_experiences">Computer Hardware &amp; IT Maintenance</a></h4>
+                    <p class="service-para">Pengalaman teknisi komputer dalam pemeriksaan, diagnosis hardware/software, perakitan, upgrade komponen, dan instalasi sistem operasi.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
+                    <div class="service-card-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4 class="service-title"><a href="#section_certifications">Cybersecurity &amp; Network Analysis</a></h4>
+                    <p class="service-para">Pemahaman dasar keamanan informasi, analisis paket data dengan Wireshark, pemindaian port menggunakan Nmap, serta OSINT.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: highlights.html -->
+
+    <!-- BEGIN SECTION: about.html -->
+<!-- About Us Section -->
+<section class="about-us-area tmp-section-gapTop" id="section_about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-us-left-content-wrap bg-vactor-one">
+                    <div class="years-of-experience-card tmp-scroll-trigger tmp-fade-in animation-order-1">
+                        <h2 class="counter card-title"><span class="odometer" data-count="4">00</span>+
+                        </h2>
+                        <p class="card-para">Pengalaman Kerja &amp; Organisasi</p>
+                    </div>
+                    <div class="design-card tmp-scroll-trigger tmp-fade-in animation-order-2">
+                        <div class="design-card-img">
+                            <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">IPK 3.53 / 4.00</h3>
+                            <p class="card-para">S1 Teknik Informatika UNPAS (2024–2028)</p>
+                        </div>
+                    </div>
+                    <div class="design-card tmp-scroll-trigger tmp-fade-in animation-order-3" style="margin-top: 20px;">
+                        <div class="design-card-img">
+                            <div class="icon"><i class="fa-solid fa-certificate"></i></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">12+ Pelatihan Teknis</h3>
+                            <p class="card-para">LSP BNSP, ADINUSA, DTS, Aguna &amp; WPU</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-us-right-content-wrap">
+                    <div class="section-head text-align-left mb--30">
+                        <div class="section-sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">
+                            <span class="subtitle">Tentang Saya</span>
+                        </div>
+                        <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Mahasiswa S1 Teknik Informatika | Network &amp; Infrastructure Enthusiast</h2>
+                        <p class="description tmp-scroll-trigger tmp-fade-in animation-order-3">
+                            Saya adalah mahasiswa S1 Teknik Informatika di <strong>Universitas Pasundan</strong> dengan fokus dan minat mendalam pada <strong>Network Engineering</strong>, <strong>IT Infrastructure</strong>, dan <strong>Cybersecurity</strong>.<br><br>
+                            Memiliki pemahaman komprehensif dalam konfigurasi dan troubleshooting jaringan, subnetting, VLAN, routing, Mikrotik, virtualisasi, serta administrasi sistem Linux. Dilengkapi pengalaman kerja nyata sebagai Teknisi Komputer dalam menangani diagnosis, perbaikan, instalasi, dan pemeliharaan perangkat keras maupun perangkat lunak.<br><br>
+                            Pengalaman tersebut diperkaya dengan keterlibatan dalam software development, quality assurance, asisten praktikum mata kuliah Internet &amp; Web Technology, serta kepemimpinan sebagai Head of Event di Google Developer Group on Campus UNPAS.
+                        </p>
+                    </div>
+                    <div class="about-us-section-card row g-3">
+                        <div class="col-sm-6">
+                            <div style="background: rgba(42, 59, 119, 0.4); border: 1px solid rgba(241, 228, 209, 0.2); border-radius: 8px; padding: 14px 18px;">
+                                <span style="font-size: 13px; color: #F1E4D1; display: block;"><i class="fa-solid fa-location-dot" style="margin-right: 6px;"></i> Domisili</span>
+                                <strong style="color: #fff; font-size: 15px;">Dago, Kota Bandung</strong>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div style="background: rgba(42, 59, 119, 0.4); border: 1px solid rgba(241, 228, 209, 0.2); border-radius: 8px; padding: 14px 18px;">
+                                <span style="font-size: 13px; color: #F1E4D1; display: block;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> Kontak Email</span>
+                                <strong style="color: #fff; font-size: 14px; word-break: break-all;">aaallaaamm03@gmail.com</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: about.html -->
+
+    <!-- BEGIN SECTION: services.html -->
+<!-- Services / Area of Competence Section -->
+<section class="latest-service-area tmp-section-gapTop" id="section_services">
+    <div class="container">
+        <div class="section-head mb--60">
+            <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
+                <span class="subtitle">Bidang Kompetensi &amp; Solusi</span>
+            </div>
+            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Keahlian teknis yang siap saya kontribusikan:</h2>
+            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Berfokus pada stabilitas jaringan, performa infrastruktur server Linux, kualitas software, serta keandalan hardware.</p>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
+                    <h2 class="service-card-num"><span>1.</span>Network Engineering &amp; Routing</h2>
+                    <p class="service-para">Perancangan topologi, segmentasi subnetting (VLSM), implementasi VLAN, routing dinamis OSPF, administrasi Mikrotik RouterOS, dan simulasi Cisco Packet Tracer.</p>
+                </div>
+
+                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
+                    <h2 class="service-card-num"><span>2.</span>Linux System &amp; Web Server Administration</h2>
+                    <p class="service-para">Instalasi, hardening, dan konfigurasi server Linux (Ubuntu/Debian), manajemen Web Server (Nginx, Apache), virtualisasi sistem, dan pemantauan performa server.</p>
+                </div>
+
+                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
+                    <h2 class="service-card-num"><span>3.</span>Containerization &amp; Cloud Foundation</h2>
+                    <p class="service-para">Standarisasi lingkungan kerja dengan Docker containerization, integrasi version control Git/GitHub, alur CI/CD dasar, serta eksplorasi cloud computing AWS.</p>
+                </div>
+
+                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-4">
+                    <h2 class="service-card-num"><span>4.</span>Software Engineering &amp; QA Testing</h2>
+                    <p class="service-para">Pengembangan web modern berbasis React.js, Next.js, Laravel, dan Golang, pembuatan plugin, serta pengujian fungsional dan API terstruktur menggunakan Postman.</p>
+                </div>
+
+                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-5">
+                    <h2 class="service-card-num"><span>5.</span>Hardware Maintenance &amp; Troubleshooting</h2>
+                    <p class="service-para">Pemeriksaan dan perbaikan hardware/software komputer dan laptop, perakitan PC, upgrade komponen (RAM, SSD), instalasi OS, serta perawatan berkala.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: User 2nd Photo -->
+            <div class="col-lg-6">
+                <div class="service-card-user-image">
+                    <picture>
+                        <source srcset="assets/images/profile-2.webp" type="image/webp">
+                        <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1" src="assets/images/profile-2.png" alt="Muhamad Nur Salam" style="border-radius: 16px; width: 100%; max-height: 580px; object-fit: cover; object-position: top center; box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: services.html -->
+
+    <!-- BEGIN SECTION: skills.html -->
+<!-- Technical Skills & Expertise Section -->
+<div class="tmp-skill-area tmp-section-gapTop as-section" id="section_expertise">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="progress-wrapper">
+                    <div class="content">
+                        <h2 class="custom-title mb--30 tmp-scroll-trigger tmp-fade-in animation-order-1">
+                            Infrastruktur &amp; Jaringan <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png" alt="custom-line"></span>
+                        </h2>
+                        
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Network Engineering (Subnetting, VLAN, OSPF, Mikrotik)</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 92%;" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">92%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Linux System Administration &amp; Web Server</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 88%;" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">88%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Computer Hardware Diagnosis &amp; Maintenance</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">95%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Virtualization &amp; Docker Containerization</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="progress-wrapper">
+                    <div class="content">
+                        <h2 class="custom-title mb--30 tmp-scroll-trigger tmp-fade-in animation-order-1">
+                            Software &amp; Tools <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png" alt="custom-line"></span>
+                        </h2>
+                        
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Software Engineering (Go, React.js, Next.js, Laravel)</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 86%;" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">86%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Quality Assurance &amp; API Testing (Postman, Git)</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">90%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Cybersecurity Fundamentals (Nmap, Wireshark, OSINT)</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 82%;" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">82%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">Database Management (MySQL, PostgreSQL)</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 84%;" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="percent-label">84%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack Tags from CV -->
+        <div class="row mt--40">
+            <div class="col-lg-12">
+                <div style="background: rgba(42, 59, 119, 0.35); border: 1px solid rgba(241, 228, 209, 0.2); border-radius: 14px; padding: 28px 24px;">
+                    <h5 style="color: #F1E4D1; margin-bottom: 18px; font-size: 17px; font-weight: 600;">
+                        <i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i> Daftar Lengkap Keterampilan Teknis &amp; Soft Skills (Berdasarkan CV)
+                    </h5>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <span class="skill-tag">Subnetting</span>
+                        <span class="skill-tag">VLAN</span>
+                        <span class="skill-tag">OSPF</span>
+                        <span class="skill-tag">Mikrotik</span>
+                        <span class="skill-tag">Cisco Packet Tracer</span>
+                        <span class="skill-tag">Cabelling</span>
+                        <span class="skill-tag">Basic Linux</span>
+                        <span class="skill-tag">Sistem Operasi</span>
+                        <span class="skill-tag">Web Server</span>
+                        <span class="skill-tag">Virtualization</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Go (Golang)</span>
+                        <span class="skill-tag">React JS</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Git &amp; GitHub</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Basic Nmap</span>
+                        <span class="skill-tag">Basic Wireshark</span>
+                        <span class="skill-tag">Self Learning</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Inisiatif</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Adaptability</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION: skills.html -->
+
+    <!-- BEGIN SECTION: experience.html -->
+<!-- Work Experience & Leadership Section -->
+<section class="education-experience tmp-section-gapTop" id="section_experiences">
+    <div class="container">
+        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Pengalaman Kerja &amp; Organisasi 
+            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png" alt="custom-line"></span>
+        </h2>
+        <div class="row g-5">
+            <!-- 1. Google Developer Group on Campus -->
+            <div class="col-lg-6 col-sm-12">
+                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
+                    <h4 class="edu-sub-title">Head of Event Departement</h4>
+                    <h2 class="edu-title">Google Developer Group on Campus – UNPAS | Jul 2026 – Sekarang</h2>
+                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
+                        <li>Mengoordinasikan persiapan dan pelaksanaan kegiatan serta acara komunitas teknologi di kampus.</li>
+                        <li>Bertugas sebagai MC dan moderator dalam kegiatan, serta mendukung komunikasi efektif antara panitia, pembicara, dan peserta.</li>
+                        <li>Berkolaborasi dengan seluruh anggota tim untuk memastikan jalannya kegiatan berlangsung sesuai target dan rencana.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. PT Berkah Teknologi Terdepan -->
+            <div class="col-lg-6 col-sm-12">
+                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
+                    <h4 class="edu-sub-title">Junior Software Engineer</h4>
+                    <h2 class="edu-title">PT Berkah Teknologi Terdepan | Jun 2026 – Sep 2026</h2>
+                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
+                        <li>Melakukan pengujian perangkat lunak (Quality Assurance), mengidentifikasi masalah (bug/issue), dan menyusun dokumentasi hasil pengujian.</li>
+                        <li>Mengembangkan dan meredesain website menggunakan React.js, Next.js, Laravel, dan Golang.</li>
+                        <li>Membuat dan mengembangkan plugin sesuai kebutuhan pengembangan aplikasi sistem.</li>
+                        <li>Menggunakan Git dan GitHub untuk pengelolaan kode, Docker untuk lingkungan pengembangan, serta Postman dalam proses pengujian API.</li>
+                        <li>Menyusun dokumentasi teknis terkait alur pengembangan dan prosedur pengujian software.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. Asisten Dosen UNPAS -->
+            <div class="col-lg-6 col-sm-12">
+                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
+                    <h4 class="edu-sub-title">Teaching Assistant – Internet and Web Technology</h4>
+                    <h2 class="edu-title">Teknik Informatika – Universitas Pasundan | Dec 2025 – Dec 2025</h2>
+                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
+                        <li>Membantu dosen dalam pelaksanaan kegiatan pembelajaran praktikum dan pendampingan akademik mahasiswa.</li>
+                        <li>Memberikan arahan dan bimbingan kepada mahasiswa dalam memahami materi terkait teknologi internet dan web development.</li>
+                        <li>Menjadi penguji tugas besar mahasiswa berupa produk website serta mengevaluasi hasil pengerjaan kode dan implementasinya.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 4. SND Computer BEC -->
+            <div class="col-lg-6 col-sm-12">
+                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-4">
+                    <h4 class="edu-sub-title">Teknisi Komputer</h4>
+                    <h2 class="edu-title">SND Computer BEC | Jan 2023 – Mei 2023</h2>
+                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
+                        <li>Melakukan pemeriksaan, diagnosis menyeluruh, dan troubleshooting permasalahan hardware maupun software pada komputer dan laptop.</li>
+                        <li>Melakukan instalasi sistem operasi (Windows/Linux), aplikasi esensial, serta konfigurasi perangkat komputer klien.</li>
+                        <li>Melakukan pemeliharaan rutin, perakitan, upgrade komponen hardware (RAM, storage SSD), dan penggantian komponen yang rusak.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: experience.html -->
+
+    <!-- BEGIN SECTION: education.html -->
+<!-- Education Section -->
+<section class="education-experience tmp-section-gapTop" id="section_education">
+    <div class="container">
+        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Riwayat Pendidikan 
+            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png" alt="custom-line"></span>
+        </h2>
+        <div class="row g-5">
+            <!-- 1. Universitas Pasundan -->
+            <div class="col-lg-6 col-sm-12">
+                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                        <h4 class="edu-sub-title">S1 – Teknik Informatika</h4>
+                        <span style="background: #F1E4D1; color: #162660; font-weight: 700; font-size: 13px; padding: 3px 12px; border-radius: 20px;">IPK 3.53 / 4.00</span>
+                    </div>
+                    <h2 class="edu-title">Universitas Pasundan | 2024 – 2028</h2>
+                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 10px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <p class="edu-para">
+                        Menempuh pendidikan sarjana dengan fokus utama pada Network Engineering, IT Infrastructure, dan Cybersecurity. Aktif dalam organisasi kemahasiswaan teknologi dan menjadi asisten praktikum.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. SMKN 1 Cidaun -->
+            <div class="col-lg-6 col-sm-12">
+                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                        <h4 class="edu-sub-title">SMK – Teknik Komputer dan Jaringan (TKJ)</h4>
+                        <span style="background: #F1E4D1; color: #162660; font-weight: 700; font-size: 13px; padding: 3px 12px; border-radius: 20px;">Nilai Akhir 89 / 100</span>
+                    </div>
+                    <h2 class="edu-title">SMK Negeri 1 Cidaun | 2021 – 2024</h2>
+                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 10px;"><i class="fa-solid fa-location-dot"></i> Kab. Cianjur, Jawa Barat, Indonesia</p>
+                    <p class="edu-para">
+                        Mempelajari fondasi teknologi komputer dan jaringan, administrasi server Linux, konfigurasi LAN/WAN, routing, VLAN, perakitan hardware, dan berhasil meraih Sertifikat Kompetensi BNSP/LSP.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: education.html -->
+
+    <!-- BEGIN SECTION: certifications.html -->
+<!-- Certifications & Professional Training Section -->
+<section class="education-experience tmp-section-gapTop" id="section_certifications">
+    <div class="container">
+        <div class="experiences-wrapper v2">
+            <div class="row g-5">
+                <!-- Left: Official Certificate of Competence -->
+                <div class="col-lg-5">
+                    <div style="background: rgba(42, 59, 119, 0.45); border: 1px solid rgba(241, 228, 209, 0.3); border-radius: 16px; padding: 32px 24px; position: sticky; top: 100px;">
+                        <span style="background: #F1E4D1; color: #162660; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Sertifikasi Resmi BNSP / LSP</span>
+                        <h3 style="color: #fff; margin-top: 16px; font-size: 22px; line-height: 1.4;">Certificate of Competence – Computer and Network Engineering</h3>
+                        <p style="color: #F1E4D1; font-size: 14px; margin-bottom: 12px;"><i class="fa-solid fa-building-shield" style="margin-right: 6px;"></i> Lembaga Sertifikasi Profesi SMK Negeri 1 Cidaun</p>
+                        <p style="color: #aaa; font-size: 13px; margin-bottom: 20px;"><i class="fa-solid fa-calendar-check" style="margin-right: 6px;"></i> Berlaku: Nov 2023 – Nov 2026</p>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.7;">
+                            Sertifikasi kompetensi resmi berstandar nasional yang memvalidasi keahlian di bidang perakitan sistem, instalasi jaringan komputer, konfigurasi switch &amp; router, serta troubleshooting perangkat keras dan perangkat lunak.
+                        </p>
+                        <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(241, 228, 209, 0.2); display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: #2A3B77; display: flex; align-items: center; justify-content: center; color: #F1E4D1; font-size: 20px;">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <h6 style="color: #fff; margin: 0; font-size: 14px;">Terstandarisasi Nasional</h6>
+                                <span style="color: #aaa; font-size: 12px;">Computer &amp; Network Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: 12 Technical Trainings -->
+                <div class="col-lg-7">
+                    <div class="experiences-wrap-left-content">
+                        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">
+                            Pelatihan Teknis Terverifikasi 
+                            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png" alt="custom-line"></span>
+                        </h2>
+
+                        <!-- 1. Docker Fundamental -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-1">
+                            <p class="ex-subtitle">ADINUSA</p>
+                            <h2 class="ex-name">Docker Fundamental</h2>
+                            <h3 class="ex-title">Desember 2026</h3>
+                            <p class="ex-para">Penguasaan pembuatan Dockerfile, container lifecycle management, volume persistence, dan Docker Compose untuk standarisasi microservices.</p>
+                        </div>
+
+                        <!-- 2. Cyber Security Fundamental -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
+                            <p class="ex-subtitle">WPU Course</p>
+                            <h2 class="ex-name">Cyber Security Fundamental</h2>
+                            <h3 class="ex-title">November 2026</h3>
+                            <p class="ex-para">Konsep dasar keamanan siber, identifikasi kerentanan sistem, prinsip CIA Triad, pencegahan serangan siber, dan pengamanan jaringan.</p>
+                        </div>
+
+                        <!-- 3. Virtual Machine Fundamental -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-3">
+                            <p class="ex-subtitle">Aguna Course</p>
+                            <h2 class="ex-name">Virtual Machine Fundamental</h2>
+                            <h3 class="ex-title">November 2026</h3>
+                            <p class="ex-para">Instalasi, konfigurasi hypervisor, virtual networking antar VM, alokasi resource CPU/RAM, dan snapshot recovery.</p>
+                        </div>
+
+                        <!-- 4. Network Fundamental -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-4">
+                            <p class="ex-subtitle">Aguna Course</p>
+                            <h2 class="ex-name">Network Fundamental</h2>
+                            <h3 class="ex-title">November 2026</h3>
+                            <p class="ex-para">Pemahaman model OSI &amp; TCP/IP, protokol jaringan (DNS, DHCP, HTTP), skema pengalamatan IPv4/IPv6, dan topologi jaringan.</p>
+                        </div>
+
+                        <!-- 5. Mikrotik Administration -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-5">
+                            <p class="ex-subtitle">Aguna Course</p>
+                            <h2 class="ex-name">Mikrotik Administration</h2>
+                            <h3 class="ex-title">November 2026</h3>
+                            <p class="ex-para">Konfigurasi RouterOS, manajemen bandwidth (Simple Queue), firewall filter, NAT, hotspot gateway, dan routing dinamis.</p>
+                        </div>
+
+                        <!-- 6. Mastering AWS Solution Architect -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-6">
+                            <p class="ex-subtitle">Aguna Course</p>
+                            <h2 class="ex-name">Mastering AWS Solution Architect</h2>
+                            <h3 class="ex-title">November 2026</h3>
+                            <p class="ex-para">Arsitektur komputasi awan AWS (EC2, S3, VPC, IAM), keamanan cloud, load balancing, dan prinsip arsitektur high-availability.</p>
+                        </div>
+
+                        <!-- 7. Linux Fundamental -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-7">
+                            <p class="ex-subtitle">Aguna Course</p>
+                            <h2 class="ex-name">Linux Fundamental</h2>
+                            <h3 class="ex-title">November 2026</h3>
+                            <p class="ex-para">Navigasi CLI terminal Linux, manajemen hak akses file (chmod, chown), bash scripting dasar, dan process management.</p>
+                        </div>
+
+                        <!-- 8. Linux System Administration -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-8">
+                            <p class="ex-subtitle">ADINUSA</p>
+                            <h2 class="ex-name">Linux System Administration</h2>
+                            <h3 class="ex-title">November 2026</h3>
+                            <p class="ex-para">Administrasi server tingkat lanjut: manajemen paket (apt/systemd), firewall UFW/iptables, cron job automation, dan manajemen user/grup.</p>
+                        </div>
+
+                        <!-- 9. Keamanan Informasi -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-9">
+                            <p class="ex-subtitle">Digital Talent Scholarship (DTS Kominfo)</p>
+                            <h2 class="ex-name">Keamanan Informasi</h2>
+                            <h3 class="ex-title">Juli 2025</h3>
+                            <p class="ex-para">Kebijakan keamanan data, kriptografi dasar, mitigasi ancaman social engineering, dan kepatuhan standar keamanan data nasional.</p>
+                        </div>
+
+                        <!-- 10. OSINT For Hunting Cryptominner -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-10">
+                            <p class="ex-subtitle">Merdeka Siber</p>
+                            <h2 class="ex-name">OSINT For Hunting Cryptominner</h2>
+                            <h3 class="ex-title">Februari 2025</h3>
+                            <p class="ex-para">Metodologi Open Source Intelligence (OSINT) untuk investigasi dan pendeteksian infrastruktur botnet malware cryptominer.</p>
+                        </div>
+
+                        <!-- 11. Introduction to Information Security -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-11">
+                            <p class="ex-subtitle">Cyber Academy Indonesia</p>
+                            <h2 class="ex-name">Introduction to Information Security</h2>
+                            <h3 class="ex-title">Juni 2024</h3>
+                            <p class="ex-para">Fondasi identifikasi kerentanan web, keamanan perimeter, analisis insiden keamanan siber, dan etika ethical hacking.</p>
+                        </div>
+
+                        <!-- 12. Practical Nmap Hacking For Beginner -->
+                        <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-12">
+                            <p class="ex-subtitle">PT Linuxhackingid</p>
+                            <h2 class="ex-name">Practical Nmap Hacking For Beginner</h2>
+                            <h3 class="ex-title">Juni 2024</h3>
+                            <p class="ex-para">Teknik pemindaian host dan port terbuka menggunakan Nmap, deteksi OS &amp; versi service, serta otomatisasi audit dengan Nmap Scripting Engine (NSE).</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: certifications.html -->
+
+    <!-- BEGIN SECTION: portfolios.html -->
+<!-- Portfolios & Technical Projects Section -->
+<section class="resume-section tmp-section-gapTop section_porto_card" id="section_portfolios">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header mb--50 tmp-scroll-trigger tmp-fade-in animation-order-1">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-laptop-code" style="margin-right: 10px;"></i> 
+                        Portofolio &amp; Proyek Unggulan
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Left Column Projects -->
+            <div class="col-md-6">
+                <div class="resume-widget">
+                    <!-- Project 1: Networking -->
+                    <div class="resume-single tmp-scroll-trigger tmp-fade-in animation-order-1">
+                        <div class="time">
+                            <i class="fa-solid fa-network-wired mr--15" style="color: #F1E4D1;"></i> Network Engineering
+                        </div>
+                        <h3 class="resume-title">Perancangan Topologi Jaringan, VLAN &amp; Routing OSPF</h3>
+                        <div class="institute">
+                            <strong>Fokus:</strong> Cisco Packet Tracer, Mikrotik RouterOS, Subnetting CIDR/VLSM, Cabling.<br>
+                            <strong>Implementasi:</strong> Merancang arsitektur jaringan multi-departemen dengan segmentasi VLAN untuk isolasi traffic siaran. Mengonfigurasi router Mikrotik dengan dynamic routing OSPF guna memastikan ketersediaan jalur alternatif secara otomatis (failover) dan performa transmisi data yang optimal.
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Software QA -->
+                    <div class="resume-single tmp-scroll-trigger tmp-fade-in animation-order-2">
+                        <div class="time">
+                            <i class="fa-solid fa-code-branch mr--15" style="color: #F1E4D1;"></i> Software QA &amp; Development
+                        </div>
+                        <h3 class="resume-title">Pengujian Kualitas Software &amp; Pengembangan Web (PT Berkah)</h3>
+                        <div class="institute">
+                            <strong>Fokus:</strong> React.js, Next.js, Laravel, Golang, Postman, Git, Docker.<br>
+                            <strong>Implementasi:</strong> Melakukan Quality Assurance (QA) terhadap fungsionalitas antarmuka dan RESTful API, menyusun laporan pengujian teknis, membuat plugin modular, serta mengembangkan kembali modul website agar lebih responsif dan berperforma tinggi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column Projects -->
+            <div class="col-md-6">
+                <div class="resume-widget">
+                    <!-- Project 3: Infrastructure & Linux -->
+                    <div class="resume-single tmp-scroll-trigger tmp-fade-in animation-order-3">
+                        <div class="time">
+                            <i class="fa-solid fa-server mr--15" style="color: #F1E4D1;"></i> IT Infrastructure
+                        </div>
+                        <h3 class="resume-title">Administrasi Linux Server, Web Server &amp; Kontainerisasi Docker</h3>
+                        <div class="institute">
+                            <strong>Fokus:</strong> Ubuntu/Debian Server, Nginx, Apache, Docker, Virtual Machine, AWS.<br>
+                            <strong>Implementasi:</strong> Mengelola server Linux mulai dari konfigurasi hak akses pengguna, firewall, setup Web Server Nginx sebagai reverse proxy, hingga pembuatan container Docker untuk memastikan aplikasi berjalan konsisten antara lingkungan staging dan produksi.
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Hardware Maintenance -->
+                    <div class="resume-single tmp-scroll-trigger tmp-fade-in animation-order-4">
+                        <div class="time">
+                            <i class="fa-solid fa-screwdriver-wrench mr--15" style="color: #F1E4D1;"></i> Hardware &amp; IT Support
+                        </div>
+                        <h3 class="resume-title">Diagnosis, Troubleshooting &amp; Pemeliharaan PC/Laptop (SND BEC)</h3>
+                        <div class="institute">
+                            <strong>Fokus:</strong> Hardware Diagnosis, OS Installation, Thermal Maintenance, Component Upgrade.<br>
+                            <strong>Implementasi:</strong> Melakukan pemeriksaan fisik dan diagnostik komponen hardware komputer dan laptop yang mengalami kerusakan, penggantian modul RAM/SSD, instalasi driver dan sistem operasi, serta rekondisi sistem untuk mengembalikan performa perangkat kerja.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: portfolios.html -->
+
+    <!-- BEGIN SECTION: cta.html -->
+<!-- Call to Action / Contact Banner Section -->
+<section class="testimonial-area tmp-section-gapTop as-section" id="section_contact">
+    <div class="container">
+        <div class="section-head mb--40 text-center">
+            <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
+                <span class="subtitle">Hubungi &amp; Kolaborasi</span>
+            </div>
+            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Mari Berdiskusi dan Berkolaborasi Bersama</h2>
+            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3" style="margin: 15px auto 0; max-width: 680px; color: rgba(255,255,255,0.85);">
+                Terbuka untuk peluang magang, kolaborasi tim, implementasi infrastruktur jaringan, administrasi server Linux, maupun pengembangan web dan QA.
+            </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="button-area-banner-three tmp-scroll-trigger tmp-fade-in animation-order-3" style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a class="tmp-btn hover-icon-reverse radius-round" href="https://wa.me/6285603103375" target="_blank">
+                    <span class="icon-reverse-wrapper">
+                        <span class="btn-text">WhatsApp (085603103375)</span>
+                        <span class="btn-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                        <span class="btn-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                    </span>
+                </a>
+                <a class="tmp-btn hover-icon-reverse radius-round" href="mailto:aaallaaamm03@gmail.com">
+                    <span class="icon-reverse-wrapper">
+                        <span class="btn-text">Kirim Email</span>
+                        <span class="btn-icon"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="btn-icon"><i class="fa-solid fa-envelope"></i></span>
+                    </span>
+                </a>
+                <a class="tmp-btn hover-icon-reverse radius-round" href="cv-muhamad-nur-salam.pdf" target="_blank" style="background: rgba(241, 228, 209, 0.15); border: 1px solid #F1E4D1; color: #F1E4D1;">
+                    <span class="icon-reverse-wrapper">
+                        <span class="btn-text">Unduh CV Lengkap</span>
+                        <span class="btn-icon"><i class="fa-solid fa-file-arrow-down"></i></span>
+                        <span class="btn-icon"><i class="fa-solid fa-file-arrow-down"></i></span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION: cta.html -->
+
+    <!-- BEGIN SECTION: footer.html -->
+<!-- Footer Area -->
+<footer class="footer-area footer-style-one-wrapper tmp-section-gap" style="margin-top: 50px">
+    <div class="container">
+        <div class="footer-main footer-style-one">
+            <div class="row g-5">
+                <div class="col-lg-5 col-md-6">
+                    <div class="single-footer-wrapper border-right mr--20">
+                        <div class="logo">
+                            <a href="#home_sec" style="text-decoration: none;">
+                                <span style="font-size: 28px; font-weight: 800; color: #F1E4D1; letter-spacing: 1.5px;">ALAM<span style="color: #ffaa40;">.</span></span>
+                            </a>
+                        </div>
+                        <p class="description" style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-top: 15px;">
+                            <strong>Muhamad Nur Salam</strong> — Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-footer-wrapper quick-link-wrap">
+                        <h5 class="ft-title">Menu Navigasi</h5>
+                        <ul class="ft-link tmp-link-animation">
+                            <li><a href="#home_sec" class="scroll">Home</a></li>
+                            <li><a href="#section_about" class="scroll">Tentang</a></li>
+                            <li><a href="#section_services" class="scroll">Layanan</a></li>
+                            <li><a href="#section_expertise" class="scroll">Keahlian</a></li>
+                            <li><a href="#section_experiences" class="scroll">Pengalaman</a></li>
+                            <li><a href="#section_education" class="scroll">Pendidikan</a></li>
+                            <li><a href="#section_certifications" class="scroll">Sertifikasi</a></li>
+                            <li><a href="#section_portfolios" class="scroll">Portofolio</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-footer-wrapper contact-wrap">
+                        <h5 class="ft-title">Informasi Kontak</h5>
+                        <ul class="ft-link tmp-link-animation">
+                            <li><span class="ft-icon"><i class="fa-solid fa-envelope"></i></span><a href="mailto:aaallaaamm03@gmail.com">aaallaaamm03@gmail.com</a></li>
+                            <li><span class="ft-icon"><i class="fa-solid fa-location-dot"></i></span>Tubagus Ismail Dalam, Dago, Bandung</li>
+                            <li><span class="ft-icon"><i class="fa-solid fa-phone"></i></span><a href="https://wa.me/6285603103375" target="_blank">085603103375</a></li>
+                            <li><span class="ft-icon"><i class="fa-solid fa-globe"></i></span><a href="https://alam.my.id" target="_blank">alam.my.id</a></li>
+                        </ul>
+                        <div class="social-link footer mt--20">
+                            <a href="https://wa.me/6285603103375" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="mailto:aaallaaamm03@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="https://alam.my.id" target="_blank" title="Website"><i class="fa-solid fa-globe"></i></a>
+                            <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bg-img">
+        <img src="https://files.ituaku.com/assets/websites/themes/personal5/images/footer-bg-images.png" alt="footer-img">
+    </div>
+</footer>
+
+<div class="copyright-area-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-wrapper text-center">
+                    <p class="copy-right-para">© <script>document.write(new Date().getFullYear())</script> <strong>Muhamad Nur Salam</strong> (Alam). All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating WhatsApp Action -->
+<div class="ready-chatting-option tmp-ready-chat">
+    <a href="https://wa.me/6285603103375" target="_blank" title="Chat via WhatsApp">
+        <label for="click">
+            <i class="fa-brands fa-whatsapp"></i>
+        </label>
+    </a>
+</div>
+
+<!-- Scroll to Top with Wave Animation -->
+<div class="scrollToTop" style="display: block;">
+    <div class="arrowUp">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+    <div class="water" style="transform: translate(0px, 87%);">
+        <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+            <use xlink:href="#wave"></use>
+        </svg>
+        <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+            <use xlink:href="#wave"></use>
+        </svg>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 560 20" style="display: none;">
+            <symbol id="wave">
+                <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z" fill="#"></path>
+                <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z" fill="#"></path>
+                <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z" fill="#"></path>
+                <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z" fill="#"></path>
+            </symbol>
+        </svg>
+    </div>
+</div>
+<!-- END SECTION: footer.html -->
+
+    <!-- Scripts -->
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/jquery.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/jquery-ui.min.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/waypoints.min.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/odometer.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/appear.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/jquery-one-page-nav.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/swiper.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/gsap.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/splittext.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/scrolltigger.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/scrolltoplugins.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/smoothscroll.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/bootstrap.min.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/waw.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/isotop.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/animation.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/contact.form.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/vendor/backtop.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/plugins/text-type.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/vendor/fancybox6/fancybox/fancybox.umd.js"></script>
+    <script src="https://files.ituaku.com/assets/websites/themes/personal1/js/main.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Fancybox.bind("[data-fancybox]", {});
+        });
+
+        // Smooth scroll for nav links
+        $(".scroll").on("click", function(event){
+            event.preventDefault();
+            if($(this).hasClass('close-after')){
+                $(this).closest('.tmp-popup-mobile-menu').removeClass('active');
+            }
+            var target = $(this.hash);
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 40
+                }, 900);
+            }
+        });
+    </script>
+</body>
+</html>
