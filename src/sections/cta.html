@@ -1,147 +1,52 @@
-<!-- Contact / CTA Section (tema Alam: sama seperti Hero) -->
-<section class="alam-section" id="section_contact">
-    <div class="container">
-        <style>
-            .alam-cta-card {
-                max-width: 960px;
-                margin: 0 auto;
-                padding: 64px 40px;
-                text-align: center;
-                overflow: hidden;
-            }
+<!-- =====================================================
+  src/sections/cta.html
+  Kontak (simpel): email besar + CV + GitHub, dan form kirim pesan
+  Gaya  : assets/css/lower-sections.css (bagian "KONTAK")
+  Skrip : assets/js/lower-sections.js (salin, form, jam Bandung)
+  Form membuka WhatsApp dengan pesan yang sudah tersusun.
+  Nomor WhatsApp form diatur di lower-sections.js (WA_NUMBER).
+===================================================== -->
+<section class="ct" id="contact">
+    <div class="ct-wrap">
+        <h2 class="ct-title" data-rv>Kontak</h2>
 
-            .alam-cta-card:hover {
-                transform: none;
-            }
+        <div class="ct-grid">
+            <div data-rv>
+                <p class="ct-lead">Ada peluang magang, kerja, atau proyek yang ingin dibahas? Kirim email atau tulis
+                    pesan lewat form.</p>
 
-            .alam-cta-card::before {
-                content: "";
-                position: absolute;
-                left: 50%;
-                top: -160px;
-                width: 420px;
-                height: 320px;
-                transform: translateX(-50%);
-                background: radial-gradient(circle, rgba(47, 107, 255, 0.35), transparent 70%);
-                pointer-events: none;
-            }
+                <div class="ct-mail">
+                    <a class="ct-addr" href="mailto:aaallaaamm03@gmail.com">aaallaaamm03@gmail.com</a>
+                    <button class="ct-copy" type="button" data-copy="aaallaaamm03@gmail.com"
+                        aria-label="Salin alamat email"><i class="fa-regular fa-copy"></i><span
+                            class="ct-copy-t">Salin</span></button>
+                </div>
 
-            .alam-cta-card>* {
-                position: relative;
-            }
+                <div class="ct-actions">
+                    <a class="ct-btn ct-btn--line" href="cv-muhamad-nur-salam.pdf" download><i
+                            class="fa-solid fa-file-arrow-down"></i>Unduh CV</a>
+                    <a class="ct-circle" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
+                        aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
 
-            .alam-cta-card .alam-eyebrow {
-                justify-content: center;
-            }
-
-            .alam-cta-card .alam-eyebrow::before {
-                content: "";
-                width: 70px;
-                height: 3px;
-                border-radius: 3px;
-                background: var(--al-accent);
-            }
-
-            .alam-cta-title {
-                color: #fff;
-                font-size: 42px;
-                font-weight: 800;
-                line-height: 1.25;
-                margin: 0 0 18px;
-            }
-
-            .alam-cta-title em {
-                color: var(--al-accent);
-                font-style: italic;
-            }
-
-            .alam-cta-desc {
-                color: var(--al-muted);
-                font-size: 16.5px;
-                line-height: 1.8;
-                max-width: 640px;
-                margin: 0 auto 38px;
-            }
-
-            .alam-cta-buttons {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 16px;
-            }
-
-            .alam-btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                padding: 16px 30px;
-                border-radius: 50px;
-                font-size: 16px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all .25s ease;
-            }
-
-            .alam-btn-primary {
-                background: var(--al-accent);
-                border: 1px solid var(--al-accent);
-                color: #fff;
-                box-shadow: 0 10px 30px rgba(47, 107, 255, 0.45);
-            }
-
-            .alam-btn-primary:hover {
-                background: var(--al-accent-2);
-                border-color: var(--al-accent-2);
-                color: #fff;
-                transform: translateY(-3px);
-            }
-
-            .alam-btn-outline {
-                background: transparent;
-                border: 1px solid rgba(255, 255, 255, 0.35);
-                color: #fff;
-            }
-
-            .alam-btn-outline:hover {
-                border-color: var(--al-accent-2);
-                color: var(--al-accent-2);
-                transform: translateY(-3px);
-            }
-
-            @media (max-width: 767px) {
-                .alam-cta-card {
-                    padding: 44px 22px;
-                }
-
-                .alam-cta-title {
-                    font-size: 28px;
-                }
-
-                .alam-btn {
-                    width: 100%;
-                    justify-content: center;
-                }
-            }
-        </style>
-
-        <div class="alam-card alam-cta-card tmp-scroll-trigger tmp-fade-in animation-order-1">
-            <div class="alam-eyebrow">Hubungi &amp; Kolaborasi</div>
-            <h2 class="alam-cta-title">Mari Berdiskusi dan <em>Berkolaborasi</em> Bersama</h2>
-            <p class="alam-cta-desc">
-                Terbuka untuk peluang magang, kolaborasi tim, implementasi infrastruktur jaringan, administrasi server
-                Linux, maupun pengembangan web dan QA.
-            </p>
-            <div class="alam-cta-buttons">
-                <a class="alam-btn alam-btn-primary" href="https://wa.me/6285603103375" target="_blank">
-                    WhatsApp (085603103375) <i class="fa-brands fa-whatsapp"></i>
-                </a>
-                <a class="alam-btn alam-btn-primary" href="mailto:aaallaaamm03@gmail.com">
-                    Kirim Email <i class="fa-solid fa-envelope"></i>
-                </a>
-                <a class="alam-btn alam-btn-outline" href="cv-muhamad-nur-salam.pdf" target="_blank">
-                    Unduh CV Lengkap <i class="fa-solid fa-file-arrow-down"></i>
-                </a>
+                <p class="ct-meta">
+                    <span><i class="fa-solid fa-location-dot"></i>Dago, Kota Bandung</span>
+                    <span><i class="fa-regular fa-clock"></i><span id="ctTime">WIB</span></span>
+                </p>
             </div>
+
+            <form class="ct-form" id="ctForm" data-rv novalidate>
+                <h3 class="ct-form-t">Kirim pesan</h3>
+
+                <label for="ctNama">Nama atau perusahaan</label>
+                <input type="text" id="ctNama" name="nama" autocomplete="name" placeholder="Nama Anda">
+
+                <label for="ctPesan">Pesan</label>
+                <textarea id="ctPesan" name="pesan" placeholder="Tulis pesan Anda"></textarea>
+
+                <button class="ct-btn" type="submit"><i class="fa-brands fa-whatsapp"></i>Kirim lewat WhatsApp</button>
+                <p class="ct-hint" id="ctHint" role="alert"></p>
+            </form>
         </div>
     </div>
 </section>

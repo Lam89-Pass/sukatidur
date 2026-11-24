@@ -1,161 +1,126 @@
-<!-- Education Section (tema Alam: navy gelap + aksen biru, sama seperti Hero) -->
-<section class="alam-section" id="section_education">
-    <div class="container">
-        <style>
-            .alam-edu-row {
-                display: flex;
-                align-items: stretch;
-            }
+<!-- =====================================================
+  src/sections/education.html
+  Pendidikan: S1 UNPAS & SMKN 1 Cidaun
+  Gaya  : assets/css/lower-sections.css (bagian "PENDIDIKAN")
+  Skrip : assets/js/lower-sections.js (cincin nilai & jalur tahun)
+  Ikon  : Font Awesome (sudah dimuat di header.html)
+===================================================== -->
+<section class="ed" id="education">
+    <div class="ed-wrap">
+        <h2 class="ed-title" data-rv>Pendidikan</h2>
 
-            .alam-edu-card {
-                flex: 1;
-                padding: 32px 30px;
-            }
+        <div class="ed-grid">
 
-            .alam-edu-card .alam-pill {
-                position: absolute;
-                top: 24px;
-                right: 24px;
-            }
-
-            .alam-edu-icon {
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-
-            .alam-edu-degree {
-                color: var(--al-accent-2);
-                font-size: 14px;
-                font-weight: 700;
-                margin-bottom: 4px;
-            }
-
-            .alam-edu-school {
-                color: #fff;
-                font-size: 22px;
-                font-weight: 800;
-                margin: 0 0 10px;
-            }
-
-            .alam-edu-meta {
-                color: var(--al-muted);
-                font-size: 13px;
-                margin-bottom: 16px;
-            }
-
-            .alam-edu-meta i {
-                color: var(--al-accent-2);
-            }
-
-            .alam-edu-desc {
-                color: rgba(255, 255, 255, 0.82);
-                font-size: 15px;
-                line-height: 1.8;
-                margin: 0;
-            }
-
-            .alam-edu-connector {
-                flex-shrink: 0;
-                width: 64px;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .alam-edu-connector::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 50%;
-                height: 2px;
-                background: linear-gradient(90deg, rgba(47, 107, 255, 0.1), var(--al-accent), rgba(47, 107, 255, 0.1));
-                transform: translateY(-50%);
-            }
-
-            .alam-edu-connector i {
-                position: relative;
-                z-index: 1;
-                width: 38px;
-                height: 38px;
-                border-radius: 50%;
-                background: var(--al-bg);
-                border: 2px solid var(--al-accent);
-                color: var(--al-accent-2);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 14px;
-                box-shadow: 0 0 18px rgba(47, 107, 255, 0.45);
-            }
-
-            @media (max-width: 991px) {
-                .alam-edu-row {
-                    flex-direction: column;
-                }
-
-                .alam-edu-connector {
-                    width: 100%;
-                    height: 56px;
-                }
-
-                .alam-edu-connector::before {
-                    left: 50%;
-                    right: auto;
-                    top: 0;
-                    bottom: 0;
-                    height: auto;
-                    width: 2px;
-                    transform: translateX(-50%);
-                    background: linear-gradient(180deg, rgba(47, 107, 255, 0.1), var(--al-accent), rgba(47, 107, 255, 0.1));
-                }
-            }
-
-            @media (max-width: 575px) {
-                .alam-edu-card .alam-pill {
-                    position: static;
-                    margin-bottom: 16px;
-                }
-            }
-        </style>
-
-        <div class="alam-eyebrow tmp-scroll-trigger tmp-fade-in animation-order-1">Pendidikan</div>
-        <h2 class="alam-title tmp-scroll-trigger tmp-fade-in animation-order-1">Riwayat <em>Pendidikan</em></h2>
-
-        <div class="alam-edu-row">
-            <!-- 1. Universitas Pasundan -->
-            <div class="alam-card alam-edu-card tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <span class="alam-pill">IPK 3.53 / 4.00</span>
-                <div class="alam-icon alam-edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <div class="alam-edu-degree">S1 – Teknik Informatika</div>
-                <h3 class="alam-edu-school">Universitas Pasundan</h3>
-                <div class="alam-edu-meta"><i class="fa-solid fa-calendar-days"></i> 2024 – 2028 &nbsp;•&nbsp;
-                    <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
+            <!-- S1 -->
+            <article class="ed-card" data-spot data-rv>
+                <div class="ed-top">
+                    <span class="ed-ico"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div class="ed-meta">
+                        <span class="ed-period">2024 - 2028</span>
+                        <span class="ed-now">Sedang berjalan</span>
+                    </div>
                 </div>
-                <p class="alam-edu-desc">Menempuh pendidikan sarjana dengan fokus utama pada Network Engineering, IT
-                    Infrastructure, dan Cybersecurity. Aktif dalam organisasi kemahasiswaan teknologi dan menjadi
-                    asisten praktikum.</p>
-            </div>
 
-            <div class="alam-edu-connector"><i class="fa-solid fa-road"></i></div>
-
-            <!-- 2. SMKN 1 Cidaun -->
-            <div class="alam-card alam-edu-card tmp-scroll-trigger tmp-fade-in animation-order-2">
-                <span class="alam-pill">Nilai Akhir 89 / 100</span>
-                <div class="alam-icon alam-edu-icon"><i class="fa-solid fa-school"></i></div>
-                <div class="alam-edu-degree">SMK – Teknik Komputer dan Jaringan (TKJ)</div>
-                <h3 class="alam-edu-school">SMK Negeri 1 Cidaun</h3>
-                <div class="alam-edu-meta"><i class="fa-solid fa-calendar-days"></i> 2021 – 2024 &nbsp;•&nbsp;
-                    <i class="fa-solid fa-location-dot"></i> Kab. Cianjur, Jawa Barat, Indonesia
+                <div class="ed-main">
+                    <div>
+                        <p class="ed-degree">S1 – Teknik Informatika</p>
+                        <h3 class="ed-school">Universitas Pasundan</h3>
+                        <p class="ed-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
+                        </p>
+                    </div>
+                    <div class="ed-ring" data-ring data-value="3.53" data-max="4" data-dec="2" style="--p:.8825">
+                        <svg viewBox="0 0 120 120" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="edG1" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#4f8cff" />
+                                    <stop offset="1" stop-color="#2f6bff" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="ed-trk" cx="60" cy="60" r="52" />
+                            <circle class="ed-bar" cx="60" cy="60" r="52" stroke="url(#edG1)" />
+                        </svg>
+                        <div class="ed-ring-t" role="img" aria-label="GPA 3,53 dari 4,00">
+                            <small>GPA</small>
+                            <strong data-num>3.53</strong>
+                            <small>/ 4.00</small>
+                        </div>
+                    </div>
                 </div>
-                <p class="alam-edu-desc">Mempelajari fondasi teknologi komputer dan jaringan, administrasi server
-                    Linux, konfigurasi LAN/WAN, routing, VLAN, perakitan hardware, dan berhasil meraih Sertifikat
-                    Kompetensi BNSP/LSP.</p>
-            </div>
+
+                <ul class="ed-tags" aria-label="Minat utama">
+                    <li>Network Engineering</li>
+                    <li>IT Infrastructure</li>
+                    <li>Cybersecurity</li>
+                </ul>
+
+                <!-- Tahun diwarnai otomatis oleh JS (lewat / tahun ini / belum) -->
+                <ol class="ed-track" id="edTrack" aria-label="Jalur studi 2024 sampai 2028">
+                    <li data-year="2024">2024</li>
+                    <li data-year="2025">2025</li>
+                    <li data-year="2026">2026</li>
+                    <li data-year="2027">2027</li>
+                    <li data-year="2028">2028</li>
+                </ol>
+
+                <div class="ed-links">
+                    <a class="ed-link scroll" href="#experience">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span>Teaching Assistant – Internet and Web Technology<small>Dec 2025</small></span>
+                        <i class="fa-solid fa-chevron-right ed-go"></i>
+                    </a>
+                    <a class="ed-link scroll" href="#experience">
+                        <i class="fa-solid fa-people-group"></i>
+                        <span>Head of Event – Google Developer Group on Campus<small>Jul 2026 - Sekarang</small></span>
+                        <i class="fa-solid fa-chevron-right ed-go"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- SMK -->
+            <article class="ed-card" data-spot data-rv>
+                <div class="ed-top">
+                    <span class="ed-ico"><i class="fa-solid fa-network-wired"></i></span>
+                    <div class="ed-meta">
+                        <span class="ed-period">2021 - 2024</span>
+                    </div>
+                </div>
+
+                <div class="ed-main">
+                    <div>
+                        <p class="ed-degree">SMK – Teknik Komputer dan Jaringan</p>
+                        <h3 class="ed-school">SMK Negeri 1 Cidaun</h3>
+                        <p class="ed-loc"><i class="fa-solid fa-location-dot"></i> Kab. Cianjur, Jawa Barat, Indonesia
+                        </p>
+                    </div>
+                    <div class="ed-ring" data-ring data-value="89" data-max="100" data-dec="0" style="--p:.89">
+                        <svg viewBox="0 0 120 120" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="edG2" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#4f8cff" />
+                                    <stop offset="1" stop-color="#2f6bff" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="ed-trk" cx="60" cy="60" r="52" />
+                            <circle class="ed-bar" cx="60" cy="60" r="52" stroke="url(#edG2)" />
+                        </svg>
+                        <div class="ed-ring-t" role="img" aria-label="GPA 89 dari 100">
+                            <small>GPA</small>
+                            <strong data-num>89</strong>
+                            <small>/ 100</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ed-links">
+                    <a class="ed-link scroll" href="#certifications">
+                        <i class="fa-solid fa-award"></i>
+                        <span>Certificate of Competence – Computer and Network Engineering<small>LSP SMK Negeri 1
+                                Cidaun</small></span>
+                        <i class="fa-solid fa-chevron-right ed-go"></i>
+                    </a>
+                </div>
+            </article>
+
         </div>
     </div>
 </section>

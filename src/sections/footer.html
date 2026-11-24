@@ -1,124 +1,70 @@
-<!-- Footer Area -->
-<footer class="footer-area footer-style-one-wrapper tmp-section-gap" style="margin-top: 50px">
-    <div class="container">
-        <div class="footer-main footer-style-one">
-            <div class="row g-5">
-                <div class="col-lg-5 col-md-6">
-                    <div class="single-footer-wrapper border-right mr--20">
-                        <div class="logo">
-                            <a href="#home_sec" style="text-decoration: none;">
-                                <span
-                                    style="font-size: 28px; font-weight: 800; color: #fff; letter-spacing: 1.5px;">ALAM<span
-                                        style="color: #2f6bff;">.</span></span>
-                            </a>
-                        </div>
-                        <p class="description"
-                            style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-top: 15px;">
-                            <strong>Muhamad Nur Salam</strong> — Mahasiswa S1 Teknik Informatika Universitas Pasundan
-                            dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-footer-wrapper quick-link-wrap">
-                        <h5 class="ft-title">Menu Navigasi</h5>
-                        <ul class="ft-link tmp-link-animation">
-                            <li><a href="#home_sec" class="scroll">Home</a></li>
-                            <li><a href="#section_about" class="scroll">Tentang</a></li>
-                            <li><a href="#section_expertise" class="scroll">Keahlian</a></li>
-                            <li><a href="#section_experiences" class="scroll">Pengalaman</a></li>
-                            <li><a href="#section_education" class="scroll">Pendidikan</a></li>
-                            <li><a href="#section_certifications" class="scroll">Sertifikasi</a></li>
-                            <li><a href="#section_contact" class="scroll">Kontak</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-footer-wrapper contact-wrap">
-                        <h5 class="ft-title">Informasi Kontak</h5>
-                        <ul class="ft-link tmp-link-animation">
-                            <li><span class="ft-icon"><i class="fa-solid fa-envelope"></i></span><a
-                                    href="mailto:aaallaaamm03@gmail.com">aaallaaamm03@gmail.com</a></li>
-                            <li><span class="ft-icon"><i class="fa-solid fa-location-dot"></i></span>Tubagus Ismail
-                                Dalam, Dago, Bandung</li>
-                            <li><span class="ft-icon"><i class="fa-solid fa-phone"></i></span><a
-                                    href="https://wa.me/6285603103375" target="_blank">085603103375</a></li>
-                            <li><span class="ft-icon"><i class="fa-solid fa-globe"></i></span><a
-                                    href="https://alam.my.id" target="_blank">alam.my.id</a></li>
-                        </ul>
-                        <div class="social-link footer mt--20">
-                            <a href="https://wa.me/6285603103375" target="_blank" title="WhatsApp"><i
-                                    class="fa-brands fa-whatsapp"></i></a>
-                            <a href="mailto:aaallaaamm03@gmail.com" title="Email"><i
-                                    class="fa-solid fa-envelope"></i></a>
-                            <a href="https://alam.my.id" target="_blank" title="Website"><i
-                                    class="fa-solid fa-globe"></i></a>
-                            <a href="https://github.com" target="_blank" title="GitHub"><i
-                                    class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
+<!-- =====================================================
+  src/sections/footer.html
+  Footer: logo, navigasi, ajakan unduh CV, hak cipta
+  Gaya  : assets/css/lower-sections.css (bagian "FOOTER")
+  Skrip : assets/js/lower-sections.js (tahun otomatis & tombol melayang (ke atas, WhatsApp))
+  Link memakai class "scroll" agar ikut smooth scroll di template
+===================================================== -->
+<footer class="ft">
+    <div class="ft-wrap">
+        <div class="ft-main">
+
+            <div>
+                <a class="ft-brand scroll" href="#home" aria-label="ALAM - ke beranda">
+                    <svg viewBox="0 0 44 40" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="ftLogoA" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#4b8bff" />
+                                <stop offset="1" stop-color="#1d4ed8" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M22 0 L44 40 H31 L22 23 L13 40 H0 Z" fill="url(#ftLogoA)" />
+                        <path d="M22 13 L28 25 H16 Z" fill="#0a1226" />
+                    </svg>
+                    <span>ALAM<b>.</b></span>
+                </a>
+                <p class="ft-about">Mahasiswa Teknik Informatika Universitas Pasundan yang fokus pada Network
+                    Engineering, IT Infrastructure, dan Cybersecurity.</p>
+                <div class="ft-social">
+                    <a class="ft-circle" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a class="ft-circle" href="mailto:aaallaaamm03@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a class="ft-circle" href="https://wa.me/6285603103375" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
+
+            <nav aria-label="Navigasi situs">
+                <p class="ft-h">Navigasi</p>
+                <ul class="ft-nav">
+                    <li><a class="scroll" href="#home">Home</a></li>
+                    <li><a class="scroll" href="#about">Tentang</a></li>
+                    <li><a class="scroll" href="#skills">Keahlian</a></li>
+                    <li><a class="scroll" href="#experience">Pengalaman</a></li>
+                    <li><a class="scroll" href="#education">Pendidikan</a></li>
+                    <li><a class="scroll" href="#certifications">Sertifikasi</a></li>
+                    <li><a class="scroll" href="#portfolio">Portofolio</a></li>
+                    <li><a class="scroll" href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <p class="ft-ask">Ingin tahu lebih jauh?</p>
+                <p class="ft-ask-s">Unduh CV lengkap atau langsung kirim pesan.</p>
+                <div class="ft-btns">
+                    <a class="ct-btn" href="cv-muhamad-nur-salam.pdf" download><i class="fa-solid fa-file-arrow-down"></i>Unduh CV</a>
+                    <a class="ft-btn scroll" href="#contact"><i class="fa-solid fa-paper-plane"></i>Kirim pesan</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ft-end">
+            <p class="ft-copy">&copy; <span id="ftYear">2026</span> Muhamad Nur Salam. Dibuat di Bandung.</p>
         </div>
     </div>
-    <div class="footer-bg-img">
-        <img src="https://files.ituaku.com/assets/websites/themes/personal5/images/footer-bg-images.png"
-            alt="footer-img">
+
+    <!-- Tombol melayang kanan bawah: kembali ke atas (muncul setelah scroll) & WhatsApp -->
+    <div class="ft-fab">
+        <button class="ft-up" id="ftTop" type="button" aria-label="Kembali ke atas"><i class="fa-solid fa-arrow-up"></i></button>
+        <a class="ft-wa" href="https://wa.me/6285603103375?text=Halo%20Alam%2C%20saya%20melihat%20portofolio%20Anda." target="_blank" rel="noopener" aria-label="Chat lewat WhatsApp"><i class="fa-brands fa-whatsapp"></i><span>Chat WhatsApp</span></a>
     </div>
 </footer>
-
-<div class="copyright-area-one">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="main-wrapper text-center">
-                    <p class="copy-right-para">©
-                        <script>document.write(new Date().getFullYear())</script> <strong>Muhamad Nur Salam</strong>
-                        (Alam). All Rights Reserved.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Floating WhatsApp Action -->
-<div class="ready-chatting-option tmp-ready-chat">
-    <a href="https://wa.me/6285603103375" target="_blank" title="Chat via WhatsApp">
-        <label for="click">
-            <i class="fa-brands fa-whatsapp"></i>
-        </label>
-    </a>
-</div>
-
-<!-- Scroll to Top with Wave Animation -->
-<div class="scrollToTop" style="display: block;">
-    <div class="arrowUp">
-        <i class="fa-solid fa-arrow-up"></i>
-    </div>
-    <div class="water" style="transform: translate(0px, 87%);">
-        <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
-            <use xlink:href="#wave"></use>
-        </svg>
-        <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
-            <use xlink:href="#wave"></use>
-        </svg>
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 560 20" style="display: none;">
-            <symbol id="wave">
-                <path
-                    d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"
-                    fill="#"></path>
-                <path
-                    d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"
-                    fill="#"></path>
-                <path
-                    d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"
-                    fill="#"></path>
-                <path
-                    d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"
-                    fill="#"></path>
-            </symbol>
-        </svg>
-    </div>
-</div>
