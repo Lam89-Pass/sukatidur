@@ -1,8 +1,3 @@
-/**
- * Build Script: Assembles modular section files into root index.html
- * Zero external dependencies, runs in ~10ms.
- */
-
 const fs = require('fs');
 const path = require('path');
 
@@ -21,7 +16,6 @@ function build() {
 
     let template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 
-    // Regex to match <!-- include: path/to/file.html -->
     const includeRegex = /<!--\s*include:\s*([^\s]+)\s*-->/g;
 
     let matchCount = 0;
@@ -30,7 +24,7 @@ function build() {
         if (fs.existsSync(fullPath)) {
             matchCount++;
             const sectionContent = fs.readFileSync(fullPath, 'utf8');
-            return `<!-- BEGIN SECTION: ${path.basename(relPath)} -->\n${sectionContent.trim()}\n<!-- END SECTION: ${path.basename(relPath)} -->`;
+            return sectionContent.trim();
         } else {
             console.warn(`[WARNING] Included file not found: ${fullPath}`);
             return match;

@@ -1,12 +1,6 @@
-/* =====================================================
-   assets/js/lower-sections.js
-   Interaksi bagian bawah: Pendidikan, Sertifikasi, Kontak (salin & jam), Footer
-   Tanpa library tambahan (JavaScript murni)
-===================================================== */
 (function () {
     "use strict";
 
-    /* Nomor WhatsApp untuk form (format internasional: 62 + nomor tanpa angka 0 di depan) */
     var WA_NUMBER = "6285603103375";
 
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -14,7 +8,6 @@
 
     document.querySelectorAll(".ed, .ce, .ct, .ft").forEach(function (s) { s.classList.add("js-on"); });
 
-    /* jalankan fn sekali saat elemen terlihat */
     function whenVisible(el, fn, threshold) {
         if (reduce || !hasIO) { fn(); return; }
         var io = new IntersectionObserver(function (entries) {
@@ -25,7 +18,6 @@
         io.observe(el);
     }
 
-    /* hitung naik dari 0 ke angka tujuan */
     function countTo(el, to, dec, dur) {
         if (reduce) { el.textContent = to.toFixed(dec); return; }
         var t0 = null;
@@ -39,12 +31,10 @@
         requestAnimationFrame(step);
     }
 
-    /* 1. muncul saat di-scroll (judul & blok utama) */
     document.querySelectorAll("[data-rv]").forEach(function (el) {
         whenVisible(el, function () { el.classList.add("is-in"); }, 0.12);
     });
 
-    /* 2. sorotan mengikuti kursor */
     document.querySelectorAll("[data-spot]").forEach(function (el) {
         el.addEventListener("pointermove", function (e) {
             var r = el.getBoundingClientRect();
@@ -53,7 +43,6 @@
         });
     });
 
-    /* 3. cincin nilai (GPA) */
     document.querySelectorAll("[data-ring]").forEach(function (ring) {
         var v = parseFloat(ring.getAttribute("data-value"));
         var m = parseFloat(ring.getAttribute("data-max"));
@@ -69,14 +58,12 @@
         });
     });
 
-    /* 4. angka statistik */
     document.querySelectorAll("[data-count]").forEach(function (el) {
         var to = parseInt(el.getAttribute("data-count"), 10);
         if (!reduce) el.textContent = "0";
         whenVisible(el, function () { countTo(el, to, 0, 1200); });
     });
 
-    /* 5. jalur tahun kuliah: tandai tahun lewat / sekarang, isi garis sampai tahun ini */
     var track = document.getElementById("edTrack");
     if (track) {
         var items = Array.prototype.slice.call(track.querySelectorAll("li[data-year]"));
@@ -92,7 +79,6 @@
         whenVisible(track, function () { track.style.setProperty("--tp", String(tp)); });
     }
 
-    /* 6. filter pelatihan */
     var filters = document.querySelectorAll(".ce-f");
     var rows = document.querySelectorAll(".ce-row");
     var countEl = document.getElementById("ceCount");
@@ -117,7 +103,7 @@
                 if (show) {
                     r.style.setProperty("--i", shown);
                     shown++;
-                    void r.offsetWidth; /* mulai ulang animasi */
+                    void r.offsetWidth; 
                     r.classList.add("pop");
                 }
             });
@@ -125,7 +111,6 @@
         });
     });
 
-    /* 7. tombol salin kontak */
     function copyText(t) {
         if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
         return new Promise(function (resolve, reject) {
@@ -166,7 +151,6 @@
         });
     });
 
-    /* 8. form kirim pesan: susun teks lalu buka WhatsApp */
     var form = document.getElementById("ctForm");
     if (form) {
         var hint = document.getElementById("ctHint");
@@ -185,7 +169,6 @@
         });
     }
 
-    /* 9. jam di Bandung */
     var clock = document.getElementById("ctTime");
     if (clock) {
         var fmt = null;
@@ -195,7 +178,6 @@
         setInterval(tick, 30000);
     }
 
-    /* 10. footer: tahun otomatis & tombol ke atas */
     var yr = document.getElementById("ftYear");
     if (yr) yr.textContent = new Date().getFullYear();
     var up = document.getElementById("ftTop");

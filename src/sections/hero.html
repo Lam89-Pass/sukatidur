@@ -1,8 +1,3 @@
-<!-- =====================================================
-  src/sections/hero.html
-  Halaman utama: nama, role (efek ketik), tombol, foto, kartu About Me
-  Motion: animasi masuk, parallax mouse, spotlight, tilt kartu, tombol magnetik
-===================================================== -->
 <style>
     .hr {
         --u: clamp(.8px, calc(100vw / 1672), 1.9px);
@@ -29,7 +24,6 @@
         box-sizing: border-box;
     }
 
-    /* grid tipis di latar */
     .hr::before {
         content: "";
         position: absolute;
@@ -43,7 +37,6 @@
         pointer-events: none;
     }
 
-    /* cahaya yang mengikuti kursor */
     .hr-spot {
         position: absolute;
         inset: 0;
@@ -114,7 +107,6 @@
         }
     }
 
-    /* ---------- Layout ---------- */
     .hr-inner {
         position: relative;
         z-index: 2;
@@ -125,7 +117,6 @@
         padding: 0 3.5vw 40px 7.8vw;
     }
 
-    /* ---------- Kiri ---------- */
     .hr-left {
         max-width: 46vw;
     }
@@ -307,7 +298,6 @@
         background: rgba(47, 107, 255, .14);
     }
 
-    /* ---------- Ikon sosmed ---------- */
     .hr-social {
         display: flex;
         flex-wrap: wrap;
@@ -344,7 +334,6 @@
         outline-offset: 3px;
     }
 
-    /* ---------- Foto ---------- */
     .hr-photo {
         position: absolute;
         z-index: 1;
@@ -384,7 +373,6 @@
         }
     }
 
-    /* ---------- Kartu About Me ---------- */
     .hr-about {
         position: relative;
         overflow: hidden;
@@ -459,7 +447,6 @@
         color: var(--hr-text);
     }
 
-    /* ---------- Animasi masuk ---------- */
     @keyframes hrUp {
         from {
             opacity: 0;
@@ -529,7 +516,6 @@
         }
     }
 
-    /* ---------- Tablet & HP ---------- */
     @media (max-width: 1100px) {
         .hr {
             --u: 1px;
@@ -586,7 +572,6 @@
 
     <div class="hr-spot" aria-hidden="true"></div>
 
-    <!-- dekorasi latar -->
     <svg class="hr-decor" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
             <radialGradient id="hrGlow" cx="50%" cy="50%" r="50%">
@@ -619,7 +604,6 @@
         <polygon points="1425,95 1275,320 1370,320 1425,235 1485,320 1580,320" fill="url(#hrWatermark)" />
         <polygon points="1490,120 1672,120 1672,330 1590,330" fill="url(#hrWatermark)" opacity=".7" />
 
-        <!-- orbit -->
         <g fill="none" stroke="url(#hrOrbit)" stroke-width="2">
             <g transform="rotate(18 925 395)">
                 <ellipse cx="925" cy="395" rx="165" ry="270" />
@@ -634,13 +618,11 @@
             <ellipse cx="640" cy="565" rx="95" ry="52" transform="rotate(-40 640 565)" stroke-width="1.6" />
         </g>
 
-        <!-- bintang kilap -->
         <path class="hr-twinkle" transform="translate(665 251)" fill="#3b82ff"
             d="M0,-15 C2,-5 5,-2 15,0 C5,2 2,5 0,15 C-2,5 -5,2 -15,0 C-5,-2 -2,-5 0,-15Z" />
         <path class="hr-twinkle d2" transform="translate(1103 407) scale(.6)" fill="#3b82ff"
             d="M0,-15 C2,-5 5,-2 15,0 C5,2 2,5 0,15 C-2,5 -5,2 -15,0 C-5,-2 -2,-5 0,-15Z" />
 
-        <!-- kanan bawah -->
         <polygon points="1520,862 1672,700 1672,862" fill="url(#hrBlue)" opacity=".9" />
         <polygon points="1600,941 1672,860 1672,941" fill="#2f6bff" opacity=".35" />
         <path d="M1332 905 L1376 862 H1645" fill="none" stroke="#3b82ff" stroke-opacity=".55" stroke-width="1.5" />
@@ -652,12 +634,11 @@
         </g>
     </svg>
 
-    <!-- foto profil (PNG transparan / tanpa background) -->
     <img class="hr-photo" src="assets/images/profile.png" alt="Muhamad Nur Salam" width="800" height="1000"
         fetchpriority="high">
 
     <div class="hr-inner">
-        <!-- kiri -->
+        
         <div class="hr-left">
             <p class="hr-hello">HALO, SAYA <span></span></p>
             <h1 class="hr-name">
@@ -674,7 +655,6 @@
             </div>
         </div>
 
-        <!-- kanan: kartu About Me -->
         <aside class="hr-about" id="hrCard" aria-label="Tentang saya">
             <h2>About Me</h2>
             <p>Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT
@@ -706,7 +686,6 @@
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-        /* efek ketik pada role */
         var role = document.getElementById("hrRole");
         var caret = document.getElementById("hrCaret");
         var full = role.textContent.trim();
@@ -723,7 +702,6 @@
 
         if (reduce || !fine) return;
 
-        /* parallax + spotlight mengikuti mouse */
         var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
         function loop() {
             cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
@@ -741,7 +719,6 @@
         });
         hero.addEventListener("mouseleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
 
-        /* kartu miring (tilt) + kilau */
         var card = document.getElementById("hrCard");
         card.addEventListener("mousemove", function (e) {
             var r = card.getBoundingClientRect();
@@ -752,7 +729,6 @@
         });
         card.addEventListener("mouseleave", function () { card.style.transform = ""; });
 
-        /* tombol magnetik */
         hero.querySelectorAll(".hr-btn").forEach(function (b) {
             b.addEventListener("mousemove", function (e) {
                 var r = b.getBoundingClientRect();

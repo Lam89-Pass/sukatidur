@@ -1,8 +1,3 @@
-/**
- * Development Server with Auto-Rebuild on File Change
- * Zero dependencies, uses built-in Node.js 'http' and 'fs'.
- */
-
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -27,10 +22,8 @@ const MIME_TYPES = {
     '.webp': 'image/webp',
 };
 
-// Initial build
 build();
 
-// Watch src/ directory for changes
 let rebuildTimeout = null;
 fs.watch(SRC_DIR, { recursive: true }, (eventType, filename) => {
     if (filename) {
@@ -46,14 +39,12 @@ fs.watch(SRC_DIR, { recursive: true }, (eventType, filename) => {
     }
 });
 
-// Simple Static File Server
 const server = http.createServer((req, res) => {
     let reqUrl = req.url.split('?')[0];
     if (reqUrl === '/') reqUrl = '/index.html';
 
     const filePath = path.join(ROOT_DIR, reqUrl);
 
-    // Prevent directory traversal
     if (!filePath.startsWith(ROOT_DIR)) {
         res.writeHead(403);
         res.end('Access Denied');

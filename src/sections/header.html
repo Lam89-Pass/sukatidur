@@ -1,7 +1,3 @@
-<!-- =====================================================
-  src/sections/header.html
-  Navbar: logo ALAM., menu tengah (garis aktif bergerak), ikon kanan
-===================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -62,7 +58,6 @@
         padding: 0 3.5vw 0 7.2vw;
     }
 
-    /* Logo */
     .ph-brand {
         display: inline-flex;
         align-items: center;
@@ -95,7 +90,6 @@
         font-weight: 800;
     }
 
-    /* Menu */
     .ph-nav {
         position: relative;
         display: flex;
@@ -135,7 +129,6 @@
         pointer-events: none;
     }
 
-    /* Ikon kanan */
     .ph-actions {
         display: flex;
         align-items: center;
@@ -177,7 +170,6 @@
         display: none;
     }
 
-    /* Menu HP */
     .ph-mobile {
         display: none;
         padding: 8px 6vw 24px;
@@ -278,7 +270,7 @@
         <div class="ph-actions">
             <a class="ph-circle ph-hide-sm" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
                 aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a class="ph-circle ph-hide-sm" href="mailto:EMAILKAMU@gmail.com" aria-label="Email"><i
+            <a class="ph-circle ph-hide-sm" href="mailto:aaallaaamm03@gmail.com" aria-label="Email"><i
                     class="fa-solid fa-envelope"></i></a>
             <a class="ph-circle ph-hide-sm" href="#home" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
             <button class="ph-circle ph-burger" id="phBurger" type="button" aria-label="Buka menu"
@@ -298,16 +290,10 @@
         <div class="ph-actions">
             <a class="ph-circle" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
                 aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a class="ph-circle" href="mailto:EMAILKAMU@gmail.com" aria-label="Email"><i
+            <a class="ph-circle" href="mailto:aaallaaamm03@gmail.com" aria-label="Email"><i
                     class="fa-solid fa-envelope"></i></a>
-            <a class="ph-circle" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener"
-                aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a class="ph-circle" href="https://discord.com/users/ID_DISCORD" target="_blank" rel="noopener"
-                aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
-            <a class="ph-circle" href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener"
+            <a class="ph-circle" href="https://wa.me/6285603103375" target="_blank" rel="noopener"
                 aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a class="ph-circle" href="https://instagram.com/USERNAME" target="_blank" rel="noopener"
-                aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </div>
 </header>
@@ -320,12 +306,10 @@
         var nav = document.getElementById("phNav");
         var ind = document.getElementById("phInd");
 
-        /* header berubah saat scroll */
         function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 20); }
         onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
 
-        /* menu HP */
         function setBurger(open) {
             mobile.classList.toggle("is-open", open);
             burger.setAttribute("aria-expanded", open ? "true" : "false");
@@ -336,7 +320,6 @@
             a.addEventListener("click", function () { setBurger(false); });
         });
 
-        /* garis indikator menu */
         var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
         function moveInd(a) {
             if (!a || !a.offsetWidth) return;
@@ -353,7 +336,6 @@
         (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { moveInd(current()); });
         moveInd(current());
 
-        /* menu aktif mengikuti scroll */
         var links = navLinks.concat(Array.prototype.slice.call(mobile.querySelectorAll("a.ph-link")));
         var map = {};
         links.forEach(function (a) {
