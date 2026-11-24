@@ -5,46 +5,147 @@
             <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
                 <span class="subtitle">Bidang Kompetensi &amp; Solusi</span>
             </div>
-            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Keahlian teknis yang siap saya kontribusikan:</h2>
-            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Berfokus pada stabilitas jaringan, performa infrastruktur server Linux, kualitas software, serta keandalan hardware.</p>
+            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Keahlian teknis yang siap
+                saya kontribusikan:</h2>
+            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Berfokus pada stabilitas
+                jaringan, performa infrastruktur server Linux, kualitas software, serta keandalan hardware.</p>
         </div>
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <h2 class="service-card-num"><span>1.</span>Network Engineering &amp; Routing</h2>
-                    <p class="service-para">Perancangan topologi, segmentasi subnetting (VLSM), implementasi VLAN, routing dinamis OSPF, administrasi Mikrotik RouterOS, dan simulasi Cisco Packet Tracer.</p>
+
+        <style>
+            .service-accordion-item {
+                border: 1px solid rgba(241, 228, 209, 0.15);
+                border-radius: 12px;
+                margin-bottom: 14px;
+                overflow: hidden;
+                background: rgba(16, 28, 72, 0.6);
+            }
+
+            .service-accordion-header {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 16px;
+                padding: 20px 24px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                text-align: left;
+            }
+
+            .service-accordion-header h2 {
+                margin: 0;
+                font-size: 18px;
+                color: #fff;
+            }
+
+            .service-accordion-header h2 span {
+                color: #F1E4D1;
+                margin-right: 6px;
+            }
+
+            .service-accordion-icon {
+                color: #F1E4D1;
+                font-size: 15px;
+                flex-shrink: 0;
+                transition: transform 0.3s ease;
+            }
+
+            .service-accordion-item.open .service-accordion-icon {
+                transform: rotate(180deg);
+            }
+
+            .service-accordion-body {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease;
+            }
+
+            .service-accordion-body p {
+                padding: 0 24px 20px;
+                margin: 0;
+                color: #b9bed0;
+                line-height: 1.6;
+            }
+        </style>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="service-accordion-item tmp-scroll-trigger tmp-fade-in animation-order-1">
+                    <button class="service-accordion-header" type="button">
+                        <h2><span>1.</span>Network Engineering &amp; Routing</h2>
+                        <i class="fa-solid fa-chevron-down service-accordion-icon"></i>
+                    </button>
+                    <div class="service-accordion-body">
+                        <p>Perancangan topologi, segmentasi subnetting (VLSM), implementasi VLAN, routing dinamis OSPF,
+                            administrasi Mikrotik RouterOS, dan simulasi Cisco Packet Tracer.</p>
+                    </div>
                 </div>
 
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <h2 class="service-card-num"><span>2.</span>Linux System &amp; Web Server Administration</h2>
-                    <p class="service-para">Instalasi, hardening, dan konfigurasi server Linux (Ubuntu/Debian), manajemen Web Server (Nginx, Apache), virtualisasi sistem, dan pemantauan performa server.</p>
+                <div class="service-accordion-item tmp-scroll-trigger tmp-fade-in animation-order-2">
+                    <button class="service-accordion-header" type="button">
+                        <h2><span>2.</span>Linux System &amp; Web Server Administration</h2>
+                        <i class="fa-solid fa-chevron-down service-accordion-icon"></i>
+                    </button>
+                    <div class="service-accordion-body">
+                        <p>Instalasi, hardening, dan konfigurasi server Linux (Ubuntu/Debian), manajemen Web Server
+                            (Nginx, Apache), virtualisasi sistem, dan pemantauan performa server.</p>
+                    </div>
                 </div>
 
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    <h2 class="service-card-num"><span>3.</span>Containerization &amp; Cloud Foundation</h2>
-                    <p class="service-para">Standarisasi lingkungan kerja dengan Docker containerization, integrasi version control Git/GitHub, alur CI/CD dasar, serta eksplorasi cloud computing AWS.</p>
+                <div class="service-accordion-item tmp-scroll-trigger tmp-fade-in animation-order-3">
+                    <button class="service-accordion-header" type="button">
+                        <h2><span>3.</span>Containerization &amp; Cloud Foundation</h2>
+                        <i class="fa-solid fa-chevron-down service-accordion-icon"></i>
+                    </button>
+                    <div class="service-accordion-body">
+                        <p>Standarisasi lingkungan kerja dengan Docker containerization, integrasi version control
+                            Git/GitHub, alur CI/CD dasar, serta eksplorasi cloud computing AWS.</p>
+                    </div>
                 </div>
 
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-4">
-                    <h2 class="service-card-num"><span>4.</span>Software Engineering &amp; QA Testing</h2>
-                    <p class="service-para">Pengembangan web modern berbasis React.js, Next.js, Laravel, dan Golang, pembuatan plugin, serta pengujian fungsional dan API terstruktur menggunakan Postman.</p>
+                <div class="service-accordion-item tmp-scroll-trigger tmp-fade-in animation-order-4">
+                    <button class="service-accordion-header" type="button">
+                        <h2><span>4.</span>Software Engineering &amp; QA Testing</h2>
+                        <i class="fa-solid fa-chevron-down service-accordion-icon"></i>
+                    </button>
+                    <div class="service-accordion-body">
+                        <p>Pengembangan web modern berbasis React.js, Next.js, Laravel, dan Golang, pembuatan plugin,
+                            serta pengujian fungsional dan API terstruktur menggunakan Postman.</p>
+                    </div>
                 </div>
 
-                <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-5">
-                    <h2 class="service-card-num"><span>5.</span>Hardware Maintenance &amp; Troubleshooting</h2>
-                    <p class="service-para">Pemeriksaan dan perbaikan hardware/software komputer dan laptop, perakitan PC, upgrade komponen (RAM, SSD), instalasi OS, serta perawatan berkala.</p>
-                </div>
-            </div>
-
-            <!-- Right Column: User 2nd Photo -->
-            <div class="col-lg-6">
-                <div class="service-card-user-image">
-                    <picture>
-                        <source srcset="assets/images/profile-2.webp" type="image/webp">
-                        <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1" src="assets/images/profile-2.png" alt="Muhamad Nur Salam" style="border-radius: 16px; width: 100%; max-height: 580px; object-fit: cover; object-position: top center; box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
-                    </picture>
+                <div class="service-accordion-item tmp-scroll-trigger tmp-fade-in animation-order-5">
+                    <button class="service-accordion-header" type="button">
+                        <h2><span>5.</span>Hardware Maintenance &amp; Troubleshooting</h2>
+                        <i class="fa-solid fa-chevron-down service-accordion-icon"></i>
+                    </button>
+                    <div class="service-accordion-body">
+                        <p>Pemeriksaan dan perbaikan hardware/software komputer dan laptop, perakitan PC, upgrade
+                            komponen (RAM, SSD), instalasi OS, serta perawatan berkala.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    (function () {
+        var items = document.querySelectorAll('#section_services .service-accordion-item');
+        items.forEach(function (item) {
+            var header = item.querySelector('.service-accordion-header');
+            var body = item.querySelector('.service-accordion-body');
+            header.addEventListener('click', function () {
+                var isOpen = item.classList.contains('open');
+                if (isOpen) {
+                    body.style.maxHeight = null;
+                    item.classList.remove('open');
+                } else {
+                    item.classList.add('open');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                }
+            });
+        });
+    })();
+</script>
