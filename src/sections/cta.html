@@ -1,37 +1,145 @@
-<!-- Call to Action / Contact Banner Section -->
-<section class="testimonial-area tmp-section-gapTop as-section" id="section_contact">
+<!-- Contact / CTA Section (tema Alam: sama seperti Hero) -->
+<section class="alam-section" id="section_contact">
     <div class="container">
-        <div class="section-head mb--40 text-center">
-            <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <span class="subtitle">Hubungi &amp; Kolaborasi</span>
-            </div>
-            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Mari Berdiskusi dan Berkolaborasi Bersama</h2>
-            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3" style="margin: 15px auto 0; max-width: 680px; color: rgba(255,255,255,0.85);">
-                Terbuka untuk peluang magang, kolaborasi tim, implementasi infrastruktur jaringan, administrasi server Linux, maupun pengembangan web dan QA.
+        <style>
+            .alam-cta-card {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 64px 40px;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .alam-cta-card:hover {
+                transform: none;
+            }
+
+            .alam-cta-card::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: -160px;
+                width: 420px;
+                height: 320px;
+                transform: translateX(-50%);
+                background: radial-gradient(circle, rgba(47, 107, 255, 0.35), transparent 70%);
+                pointer-events: none;
+            }
+
+            .alam-cta-card>* {
+                position: relative;
+            }
+
+            .alam-cta-card .alam-eyebrow {
+                justify-content: center;
+            }
+
+            .alam-cta-card .alam-eyebrow::before {
+                content: "";
+                width: 70px;
+                height: 3px;
+                border-radius: 3px;
+                background: var(--al-accent);
+            }
+
+            .alam-cta-title {
+                color: #fff;
+                font-size: 42px;
+                font-weight: 800;
+                line-height: 1.25;
+                margin: 0 0 18px;
+            }
+
+            .alam-cta-title em {
+                color: var(--al-accent);
+                font-style: italic;
+            }
+
+            .alam-cta-desc {
+                color: var(--al-muted);
+                font-size: 16.5px;
+                line-height: 1.8;
+                max-width: 640px;
+                margin: 0 auto 38px;
+            }
+
+            .alam-cta-buttons {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .alam-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 16px 30px;
+                border-radius: 50px;
+                font-size: 16px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all .25s ease;
+            }
+
+            .alam-btn-primary {
+                background: var(--al-accent);
+                border: 1px solid var(--al-accent);
+                color: #fff;
+                box-shadow: 0 10px 30px rgba(47, 107, 255, 0.45);
+            }
+
+            .alam-btn-primary:hover {
+                background: var(--al-accent-2);
+                border-color: var(--al-accent-2);
+                color: #fff;
+                transform: translateY(-3px);
+            }
+
+            .alam-btn-outline {
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.35);
+                color: #fff;
+            }
+
+            .alam-btn-outline:hover {
+                border-color: var(--al-accent-2);
+                color: var(--al-accent-2);
+                transform: translateY(-3px);
+            }
+
+            @media (max-width: 767px) {
+                .alam-cta-card {
+                    padding: 44px 22px;
+                }
+
+                .alam-cta-title {
+                    font-size: 28px;
+                }
+
+                .alam-btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        </style>
+
+        <div class="alam-card alam-cta-card tmp-scroll-trigger tmp-fade-in animation-order-1">
+            <div class="alam-eyebrow">Hubungi &amp; Kolaborasi</div>
+            <h2 class="alam-cta-title">Mari Berdiskusi dan <em>Berkolaborasi</em> Bersama</h2>
+            <p class="alam-cta-desc">
+                Terbuka untuk peluang magang, kolaborasi tim, implementasi infrastruktur jaringan, administrasi server
+                Linux, maupun pengembangan web dan QA.
             </p>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <div class="button-area-banner-three tmp-scroll-trigger tmp-fade-in animation-order-3" style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                <a class="tmp-btn hover-icon-reverse radius-round" href="https://wa.me/6285603103375" target="_blank">
-                    <span class="icon-reverse-wrapper">
-                        <span class="btn-text">WhatsApp (085603103375)</span>
-                        <span class="btn-icon"><i class="fa-brands fa-whatsapp"></i></span>
-                        <span class="btn-icon"><i class="fa-brands fa-whatsapp"></i></span>
-                    </span>
+            <div class="alam-cta-buttons">
+                <a class="alam-btn alam-btn-primary" href="https://wa.me/6285603103375" target="_blank">
+                    WhatsApp (085603103375) <i class="fa-brands fa-whatsapp"></i>
                 </a>
-                <a class="tmp-btn hover-icon-reverse radius-round" href="mailto:aaallaaamm03@gmail.com">
-                    <span class="icon-reverse-wrapper">
-                        <span class="btn-text">Kirim Email</span>
-                        <span class="btn-icon"><i class="fa-solid fa-envelope"></i></span>
-                        <span class="btn-icon"><i class="fa-solid fa-envelope"></i></span>
-                    </span>
+                <a class="alam-btn alam-btn-primary" href="mailto:aaallaaamm03@gmail.com">
+                    Kirim Email <i class="fa-solid fa-envelope"></i>
                 </a>
-                <a class="tmp-btn hover-icon-reverse radius-round" href="cv-muhamad-nur-salam.pdf" target="_blank" style="background: rgba(241, 228, 209, 0.15); border: 1px solid #F1E4D1; color: #F1E4D1;">
-                    <span class="icon-reverse-wrapper">
-                        <span class="btn-text">Unduh CV Lengkap</span>
-                        <span class="btn-icon"><i class="fa-solid fa-file-arrow-down"></i></span>
-                        <span class="btn-icon"><i class="fa-solid fa-file-arrow-down"></i></span>
-                    </span>
+                <a class="alam-btn alam-btn-outline" href="cv-muhamad-nur-salam.pdf" target="_blank">
+                    Unduh CV Lengkap <i class="fa-solid fa-file-arrow-down"></i>
                 </a>
             </div>
         </div>

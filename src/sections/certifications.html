@@ -1,317 +1,325 @@
-<!-- Certifications & Professional Training Section -->
-<section class="tmp-section-gapTop" id="section_certifications">
+<!-- Certifications & Professional Training Section (tema Alam: sama seperti Hero) -->
+<section class="alam-section" id="section_certifications">
     <div class="container">
         <style>
-            .v3-cert-banner {
+            /* ---- Banner BNSP ---- */
+            .alam-cert-banner {
                 display: flex;
                 align-items: center;
-                gap: 26px;
-                background: linear-gradient(135deg, rgba(42, 59, 119, 0.55), rgba(16, 28, 72, 0.55));
-                border: 1px solid rgba(241, 228, 209, 0.3);
-                border-radius: 18px;
-                padding: 30px 32px;
-                margin-bottom: 50px;
-                position: relative;
+                gap: 28px;
+                padding: 32px 34px;
+                margin-bottom: 70px;
                 overflow: hidden;
             }
 
-            .v3-cert-banner-icon {
+            .alam-cert-banner::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 24px;
+                bottom: 24px;
+                width: 5px;
+                border-radius: 0 4px 4px 0;
+                background: var(--al-accent);
+            }
+
+            .alam-cert-banner-icon {
                 flex-shrink: 0;
-                width: 74px;
-                height: 74px;
-                border-radius: 18px;
-                background: rgba(241, 228, 209, 0.12);
-                border: 1px solid rgba(241, 228, 209, 0.3);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #F1E4D1;
+                width: 78px;
+                height: 78px;
+                border-radius: 20px;
                 font-size: 30px;
             }
 
-            .v3-cert-banner-tag {
+            .alam-cert-banner-tag {
                 display: inline-block;
-                background: #F1E4D1;
-                color: #162660;
+                background: var(--al-accent);
+                color: #fff;
                 font-size: 11.5px;
                 font-weight: 700;
                 text-transform: uppercase;
-                letter-spacing: 0.5px;
-                padding: 4px 12px;
-                border-radius: 20px;
+                letter-spacing: .6px;
+                padding: 5px 14px;
+                border-radius: 30px;
                 margin-bottom: 12px;
+                box-shadow: 0 6px 18px rgba(47, 107, 255, 0.35);
             }
 
-            .v3-cert-banner-body h3 {
+            .alam-cert-banner-body h3 {
                 color: #fff;
-                font-size: 20px;
+                font-size: 22px;
+                font-weight: 800;
                 margin: 0 0 10px;
                 line-height: 1.4;
             }
 
-            .v3-cert-banner-issuer {
-                color: #F1E4D1;
-                font-size: 13px;
-                margin-bottom: 10px;
+            .alam-cert-banner-issuer {
+                color: var(--al-muted);
+                font-size: 13.5px;
+                margin: 0 0 10px;
             }
 
-            .v3-cert-banner-desc {
-                color: rgba(255, 255, 255, 0.8);
-                font-size: 14px;
-                line-height: 1.7;
+            .alam-cert-banner-issuer i {
+                color: var(--al-accent-2);
+            }
+
+            .alam-cert-banner-desc {
+                color: rgba(255, 255, 255, 0.82);
+                font-size: 14.5px;
+                line-height: 1.75;
                 margin: 0;
-                max-width: 640px;
+                max-width: 680px;
             }
 
             @media (max-width: 767px) {
-                .v3-cert-banner {
+                .alam-cert-banner {
                     flex-direction: column;
                     text-align: center;
                     align-items: center;
+                    padding: 28px 22px;
+                }
+
+                .alam-cert-banner::before {
+                    display: none;
                 }
             }
 
-            .v3-cert-filter {
+            /* ---- Filter ---- */
+            .alam-cert-filter {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 10px;
-                margin: 28px 0 34px;
+                gap: 12px;
+                margin: 0 0 40px;
             }
 
-            .v3-cert-filter-btn {
+            .alam-section .alam-cert-filter-btn {
+                width: auto !important;
+                flex: 0 0 auto;
                 background: transparent;
-                border: 1px solid rgba(241, 228, 209, 0.3);
-                color: rgba(255, 255, 255, 0.8);
-                padding: 8px 18px;
-                border-radius: 30px;
-                font-size: 13px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                color: #fff;
+                padding: 10px 24px;
+                border-radius: 40px;
+                font-size: 14px;
                 font-weight: 600;
+                line-height: 1.2;
                 cursor: pointer;
-                transition: all 0.25s ease;
+                transition: all .25s ease;
             }
 
-            .v3-cert-filter-btn:hover {
-                border-color: #F1E4D1;
-                color: #F1E4D1;
+            .alam-section .alam-cert-filter-btn:hover {
+                border-color: var(--al-accent-2);
+                color: var(--al-accent-2);
             }
 
-            .v3-cert-filter-btn.active {
-                background: #F1E4D1;
-                color: #162660;
-                border-color: #F1E4D1;
+            .alam-section .alam-cert-filter-btn.active {
+                background: var(--al-accent);
+                border-color: var(--al-accent);
+                color: #fff;
+                box-shadow: 0 8px 24px rgba(47, 107, 255, 0.45);
             }
 
-            .v3-cert-grid {
+            /* ---- Grid kartu ---- */
+            .alam-cert-grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 18px;
+                gap: 22px;
             }
 
             @media (max-width: 991px) {
-                .v3-cert-grid {
+                .alam-cert-grid {
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
 
             @media (max-width: 575px) {
-                .v3-cert-grid {
+                .alam-cert-grid {
                     grid-template-columns: 1fr;
                 }
             }
 
-            .v3-cert-card {
-                background: rgba(42, 59, 119, 0.3);
-                border: 1px solid rgba(241, 228, 209, 0.15);
-                border-radius: 14px;
-                padding: 20px 22px;
-                transition: all 0.25s ease;
+            .alam-cert-card {
+                padding: 24px 24px 22px;
+                border-radius: 20px;
             }
 
-            .v3-cert-card.v3-hide {
+            .alam-cert-card.alam-hide {
                 display: none;
             }
 
-            .v3-cert-card:hover {
-                border-color: rgba(241, 228, 209, 0.4);
-                transform: translateY(-4px);
-            }
-
-            .v3-cert-provider {
+            .alam-cert-provider {
                 display: inline-block;
                 font-size: 11px;
                 font-weight: 700;
                 text-transform: uppercase;
-                color: #F1E4D1;
-                border: 1px solid rgba(241, 228, 209, 0.3);
-                padding: 3px 10px;
-                border-radius: 20px;
-                margin-bottom: 12px;
+                letter-spacing: .5px;
+                color: var(--al-accent-2);
+                background: rgba(47, 107, 255, 0.12);
+                border: 1px solid rgba(91, 141, 255, 0.4);
+                padding: 4px 12px;
+                border-radius: 30px;
+                margin-bottom: 14px;
             }
 
-            .v3-cert-title {
+            .alam-cert-title {
                 color: #fff;
-                font-size: 15.5px;
-                font-weight: 700;
-                margin-bottom: 6px;
+                font-size: 17px;
+                font-weight: 800;
+                margin: 0 0 6px;
                 line-height: 1.4;
             }
 
-            .v3-cert-date {
-                color: rgba(255, 255, 255, 0.5);
-                font-size: 12px;
-                margin-bottom: 10px;
+            .alam-cert-date {
+                color: var(--al-muted);
+                font-size: 12.5px;
+                margin-bottom: 12px;
             }
 
-            .v3-cert-desc {
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 13px;
-                line-height: 1.6;
+            .alam-cert-date i {
+                color: var(--al-accent-2);
+            }
+
+            .alam-cert-desc {
+                color: rgba(255, 255, 255, 0.75);
+                font-size: 13.5px;
+                line-height: 1.7;
                 margin: 0;
             }
 
-            .v3-cert-view {
+            .alam-cert-view {
                 display: inline-flex;
                 align-items: center;
-                gap: 6px;
-                margin-top: 12px;
-                color: #F1E4D1;
-                font-size: 12.5px;
-                font-weight: 600;
+                gap: 8px;
+                margin-top: 14px;
+                color: var(--al-accent-2);
+                font-size: 13px;
+                font-weight: 700;
                 text-decoration: none;
             }
 
-            .v3-cert-view:hover {
+            .alam-cert-view:hover {
                 color: #fff;
             }
         </style>
 
+        <div class="alam-eyebrow tmp-scroll-trigger tmp-fade-in animation-order-1">Sertifikasi</div>
+        <h2 class="alam-title tmp-scroll-trigger tmp-fade-in animation-order-1">Sertifikasi <em>&amp; Pelatihan</em></h2>
+
         <!-- Official BNSP Certificate Banner -->
-        <div class="v3-cert-banner tmp-scroll-trigger tmp-fade-in animation-order-1">
-            <div class="v3-cert-banner-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="v3-cert-banner-body">
-                <span class="v3-cert-banner-tag">Sertifikasi Resmi BNSP / LSP</span>
+        <div class="alam-card alam-cert-banner tmp-scroll-trigger tmp-fade-in animation-order-1">
+            <div class="alam-icon alam-cert-banner-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="alam-cert-banner-body">
+                <span class="alam-cert-banner-tag">Sertifikasi Resmi BNSP / LSP</span>
                 <h3>Certificate of Competence – Computer and Network Engineering</h3>
-                <p class="v3-cert-banner-issuer"><i class="fa-solid fa-building-shield"></i> Lembaga Sertifikasi
+                <p class="alam-cert-banner-issuer"><i class="fa-solid fa-building-shield"></i> Lembaga Sertifikasi
                     Profesi SMK Negeri 1 Cidaun &nbsp;•&nbsp; <i class="fa-solid fa-calendar-check"></i> Berlaku: Nov
                     2023 – Nov 2026</p>
-                <p class="v3-cert-banner-desc">Sertifikasi kompetensi resmi berstandar nasional yang memvalidasi
+                <p class="alam-cert-banner-desc">Sertifikasi kompetensi resmi berstandar nasional yang memvalidasi
                     keahlian di bidang perakitan sistem, instalasi jaringan komputer, konfigurasi switch &amp; router,
                     serta troubleshooting perangkat keras dan perangkat lunak.</p>
             </div>
         </div>
 
-        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-2" style="text-align:center;">
+        <h2 class="alam-title center tmp-scroll-trigger tmp-fade-in animation-order-2" style="font-size: 30px;">
             Pelatihan Teknis Terverifikasi
         </h2>
 
-        <div class="v3-cert-filter">
-            <button class="v3-cert-filter-btn active" data-filter="all" type="button">Semua</button>
-            <button class="v3-cert-filter-btn" data-filter="jaringan" type="button">Jaringan</button>
-            <button class="v3-cert-filter-btn" data-filter="sistem" type="button">Sistem</button>
-            <button class="v3-cert-filter-btn" data-filter="cloud" type="button">Cloud &amp; Virtualisasi</button>
-            <button class="v3-cert-filter-btn" data-filter="keamanan" type="button">Keamanan Siber</button>
+        <div class="alam-cert-filter">
+            <button class="alam-cert-filter-btn active" data-filter="all" type="button">Semua</button>
+            <button class="alam-cert-filter-btn" data-filter="jaringan" type="button">Jaringan</button>
+            <button class="alam-cert-filter-btn" data-filter="sistem" type="button">Sistem</button>
+            <button class="alam-cert-filter-btn" data-filter="cloud" type="button">Cloud &amp; Virtualisasi</button>
+            <button class="alam-cert-filter-btn" data-filter="keamanan" type="button">Keamanan Siber</button>
         </div>
 
-        <div class="v3-cert-grid">
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-1" data-category="cloud">
-                <span class="v3-cert-provider">ADINUSA</span>
-                <h4 class="v3-cert-title">Docker Fundamental</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> Desember 2026</div>
-                <p class="v3-cert-desc">Pembuatan Dockerfile, container lifecycle management, volume persistence, dan
-                    Docker Compose untuk standarisasi microservices.</p>
+        <div class="alam-cert-grid">
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-1" data-category="cloud">
+                <span class="alam-cert-provider">ADINUSA</span>
+                <h4 class="alam-cert-title">Docker Fundamental</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> Desember 2026</div>
+                <p class="alam-cert-desc">Pembuatan Dockerfile, container lifecycle management, volume persistence, dan Docker Compose untuk standarisasi microservices.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-2" data-category="keamanan">
-                <span class="v3-cert-provider">WPU Course</span>
-                <h4 class="v3-cert-title">Cyber Security Fundamental</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
-                <p class="v3-cert-desc">Konsep dasar keamanan siber, identifikasi kerentanan sistem, prinsip CIA
-                    Triad, pencegahan serangan siber, dan pengamanan jaringan.</p>
-                <a class="v3-cert-view" href="assets/images/certificate-wpu.png" data-fancybox="certificates"
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-2" data-category="keamanan">
+                <span class="alam-cert-provider">WPU Course</span>
+                <h4 class="alam-cert-title">Cyber Security Fundamental</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
+                <p class="alam-cert-desc">Konsep dasar keamanan siber, identifikasi kerentanan sistem, prinsip CIA Triad, pencegahan serangan siber, dan pengamanan jaringan.</p>
+                <a class="alam-cert-view" href="assets/images/certificate-wpu.png" data-fancybox="certificates"
                     data-caption="Cyber Security Fundamental - WPU Course">
                     <i class="fa-solid fa-image"></i> Lihat Sertifikat
                 </a>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-3" data-category="cloud">
-                <span class="v3-cert-provider">Aguna Course</span>
-                <h4 class="v3-cert-title">Virtual Machine Fundamental</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
-                <p class="v3-cert-desc">Instalasi, konfigurasi hypervisor, virtual networking antar VM, alokasi
-                    resource CPU/RAM, dan snapshot recovery.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-3" data-category="cloud">
+                <span class="alam-cert-provider">Aguna Course</span>
+                <h4 class="alam-cert-title">Virtual Machine Fundamental</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
+                <p class="alam-cert-desc">Instalasi, konfigurasi hypervisor, virtual networking antar VM, alokasi resource CPU/RAM, dan snapshot recovery.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-4" data-category="jaringan">
-                <span class="v3-cert-provider">Aguna Course</span>
-                <h4 class="v3-cert-title">Network Fundamental</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
-                <p class="v3-cert-desc">Pemahaman model OSI &amp; TCP/IP, protokol jaringan (DNS, DHCP, HTTP), skema
-                    pengalamatan IPv4/IPv6, dan topologi jaringan.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-4" data-category="jaringan">
+                <span class="alam-cert-provider">Aguna Course</span>
+                <h4 class="alam-cert-title">Network Fundamental</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
+                <p class="alam-cert-desc">Pemahaman model OSI &amp; TCP/IP, protokol jaringan (DNS, DHCP, HTTP), skema pengalamatan IPv4/IPv6, dan topologi jaringan.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-5" data-category="jaringan">
-                <span class="v3-cert-provider">Aguna Course</span>
-                <h4 class="v3-cert-title">Mikrotik Administration</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
-                <p class="v3-cert-desc">Konfigurasi RouterOS, manajemen bandwidth (Simple Queue), firewall filter,
-                    NAT, hotspot gateway, dan routing dinamis.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-5" data-category="jaringan">
+                <span class="alam-cert-provider">Aguna Course</span>
+                <h4 class="alam-cert-title">Mikrotik Administration</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
+                <p class="alam-cert-desc">Konfigurasi RouterOS, manajemen bandwidth (Simple Queue), firewall filter, NAT, hotspot gateway, dan routing dinamis.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-6" data-category="cloud">
-                <span class="v3-cert-provider">Aguna Course</span>
-                <h4 class="v3-cert-title">Mastering AWS Solution Architect</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
-                <p class="v3-cert-desc">Arsitektur komputasi awan AWS (EC2, S3, VPC, IAM), keamanan cloud, load
-                    balancing, dan prinsip arsitektur high-availability.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-6" data-category="cloud">
+                <span class="alam-cert-provider">Aguna Course</span>
+                <h4 class="alam-cert-title">Mastering AWS Solution Architect</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
+                <p class="alam-cert-desc">Arsitektur komputasi awan AWS (EC2, S3, VPC, IAM), keamanan cloud, load balancing, dan prinsip arsitektur high-availability.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-7" data-category="sistem">
-                <span class="v3-cert-provider">Aguna Course</span>
-                <h4 class="v3-cert-title">Linux Fundamental</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
-                <p class="v3-cert-desc">Navigasi CLI terminal Linux, manajemen hak akses file (chmod, chown), bash
-                    scripting dasar, dan process management.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-7" data-category="sistem">
+                <span class="alam-cert-provider">Aguna Course</span>
+                <h4 class="alam-cert-title">Linux Fundamental</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
+                <p class="alam-cert-desc">Navigasi CLI terminal Linux, manajemen hak akses file (chmod, chown), bash scripting dasar, dan process management.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-8" data-category="sistem">
-                <span class="v3-cert-provider">ADINUSA</span>
-                <h4 class="v3-cert-title">Linux System Administration</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
-                <p class="v3-cert-desc">Administrasi server tingkat lanjut: manajemen paket (apt/systemd), firewall
-                    UFW/iptables, cron job automation, dan manajemen user/grup.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-8" data-category="sistem">
+                <span class="alam-cert-provider">ADINUSA</span>
+                <h4 class="alam-cert-title">Linux System Administration</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> November 2026</div>
+                <p class="alam-cert-desc">Administrasi server tingkat lanjut: manajemen paket (apt/systemd), firewall UFW/iptables, cron job automation, dan manajemen user/grup.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-9" data-category="keamanan">
-                <span class="v3-cert-provider">DTS Kominfo</span>
-                <h4 class="v3-cert-title">Keamanan Informasi</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> Juli 2025</div>
-                <p class="v3-cert-desc">Kebijakan keamanan data, kriptografi dasar, mitigasi ancaman social
-                    engineering, dan kepatuhan standar keamanan data nasional.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-9" data-category="keamanan">
+                <span class="alam-cert-provider">DTS Kominfo</span>
+                <h4 class="alam-cert-title">Keamanan Informasi</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> Juli 2025</div>
+                <p class="alam-cert-desc">Kebijakan keamanan data, kriptografi dasar, mitigasi ancaman social engineering, dan kepatuhan standar keamanan data nasional.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-10" data-category="keamanan">
-                <span class="v3-cert-provider">Merdeka Siber</span>
-                <h4 class="v3-cert-title">OSINT For Hunting Cryptominner</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> Februari 2025</div>
-                <p class="v3-cert-desc">Metodologi Open Source Intelligence (OSINT) untuk investigasi dan pendeteksian
-                    infrastruktur botnet malware cryptominer.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-10" data-category="keamanan">
+                <span class="alam-cert-provider">Merdeka Siber</span>
+                <h4 class="alam-cert-title">OSINT For Hunting Cryptominner</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> Februari 2025</div>
+                <p class="alam-cert-desc">Metodologi Open Source Intelligence (OSINT) untuk investigasi dan pendeteksian infrastruktur botnet malware cryptominer.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-11" data-category="keamanan">
-                <span class="v3-cert-provider">Cyber Academy Indonesia</span>
-                <h4 class="v3-cert-title">Introduction to Information Security</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> Juni 2024</div>
-                <p class="v3-cert-desc">Fondasi identifikasi kerentanan web, keamanan perimeter, analisis insiden
-                    keamanan siber, dan etika ethical hacking.</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-11" data-category="keamanan">
+                <span class="alam-cert-provider">Cyber Academy Indonesia</span>
+                <h4 class="alam-cert-title">Introduction to Information Security</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> Juni 2024</div>
+                <p class="alam-cert-desc">Fondasi identifikasi kerentanan web, keamanan perimeter, analisis insiden keamanan siber, dan etika ethical hacking.</p>
             </div>
 
-            <div class="v3-cert-card tmp-scroll-trigger tmp-fade-in animation-order-12" data-category="keamanan">
-                <span class="v3-cert-provider">PT Linuxhackingid</span>
-                <h4 class="v3-cert-title">Practical Nmap Hacking For Beginner</h4>
-                <div class="v3-cert-date"><i class="fa-solid fa-calendar-days"></i> Juni 2024</div>
-                <p class="v3-cert-desc">Teknik pemindaian host dan port terbuka menggunakan Nmap, deteksi OS &amp;
-                    versi service, serta otomatisasi audit dengan Nmap Scripting Engine (NSE).</p>
+            <div class="alam-card alam-cert-card tmp-scroll-trigger tmp-fade-in animation-order-12" data-category="keamanan">
+                <span class="alam-cert-provider">PT Linuxhackingid</span>
+                <h4 class="alam-cert-title">Practical Nmap Hacking For Beginner</h4>
+                <div class="alam-cert-date"><i class="fa-solid fa-calendar-days"></i> Juni 2024</div>
+                <p class="alam-cert-desc">Teknik pemindaian host dan port terbuka menggunakan Nmap, deteksi OS &amp; versi service, serta otomatisasi audit dengan Nmap Scripting Engine (NSE).</p>
             </div>
         </div>
     </div>
@@ -319,19 +327,16 @@
 
 <script>
     (function () {
-        var buttons = document.querySelectorAll('#section_certifications .v3-cert-filter-btn');
-        var cards = document.querySelectorAll('#section_certifications .v3-cert-card');
+        var buttons = document.querySelectorAll('#section_certifications .alam-cert-filter-btn');
+        var cards = document.querySelectorAll('#section_certifications .alam-cert-card');
         buttons.forEach(function (btn) {
             btn.addEventListener('click', function () {
                 buttons.forEach(function (b) { b.classList.remove('active'); });
                 btn.classList.add('active');
                 var f = btn.getAttribute('data-filter');
                 cards.forEach(function (card) {
-                    if (f === 'all' || card.getAttribute('data-category') === f) {
-                        card.classList.remove('v3-hide');
-                    } else {
-                        card.classList.add('v3-hide');
-                    }
+                    var show = f === 'all' || card.getAttribute('data-category') === f;
+                    card.classList.toggle('alam-hide', !show);
                 });
             });
         });
