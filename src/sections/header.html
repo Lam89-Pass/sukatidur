@@ -1,160 +1,376 @@
-<!-- Header & Navigation Area -->
-<header class="tmp-header-area-start header-one header--sticky header--transparent">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="header-content">
-                    <div class="logo">
-                        <a href="#home_sec" style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                            <span style="font-size: 26px; font-weight: 800; color: #F1E4D1; letter-spacing: 1.5px; font-family: var(--font-primary, sans-serif);">ALAM<span style="color: #ffaa40;">.</span></span>
-                        </a>
-                    </div>
-                    <nav class="tmp-mainmenu-nav d-none d-xl-block">
-                        <ul class="tmp-mainmenu">
-                            <li><a href="#home_sec" class="scroll">Home</a></li>
-                            <li><a href="#section_about" class="scroll">Tentang</a></li>
-                            <li><a href="#section_expertise" class="scroll">Keahlian</a></li>
-                            <li><a href="#section_experiences" class="scroll">Pengalaman</a></li>
-                            <li><a href="#section_education" class="scroll">Pendidikan</a></li>
-                            <li><a href="#section_certifications" class="scroll">Sertifikasi</a></li>
-                            <li><a href="#section_portfolios" class="scroll">Portofolio</a></li>
-                            <li><a href="#section_contact" class="scroll">Kontak</a></li>
-                        </ul>
-                    </nav>
-                    <div class="tmp-header-right">
-                        <div class="social-share-wrapper d-none d-md-block">
-                            <div class="social-link">
-                                <a href="https://wa.me/6285603103375" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="mailto:aaallaaamm03@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="https://alam.my.id" target="_blank" title="Website"><i class="fa-solid fa-globe"></i></a>
-                                <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="actions-area">
-                            <div class="tmp-side-collups-area d-none d-xl-block">
-                                <button class="tmp-menu-bars tmp_button_active" aria-label="Toggle Sidebar"><i class="fa-solid fa-bars-staggered"></i></button>
-                            </div>
-                            <div class="tmp-side-collups-area d-block d-xl-none">
-                                <button class="tmp-menu-bars humberger_menu_active" aria-label="Toggle Mobile Menu"><i class="fa-solid fa-bars-staggered"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- =====================================================
+  src/sections/header.html
+  Navbar: logo ALAM., menu tengah (garis aktif bergerak), ikon kanan
+===================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    .ph {
+        --u: clamp(.8px, calc(100vw / 1672), 1.9px);
+        --ph-text: #e8edf7;
+        --ph-accent: #2f6bff;
+        --ph-circle-bg: rgba(255, 255, 255, 0.04);
+        --ph-circle-border: rgba(255, 255, 255, 0.16);
+        --ph-scrolled-bg: rgba(6, 11, 22, 0.8);
+        --ph-line: rgba(120, 160, 255, 0.14);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        border-bottom: 1px solid transparent;
+        transition: background .3s ease, border-color .3s ease;
+        animation: phDown .8s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .ph.is-scrolled {
+        background: var(--ph-scrolled-bg);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border-color: var(--ph-line);
+    }
+
+    .ph *,
+    .ph *::before,
+    .ph *::after {
+        box-sizing: border-box;
+    }
+
+    @keyframes phDown {
+        from {
+            opacity: 0;
+            translate: 0 -30px;
+        }
+
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    .ph-inner {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        height: calc(96 * var(--u));
+        padding: 0 3.5vw 0 7.2vw;
+    }
+
+    /* Logo */
+    .ph-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        text-decoration: none;
+        color: var(--ph-text);
+        justify-self: start;
+    }
+
+    .ph-brand svg {
+        width: calc(44 * var(--u));
+        height: calc(40 * var(--u));
+        display: block;
+        transition: transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .ph-brand:hover svg {
+        transform: rotate(-8deg) scale(1.1);
+    }
+
+    .ph-brand-text {
+        font-size: calc(28 * var(--u));
+        font-weight: 800;
+        letter-spacing: .01em;
+        line-height: 1;
+    }
+
+    .ph-brand-text b {
+        color: var(--ph-accent);
+        font-weight: 800;
+    }
+
+    /* Menu */
+    .ph-nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 2.3vw;
+    }
+
+    .ph-nav a {
+        color: var(--ph-text);
+        text-decoration: none;
+        font-size: calc(17 * var(--u));
+        font-weight: 500;
+        padding: 6px 0;
+        white-space: nowrap;
+        transition: color .2s ease;
+    }
+
+    .ph-nav a:hover,
+    .ph-nav a.is-active {
+        color: var(--ph-accent);
+    }
+
+    .ph-nav a.is-active {
+        font-weight: 600;
+    }
+
+    .ph-ind {
+        position: absolute;
+        left: 0;
+        bottom: calc(-12 * var(--u));
+        height: 3px;
+        width: 0;
+        border-radius: 3px;
+        background: var(--ph-accent);
+        box-shadow: 0 0 12px rgba(47, 107, 255, .8);
+        transition: transform .35s cubic-bezier(.3, 1, .4, 1), width .35s cubic-bezier(.3, 1, .4, 1);
+        pointer-events: none;
+    }
+
+    /* Ikon kanan */
+    .ph-actions {
+        display: flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        justify-self: end;
+    }
+
+    .ph-circle {
+        width: calc(48 * var(--u));
+        height: calc(48 * var(--u));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid var(--ph-circle-border);
+        background: var(--ph-circle-bg);
+        color: var(--ph-text);
+        font-size: calc(18 * var(--u));
+        text-decoration: none;
+        cursor: pointer;
+        transition: border-color .25s ease, background .25s ease, transform .25s cubic-bezier(.3, 1.6, .5, 1), box-shadow .25s ease;
+    }
+
+    .ph-circle:hover {
+        border-color: var(--ph-accent);
+        background: rgba(47, 107, 255, .2);
+        box-shadow: 0 0 18px rgba(47, 107, 255, .45);
+        transform: translateY(-3px) scale(1.06);
+    }
+
+    .ph-circle:focus-visible,
+    .ph-nav a:focus-visible,
+    .ph-brand:focus-visible {
+        outline: 2px solid var(--ph-accent);
+        outline-offset: 3px;
+    }
+
+    .ph-burger {
+        display: none;
+    }
+
+    /* Menu HP */
+    .ph-mobile {
+        display: none;
+        padding: 8px 6vw 24px;
+        background: var(--ph-scrolled-bg);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid var(--ph-line);
+    }
+
+    .ph-mobile.is-open {
+        display: block;
+        animation: phDown .35s ease both;
+    }
+
+    .ph-mobile a.ph-link {
+        display: block;
+        padding: 14px 0;
+        color: var(--ph-text);
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid var(--ph-line);
+    }
+
+    .ph-mobile a.ph-link.is-active {
+        color: var(--ph-accent);
+        font-weight: 700;
+    }
+
+    .ph-mobile .ph-actions {
+        margin-top: 18px;
+        justify-self: start;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 1100px) {
+        .ph {
+            --u: .9px;
+        }
+
+        .ph-inner {
+            grid-template-columns: 1fr auto;
+            height: 72px;
+            padding: 0 6vw;
+        }
+
+        .ph-nav,
+        .ph-actions .ph-hide-sm {
+            display: none;
+        }
+
+        .ph-burger {
+            display: inline-flex;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .ph,
+        .ph-mobile.is-open {
+            animation: none;
+        }
+
+        .ph *,
+        .ph-ind {
+            transition: none !important;
+        }
+    }
+</style>
+
+<header class="ph" id="siteHeader">
+    <div class="ph-inner">
+        <a class="ph-brand" href="#home" aria-label="ALAM - ke beranda">
+            <svg viewBox="0 0 44 40" aria-hidden="true">
+                <defs>
+                    <linearGradient id="phLogoA" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#4b8bff" />
+                        <stop offset="1" stop-color="#1d4ed8" />
+                    </linearGradient>
+                </defs>
+                <path d="M22 0 L44 40 H31 L22 23 L13 40 H0 Z" fill="url(#phLogoA)" />
+                <path d="M22 13 L28 25 H16 Z" fill="#0a1226" />
+            </svg>
+            <span class="ph-brand-text">ALAM<b>.</b></span>
+        </a>
+
+        <nav class="ph-nav" id="phNav" aria-label="Navigasi utama">
+            <a href="#home" class="is-active">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#education">Pendidikan</a>
+            <a href="#certifications">Sertifikasi</a>
+            <a href="#portfolio">Portofolio</a>
+            <a href="#contact">Kontak</a>
+            <span class="ph-ind" id="phInd" aria-hidden="true"></span>
+        </nav>
+
+        <div class="ph-actions">
+            <a class="ph-circle ph-hide-sm" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
+                aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="ph-circle ph-hide-sm" href="mailto:EMAILKAMU@gmail.com" aria-label="Email"><i
+                    class="fa-solid fa-envelope"></i></a>
+            <a class="ph-circle ph-hide-sm" href="#home" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+            <button class="ph-circle ph-burger" id="phBurger" type="button" aria-label="Buka menu"
+                aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+
+    <div class="ph-mobile" id="phMobile">
+        <a class="ph-link" href="#home">Home</a>
+        <a class="ph-link" href="#about">Tentang</a>
+        <a class="ph-link" href="#skills">Keahlian</a>
+        <a class="ph-link" href="#experience">Pengalaman</a>
+        <a class="ph-link" href="#education">Pendidikan</a>
+        <a class="ph-link" href="#certifications">Sertifikasi</a>
+        <a class="ph-link" href="#portfolio">Portofolio</a>
+        <a class="ph-link" href="#contact">Kontak</a>
+        <div class="ph-actions">
+            <a class="ph-circle" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
+                aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="ph-circle" href="mailto:EMAILKAMU@gmail.com" aria-label="Email"><i
+                    class="fa-solid fa-envelope"></i></a>
+            <a class="ph-circle" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener"
+                aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a class="ph-circle" href="https://discord.com/users/ID_DISCORD" target="_blank" rel="noopener"
+                aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a class="ph-circle" href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener"
+                aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a class="ph-circle" href="https://instagram.com/USERNAME" target="_blank" rel="noopener"
+                aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </div>
 </header>
 
-<!-- Desktop Offcanvas Sidebar -->
-<div class="d-none d-xl-block">
-    <div class="tmp-sidebar-area tmp_side_bar">
-        <div class="inner">
-            <div class="top-area">
-                <a href="#home_sec" class="logo" style="text-decoration: none;">
-                    <span style="font-size: 26px; font-weight: 800; color: #F1E4D1; letter-spacing: 1.5px;">ALAM<span style="color: #ffaa40;">.</span></span>
-                </a>
-                <div class="close-icon-area">
-                    <button class="tmp-round-action-btn close_side_menu_active" aria-label="Close Sidebar">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="content-wrapper">
-                <div class="image-area-feature">
-                    <a href="#home_sec">
-                        <picture>
-                            <source srcset="assets/images/profile.webp" type="image/webp">
-                            <img src="assets/images/profile.png" alt="Muhamad Nur Salam" style="border-radius: 12px; width: 100%; max-height: 340px; object-fit: cover; object-position: top center; display: block;">
-                        </picture>
-                    </a>
-                </div>
-                <h5 class="title mt--30">Network Engineering, IT Infrastructure &amp; Cybersecurity Specialist</h5>
-                <p class="disc">Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan keahlian dalam konfigurasi &amp; troubleshooting jaringan, subnetting, VLAN, routing, Mikrotik, virtualisasi, serta administrasi sistem Linux. Berpengalaman sebagai teknisi komputer, QA, dan software engineering.</p>
-                <div class="short-contact-area">
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-phone"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Hubungi / WhatsApp</span>
-                            <a href="https://wa.me/6285603103375" target="_blank" class="number">085603103375</a>
-                        </div>
-                    </div>
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Email Saya</span>
-                            <a href="mailto:aaallaaamm03@gmail.com" class="number">aaallaaamm03@gmail.com</a>
-                        </div>
-                    </div>
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-location-crosshairs"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Lokasi / Domisili</span>
-                            <span class="number">Tubagus Ismail Dalam, Dago, Bandung</span>
-                        </div>
-                    </div>
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-globe"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Website Pribadi</span>
-                            <a href="https://alam.my.id" target="_blank" class="number">alam.my.id</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- social area start -->
-                <div class="social-wrapper mt--20">
-                    <span class="subtitle">Temukan Saya</span>
-                    <div class="social-link">
-                        <a href="https://wa.me/6285603103375" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="mailto:aaallaaamm03@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="https://alam.my.id" target="_blank"><i class="fa-solid fa-globe"></i></a>
-                        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="overlay_close_side_menu close_side_menu_active" href="javascript:void(0);"></a>
-</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var header = document.getElementById("siteHeader");
+        var burger = document.getElementById("phBurger");
+        var mobile = document.getElementById("phMobile");
+        var nav = document.getElementById("phNav");
+        var ind = document.getElementById("phInd");
 
-<!-- Mobile Popup Menu -->
-<div class="d-block d-xl-none">
-    <div class="tmp-popup-mobile-menu">
-        <div class="inner">
-            <div class="header-top">
-                <div class="logo">
-                    <a href="#home_sec" class="logo-area" style="text-decoration: none;">
-                        <span style="font-size: 24px; font-weight: 800; color: #F1E4D1; letter-spacing: 1px;">ALAM<span style="color: #ffaa40;">.</span></span>
-                    </a>
-                </div>
-                <div class="close-menu">
-                    <button class="close-button tmp-round-action-btn" aria-label="Close Menu">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-            <ul class="tmp-mainmenu">
-                <li><a href="#home_sec" class="scroll close-after">Home</a></li>
-                <li><a href="#section_about" class="scroll close-after">Tentang</a></li>
-                <li><a href="#section_expertise" class="scroll close-after">Keahlian</a></li>
-                <li><a href="#section_experiences" class="scroll close-after">Pengalaman</a></li>
-                <li><a href="#section_education" class="scroll close-after">Pendidikan</a></li>
-                <li><a href="#section_certifications" class="scroll close-after">Sertifikasi</a></li>
-                <li><a href="#section_portfolios" class="scroll close-after">Portofolio</a></li>
-                <li><a href="#section_contact" class="scroll close-after">Kontak</a></li>
-            </ul>
-            <div class="social-wrapper mt--40">
-                <span class="subtitle">Temukan Saya</span>
-                <div class="social-link">
-                    <a href="https://wa.me/6285603103375" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="mailto:aaallaaamm03@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://alam.my.id" target="_blank"><i class="fa-solid fa-globe"></i></a>
-                    <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        /* header berubah saat scroll */
+        function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 20); }
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        /* menu HP */
+        function setBurger(open) {
+            mobile.classList.toggle("is-open", open);
+            burger.setAttribute("aria-expanded", open ? "true" : "false");
+            burger.firstElementChild.className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+        }
+        burger.addEventListener("click", function () { setBurger(!mobile.classList.contains("is-open")); });
+        mobile.querySelectorAll("a.ph-link").forEach(function (a) {
+            a.addEventListener("click", function () { setBurger(false); });
+        });
+
+        /* garis indikator menu */
+        var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
+        function moveInd(a) {
+            if (!a || !a.offsetWidth) return;
+            ind.style.width = a.offsetWidth + "px";
+            ind.style.transform = "translateX(" + a.offsetLeft + "px)";
+        }
+        function current() { return nav.querySelector("a.is-active") || navLinks[0]; }
+        navLinks.forEach(function (a) {
+            a.addEventListener("mouseenter", function () { moveInd(a); });
+            a.addEventListener("focus", function () { moveInd(a); });
+        });
+        nav.addEventListener("mouseleave", function () { moveInd(current()); });
+        window.addEventListener("resize", function () { moveInd(current()); });
+        (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { moveInd(current()); });
+        moveInd(current());
+
+        /* menu aktif mengikuti scroll */
+        var links = navLinks.concat(Array.prototype.slice.call(mobile.querySelectorAll("a.ph-link")));
+        var map = {};
+        links.forEach(function (a) {
+            var id = a.getAttribute("href").slice(1);
+            if (document.getElementById(id)) { (map[id] = map[id] || []).push(a); }
+        });
+        var ids = Object.keys(map);
+        if ("IntersectionObserver" in window && ids.length) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (!en.isIntersecting) return;
+                    links.forEach(function (l) { l.classList.remove("is-active"); });
+                    (map[en.target.id] || []).forEach(function (l) { l.classList.add("is-active"); });
+                    moveInd(current());
+                });
+            }, { rootMargin: "-45% 0px -50% 0px" });
+            ids.forEach(function (id) { io.observe(document.getElementById(id)); });
+        }
+    });
+</script>

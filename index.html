@@ -203,680 +203,2980 @@
 <body class="color-primary-2nd">
 
     <!-- BEGIN SECTION: header.html -->
-<!-- Header & Navigation Area -->
-<header class="tmp-header-area-start header-one header--sticky header--transparent">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="header-content">
-                    <div class="logo">
-                        <a href="#home_sec" style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                            <span style="font-size: 26px; font-weight: 800; color: #F1E4D1; letter-spacing: 1.5px; font-family: var(--font-primary, sans-serif);">ALAM<span style="color: #ffaa40;">.</span></span>
-                        </a>
-                    </div>
-                    <nav class="tmp-mainmenu-nav d-none d-xl-block">
-                        <ul class="tmp-mainmenu">
-                            <li><a href="#home_sec" class="scroll">Home</a></li>
-                            <li><a href="#section_about" class="scroll">Tentang</a></li>
-                            <li><a href="#section_expertise" class="scroll">Keahlian</a></li>
-                            <li><a href="#section_experiences" class="scroll">Pengalaman</a></li>
-                            <li><a href="#section_education" class="scroll">Pendidikan</a></li>
-                            <li><a href="#section_certifications" class="scroll">Sertifikasi</a></li>
-                            <li><a href="#section_portfolios" class="scroll">Portofolio</a></li>
-                            <li><a href="#section_contact" class="scroll">Kontak</a></li>
-                        </ul>
-                    </nav>
-                    <div class="tmp-header-right">
-                        <div class="social-share-wrapper d-none d-md-block">
-                            <div class="social-link">
-                                <a href="https://wa.me/6285603103375" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="mailto:aaallaaamm03@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="https://alam.my.id" target="_blank" title="Website"><i class="fa-solid fa-globe"></i></a>
-                                <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="actions-area">
-                            <div class="tmp-side-collups-area d-none d-xl-block">
-                                <button class="tmp-menu-bars tmp_button_active" aria-label="Toggle Sidebar"><i class="fa-solid fa-bars-staggered"></i></button>
-                            </div>
-                            <div class="tmp-side-collups-area d-block d-xl-none">
-                                <button class="tmp-menu-bars humberger_menu_active" aria-label="Toggle Mobile Menu"><i class="fa-solid fa-bars-staggered"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- =====================================================
+  src/sections/header.html
+  Navbar: logo ALAM., menu tengah (garis aktif bergerak), ikon kanan
+===================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    .ph {
+        --u: clamp(.8px, calc(100vw / 1672), 1.9px);
+        --ph-text: #e8edf7;
+        --ph-accent: #2f6bff;
+        --ph-circle-bg: rgba(255, 255, 255, 0.04);
+        --ph-circle-border: rgba(255, 255, 255, 0.16);
+        --ph-scrolled-bg: rgba(6, 11, 22, 0.8);
+        --ph-line: rgba(120, 160, 255, 0.14);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        border-bottom: 1px solid transparent;
+        transition: background .3s ease, border-color .3s ease;
+        animation: phDown .8s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .ph.is-scrolled {
+        background: var(--ph-scrolled-bg);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border-color: var(--ph-line);
+    }
+
+    .ph *,
+    .ph *::before,
+    .ph *::after {
+        box-sizing: border-box;
+    }
+
+    @keyframes phDown {
+        from {
+            opacity: 0;
+            translate: 0 -30px;
+        }
+
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    .ph-inner {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        height: calc(96 * var(--u));
+        padding: 0 3.5vw 0 7.2vw;
+    }
+
+    /* Logo */
+    .ph-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        text-decoration: none;
+        color: var(--ph-text);
+        justify-self: start;
+    }
+
+    .ph-brand svg {
+        width: calc(44 * var(--u));
+        height: calc(40 * var(--u));
+        display: block;
+        transition: transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .ph-brand:hover svg {
+        transform: rotate(-8deg) scale(1.1);
+    }
+
+    .ph-brand-text {
+        font-size: calc(28 * var(--u));
+        font-weight: 800;
+        letter-spacing: .01em;
+        line-height: 1;
+    }
+
+    .ph-brand-text b {
+        color: var(--ph-accent);
+        font-weight: 800;
+    }
+
+    /* Menu */
+    .ph-nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 2.3vw;
+    }
+
+    .ph-nav a {
+        color: var(--ph-text);
+        text-decoration: none;
+        font-size: calc(17 * var(--u));
+        font-weight: 500;
+        padding: 6px 0;
+        white-space: nowrap;
+        transition: color .2s ease;
+    }
+
+    .ph-nav a:hover,
+    .ph-nav a.is-active {
+        color: var(--ph-accent);
+    }
+
+    .ph-nav a.is-active {
+        font-weight: 600;
+    }
+
+    .ph-ind {
+        position: absolute;
+        left: 0;
+        bottom: calc(-12 * var(--u));
+        height: 3px;
+        width: 0;
+        border-radius: 3px;
+        background: var(--ph-accent);
+        box-shadow: 0 0 12px rgba(47, 107, 255, .8);
+        transition: transform .35s cubic-bezier(.3, 1, .4, 1), width .35s cubic-bezier(.3, 1, .4, 1);
+        pointer-events: none;
+    }
+
+    /* Ikon kanan */
+    .ph-actions {
+        display: flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        justify-self: end;
+    }
+
+    .ph-circle {
+        width: calc(48 * var(--u));
+        height: calc(48 * var(--u));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid var(--ph-circle-border);
+        background: var(--ph-circle-bg);
+        color: var(--ph-text);
+        font-size: calc(18 * var(--u));
+        text-decoration: none;
+        cursor: pointer;
+        transition: border-color .25s ease, background .25s ease, transform .25s cubic-bezier(.3, 1.6, .5, 1), box-shadow .25s ease;
+    }
+
+    .ph-circle:hover {
+        border-color: var(--ph-accent);
+        background: rgba(47, 107, 255, .2);
+        box-shadow: 0 0 18px rgba(47, 107, 255, .45);
+        transform: translateY(-3px) scale(1.06);
+    }
+
+    .ph-circle:focus-visible,
+    .ph-nav a:focus-visible,
+    .ph-brand:focus-visible {
+        outline: 2px solid var(--ph-accent);
+        outline-offset: 3px;
+    }
+
+    .ph-burger {
+        display: none;
+    }
+
+    /* Menu HP */
+    .ph-mobile {
+        display: none;
+        padding: 8px 6vw 24px;
+        background: var(--ph-scrolled-bg);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid var(--ph-line);
+    }
+
+    .ph-mobile.is-open {
+        display: block;
+        animation: phDown .35s ease both;
+    }
+
+    .ph-mobile a.ph-link {
+        display: block;
+        padding: 14px 0;
+        color: var(--ph-text);
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid var(--ph-line);
+    }
+
+    .ph-mobile a.ph-link.is-active {
+        color: var(--ph-accent);
+        font-weight: 700;
+    }
+
+    .ph-mobile .ph-actions {
+        margin-top: 18px;
+        justify-self: start;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 1100px) {
+        .ph {
+            --u: .9px;
+        }
+
+        .ph-inner {
+            grid-template-columns: 1fr auto;
+            height: 72px;
+            padding: 0 6vw;
+        }
+
+        .ph-nav,
+        .ph-actions .ph-hide-sm {
+            display: none;
+        }
+
+        .ph-burger {
+            display: inline-flex;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .ph,
+        .ph-mobile.is-open {
+            animation: none;
+        }
+
+        .ph *,
+        .ph-ind {
+            transition: none !important;
+        }
+    }
+</style>
+
+<header class="ph" id="siteHeader">
+    <div class="ph-inner">
+        <a class="ph-brand" href="#home" aria-label="ALAM - ke beranda">
+            <svg viewBox="0 0 44 40" aria-hidden="true">
+                <defs>
+                    <linearGradient id="phLogoA" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#4b8bff" />
+                        <stop offset="1" stop-color="#1d4ed8" />
+                    </linearGradient>
+                </defs>
+                <path d="M22 0 L44 40 H31 L22 23 L13 40 H0 Z" fill="url(#phLogoA)" />
+                <path d="M22 13 L28 25 H16 Z" fill="#0a1226" />
+            </svg>
+            <span class="ph-brand-text">ALAM<b>.</b></span>
+        </a>
+
+        <nav class="ph-nav" id="phNav" aria-label="Navigasi utama">
+            <a href="#home" class="is-active">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#education">Pendidikan</a>
+            <a href="#certifications">Sertifikasi</a>
+            <a href="#portfolio">Portofolio</a>
+            <a href="#contact">Kontak</a>
+            <span class="ph-ind" id="phInd" aria-hidden="true"></span>
+        </nav>
+
+        <div class="ph-actions">
+            <a class="ph-circle ph-hide-sm" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
+                aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="ph-circle ph-hide-sm" href="mailto:EMAILKAMU@gmail.com" aria-label="Email"><i
+                    class="fa-solid fa-envelope"></i></a>
+            <a class="ph-circle ph-hide-sm" href="#home" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+            <button class="ph-circle ph-burger" id="phBurger" type="button" aria-label="Buka menu"
+                aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+
+    <div class="ph-mobile" id="phMobile">
+        <a class="ph-link" href="#home">Home</a>
+        <a class="ph-link" href="#about">Tentang</a>
+        <a class="ph-link" href="#skills">Keahlian</a>
+        <a class="ph-link" href="#experience">Pengalaman</a>
+        <a class="ph-link" href="#education">Pendidikan</a>
+        <a class="ph-link" href="#certifications">Sertifikasi</a>
+        <a class="ph-link" href="#portfolio">Portofolio</a>
+        <a class="ph-link" href="#contact">Kontak</a>
+        <div class="ph-actions">
+            <a class="ph-circle" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
+                aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="ph-circle" href="mailto:EMAILKAMU@gmail.com" aria-label="Email"><i
+                    class="fa-solid fa-envelope"></i></a>
+            <a class="ph-circle" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener"
+                aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a class="ph-circle" href="https://discord.com/users/ID_DISCORD" target="_blank" rel="noopener"
+                aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a class="ph-circle" href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener"
+                aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a class="ph-circle" href="https://instagram.com/USERNAME" target="_blank" rel="noopener"
+                aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </div>
 </header>
 
-<!-- Desktop Offcanvas Sidebar -->
-<div class="d-none d-xl-block">
-    <div class="tmp-sidebar-area tmp_side_bar">
-        <div class="inner">
-            <div class="top-area">
-                <a href="#home_sec" class="logo" style="text-decoration: none;">
-                    <span style="font-size: 26px; font-weight: 800; color: #F1E4D1; letter-spacing: 1.5px;">ALAM<span style="color: #ffaa40;">.</span></span>
-                </a>
-                <div class="close-icon-area">
-                    <button class="tmp-round-action-btn close_side_menu_active" aria-label="Close Sidebar">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="content-wrapper">
-                <div class="image-area-feature">
-                    <a href="#home_sec">
-                        <picture>
-                            <source srcset="assets/images/profile.webp" type="image/webp">
-                            <img src="assets/images/profile.png" alt="Muhamad Nur Salam" style="border-radius: 12px; width: 100%; max-height: 340px; object-fit: cover; object-position: top center; display: block;">
-                        </picture>
-                    </a>
-                </div>
-                <h5 class="title mt--30">Network Engineering, IT Infrastructure &amp; Cybersecurity Specialist</h5>
-                <p class="disc">Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan keahlian dalam konfigurasi &amp; troubleshooting jaringan, subnetting, VLAN, routing, Mikrotik, virtualisasi, serta administrasi sistem Linux. Berpengalaman sebagai teknisi komputer, QA, dan software engineering.</p>
-                <div class="short-contact-area">
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-phone"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Hubungi / WhatsApp</span>
-                            <a href="https://wa.me/6285603103375" target="_blank" class="number">085603103375</a>
-                        </div>
-                    </div>
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Email Saya</span>
-                            <a href="mailto:aaallaaamm03@gmail.com" class="number">aaallaaamm03@gmail.com</a>
-                        </div>
-                    </div>
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-location-crosshairs"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Lokasi / Domisili</span>
-                            <span class="number">Tubagus Ismail Dalam, Dago, Bandung</span>
-                        </div>
-                    </div>
-                    <!-- single contact information -->
-                    <div class="single-contact">
-                        <i class="fa-solid fa-globe"></i>
-                        <div class="information tmp-link-animation">
-                            <span>Website Pribadi</span>
-                            <a href="https://alam.my.id" target="_blank" class="number">alam.my.id</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- social area start -->
-                <div class="social-wrapper mt--20">
-                    <span class="subtitle">Temukan Saya</span>
-                    <div class="social-link">
-                        <a href="https://wa.me/6285603103375" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="mailto:aaallaaamm03@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="https://alam.my.id" target="_blank"><i class="fa-solid fa-globe"></i></a>
-                        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="overlay_close_side_menu close_side_menu_active" href="javascript:void(0);"></a>
-</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var header = document.getElementById("siteHeader");
+        var burger = document.getElementById("phBurger");
+        var mobile = document.getElementById("phMobile");
+        var nav = document.getElementById("phNav");
+        var ind = document.getElementById("phInd");
 
-<!-- Mobile Popup Menu -->
-<div class="d-block d-xl-none">
-    <div class="tmp-popup-mobile-menu">
-        <div class="inner">
-            <div class="header-top">
-                <div class="logo">
-                    <a href="#home_sec" class="logo-area" style="text-decoration: none;">
-                        <span style="font-size: 24px; font-weight: 800; color: #F1E4D1; letter-spacing: 1px;">ALAM<span style="color: #ffaa40;">.</span></span>
-                    </a>
-                </div>
-                <div class="close-menu">
-                    <button class="close-button tmp-round-action-btn" aria-label="Close Menu">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-            <ul class="tmp-mainmenu">
-                <li><a href="#home_sec" class="scroll close-after">Home</a></li>
-                <li><a href="#section_about" class="scroll close-after">Tentang</a></li>
-                <li><a href="#section_expertise" class="scroll close-after">Keahlian</a></li>
-                <li><a href="#section_experiences" class="scroll close-after">Pengalaman</a></li>
-                <li><a href="#section_education" class="scroll close-after">Pendidikan</a></li>
-                <li><a href="#section_certifications" class="scroll close-after">Sertifikasi</a></li>
-                <li><a href="#section_portfolios" class="scroll close-after">Portofolio</a></li>
-                <li><a href="#section_contact" class="scroll close-after">Kontak</a></li>
-            </ul>
-            <div class="social-wrapper mt--40">
-                <span class="subtitle">Temukan Saya</span>
-                <div class="social-link">
-                    <a href="https://wa.me/6285603103375" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="mailto:aaallaaamm03@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://alam.my.id" target="_blank"><i class="fa-solid fa-globe"></i></a>
-                    <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        /* header berubah saat scroll */
+        function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 20); }
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        /* menu HP */
+        function setBurger(open) {
+            mobile.classList.toggle("is-open", open);
+            burger.setAttribute("aria-expanded", open ? "true" : "false");
+            burger.firstElementChild.className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+        }
+        burger.addEventListener("click", function () { setBurger(!mobile.classList.contains("is-open")); });
+        mobile.querySelectorAll("a.ph-link").forEach(function (a) {
+            a.addEventListener("click", function () { setBurger(false); });
+        });
+
+        /* garis indikator menu */
+        var navLinks = Array.prototype.slice.call(nav.querySelectorAll("a"));
+        function moveInd(a) {
+            if (!a || !a.offsetWidth) return;
+            ind.style.width = a.offsetWidth + "px";
+            ind.style.transform = "translateX(" + a.offsetLeft + "px)";
+        }
+        function current() { return nav.querySelector("a.is-active") || navLinks[0]; }
+        navLinks.forEach(function (a) {
+            a.addEventListener("mouseenter", function () { moveInd(a); });
+            a.addEventListener("focus", function () { moveInd(a); });
+        });
+        nav.addEventListener("mouseleave", function () { moveInd(current()); });
+        window.addEventListener("resize", function () { moveInd(current()); });
+        (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { moveInd(current()); });
+        moveInd(current());
+
+        /* menu aktif mengikuti scroll */
+        var links = navLinks.concat(Array.prototype.slice.call(mobile.querySelectorAll("a.ph-link")));
+        var map = {};
+        links.forEach(function (a) {
+            var id = a.getAttribute("href").slice(1);
+            if (document.getElementById(id)) { (map[id] = map[id] || []).push(a); }
+        });
+        var ids = Object.keys(map);
+        if ("IntersectionObserver" in window && ids.length) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (!en.isIntersecting) return;
+                    links.forEach(function (l) { l.classList.remove("is-active"); });
+                    (map[en.target.id] || []).forEach(function (l) { l.classList.add("is-active"); });
+                    moveInd(current());
+                });
+            }, { rootMargin: "-45% 0px -50% 0px" });
+            ids.forEach(function (id) { io.observe(document.getElementById(id)); });
+        }
+    });
+</script>
 <!-- END SECTION: header.html -->
 
     <!-- BEGIN SECTION: hero.html -->
-<!-- Hero / Banner Section -->
-<div class="rpp-banner-three-area as-section" id="home_sec">
-    <div class="container">
-        <div class="banner-three-main-wrapper">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="inner">
-                        <span class="sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">Halo, saya</span>
-                        <h1 class="title tmp-scroll-trigger tmp-fade-in animation-order-2">Muhamad Nur Salam</h1>
-                        <div class="button-area-banner-three tmp-scroll-trigger tmp-fade-in animation-order-3" style="display: flex; gap: 12px; flex-wrap: wrap;">
-                            <a class="tmp-btn hover-icon-reverse radius-round scroll" href="#section_about">
-                                <span class="icon-reverse-wrapper">
-                                    <span class="btn-text">Tentang Saya</span>
-                                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
-                                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
-                                </span>
-                            </a>
-                            <a class="tmp-btn hover-icon-reverse radius-round" href="cv-muhamad-nur-salam.pdf" target="_blank" style="background: rgba(241, 228, 209, 0.1); border: 1px solid #F1E4D1; color: #F1E4D1;">
-                                <span class="icon-reverse-wrapper">
-                                    <span class="btn-text">Unduh CV</span>
-                                    <span class="btn-icon"><i class="fa-solid fa-download"></i></span>
-                                    <span class="btn-icon"><i class="fa-solid fa-download"></i></span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="banner-right-content">
-                        <div class="about-me tmp-scroll-trigger tmp-fade-in animation-order-1">
-                            <h3 class="title">About Me</h3>
-                            <p class="para tmp-title-split">Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT Infrastructure, dan Cybersecurity. Memiliki pemahaman dalam konfigurasi & troubleshooting jaringan, administrasi sistem Linux, teknisi komputer, serta software development.</p>
-                        </div>
-                        <div class="find-me-on mt--40 tmp-scroll-trigger tmp-fade-in animation-order-2">
-                            <h2 class="find-me-on-title">Find me on</h2>
-                            <div class="social-link banner">
-                                <a href="https://wa.me/6285603103375" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="mailto:aaallaaamm03@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="https://alam.my.id" target="_blank" title="Website"><i class="fa-solid fa-globe"></i></a>
-                                <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- =====================================================
+  src/sections/hero.html
+  Halaman utama: nama, role (efek ketik), tombol, foto, kartu About Me
+  Motion: animasi masuk, parallax mouse, spotlight, tilt kartu, tombol magnetik
+===================================================== -->
+<style>
+    .hr {
+        --u: clamp(.8px, calc(100vw / 1672), 1.9px);
+        --hr-bg: #060b16;
+        --hr-text: #ffffff;
+        --hr-sub: #b7c0d4;
+        --hr-body: #cdd5e6;
+        --hr-accent: #2f6bff;
+        --hr-circle-bg: rgba(255, 255, 255, 0.05);
+        --hr-circle-border: rgba(255, 255, 255, 0.16);
+        position: relative;
+        display: block;
+        min-height: max(100vh, 680px);
+        padding-top: calc(96 * var(--u));
+        overflow: hidden;
+        background: var(--hr-bg);
+        color: var(--hr-text);
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .hr *,
+    .hr *::before,
+    .hr *::after {
+        box-sizing: border-box;
+    }
+
+    /* grid tipis di latar */
+    .hr::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(120, 160, 255, .05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .05) 1px, transparent 1px);
+        background-size: 90px 90px;
+        -webkit-mask-image: radial-gradient(ellipse at 40% 50%, #000 10%, transparent 75%);
+        mask-image: radial-gradient(ellipse at 40% 50%, #000 10%, transparent 75%);
+        pointer-events: none;
+    }
+
+    /* cahaya yang mengikuti kursor */
+    .hr-spot {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(520px circle at var(--sx, 60%) var(--sy, 45%), rgba(47, 107, 255, .16), transparent 62%);
+    }
+
+    .hr-decor {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        transform: translate3d(calc(var(--mx, 0) * 12px), calc(var(--my, 0) * 7px), 0) scale(1.03);
+    }
+
+    .hr-twinkle {
+        animation: hrTwinkle 3.6s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    .hr-twinkle.d2 {
+        animation-delay: 1.4s;
+    }
+
+    .hr-spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: hrSpin 60s linear infinite;
+    }
+
+    .hr-pulse {
+        animation: hrPulse 6s ease-in-out infinite;
+    }
+
+    @keyframes hrTwinkle {
+
+        0%,
+        100% {
+            opacity: 1;
+            scale: 1;
+        }
+
+        50% {
+            opacity: .3;
+            scale: .6;
+        }
+    }
+
+    @keyframes hrSpin {
+        to {
+            rotate: 360deg;
+        }
+    }
+
+    @keyframes hrPulse {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .6;
+        }
+    }
+
+    /* ---------- Layout ---------- */
+    .hr-inner {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: calc(max(100vh, 680px) - 96 * var(--u));
+        padding: 0 3.5vw 40px 7.8vw;
+    }
+
+    /* ---------- Kiri ---------- */
+    .hr-left {
+        max-width: 46vw;
+    }
+
+    .hr-hello {
+        display: flex;
+        align-items: center;
+        gap: calc(22 * var(--u));
+        margin: 0 0 calc(8 * var(--u));
+        font-size: calc(20 * var(--u));
+        font-weight: 600;
+        letter-spacing: .3em;
+        animation: hrUp .7s cubic-bezier(.2, .8, .2, 1) .1s both;
+    }
+
+    .hr-hello span {
+        width: calc(68 * var(--u));
+        height: 3px;
+        border-radius: 3px;
+        background: var(--hr-accent);
+        transform-origin: left;
+        animation: hrGrow .9s cubic-bezier(.2, .8, .2, 1) .5s both;
+    }
+
+    .hr-name {
+        margin: 0;
+        font-size: calc(94 * var(--u));
+        font-weight: 800;
+        line-height: .95;
+        letter-spacing: -.025em;
+    }
+
+    .hr-line {
+        display: block;
+        overflow: hidden;
+        padding: 0 .12em .08em 0;
+        white-space: nowrap;
+    }
+
+    .hr-line>span {
+        display: inline-block;
+        animation: hrLine 1s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .hr-line:nth-child(1)>span {
+        animation-delay: .2s;
+    }
+
+    .hr-line:nth-child(2)>span {
+        animation-delay: .35s;
+    }
+
+    .hr-name em {
+        font-style: italic;
+        padding-right: .08em;
+        background: linear-gradient(90deg, #2f6bff, #78adff, #2f6bff);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: hrShine 4.5s linear infinite;
+    }
+
+    @keyframes hrShine {
+        to {
+            background-position: -200% 0;
+        }
+    }
+
+    .hr-role {
+        max-width: calc(470 * var(--u));
+        min-height: 2.7em;
+        margin: calc(26 * var(--u)) 0 0;
+        font-size: calc(23 * var(--u));
+        font-weight: 500;
+        line-height: 1.35;
+        color: var(--hr-sub);
+        animation: hrUp .8s cubic-bezier(.2, .8, .2, 1) .7s both;
+    }
+
+    .hr-caret {
+        display: inline-block;
+        width: 2px;
+        height: 1.05em;
+        margin-left: 3px;
+        vertical-align: -.15em;
+        background: var(--hr-accent);
+        animation: hrBlink .8s steps(1) infinite;
+    }
+
+    .hr-caret.is-done {
+        display: none;
+    }
+
+    @keyframes hrBlink {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    .hr-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(18 * var(--u));
+        margin-top: calc(38 * var(--u));
+        animation: hrUp .8s cubic-bezier(.2, .8, .2, 1) .9s both;
+    }
+
+    .hr-btn {
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: calc(12 * var(--u));
+        height: calc(58 * var(--u));
+        padding: 0 calc(36 * var(--u));
+        border-radius: 999px;
+        font-family: inherit;
+        font-size: calc(18 * var(--u));
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: translate .25s ease-out, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .hr-btn i {
+        transition: transform .3s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .hr-btn:hover i.fa-arrow-right {
+        transform: translateX(5px);
+    }
+
+    .hr-btn:hover i.fa-download {
+        transform: translateY(3px);
+    }
+
+    .hr-btn:focus-visible {
+        outline: 2px solid var(--hr-accent);
+        outline-offset: 3px;
+    }
+
+    .hr-btn-primary {
+        color: #fff;
+        background: linear-gradient(90deg, #1f5bff, #3a86ff);
+        box-shadow: 0 8px 28px rgba(47, 107, 255, .45);
+    }
+
+    .hr-btn-primary::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -60%;
+        width: 40%;
+        background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent);
+        transform: skewX(-20deg);
+    }
+
+    .hr-btn-primary:hover {
+        box-shadow: 0 12px 38px rgba(47, 107, 255, .7);
+    }
+
+    .hr-btn-primary:hover::after {
+        left: 130%;
+        transition: left .7s ease;
+    }
+
+    .hr-btn-ghost {
+        color: var(--hr-text);
+        background: transparent;
+        border: 1.5px solid rgba(255, 255, 255, .5);
+    }
+
+    .hr-btn-ghost:hover {
+        border-color: var(--hr-accent);
+        background: rgba(47, 107, 255, .14);
+    }
+
+    /* ---------- Ikon sosmed ---------- */
+    .hr-social {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(12 * var(--u));
+    }
+
+    .hr-social a {
+        width: calc(44 * var(--u));
+        height: calc(44 * var(--u));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--hr-circle-bg);
+        border: 1px solid var(--hr-circle-border);
+        color: var(--hr-text);
+        font-size: calc(18 * var(--u));
+        text-decoration: none;
+        animation: hrPop .6s cubic-bezier(.3, 1.6, .5, 1) both;
+        animation-delay: calc(1.3s + var(--i) * .08s);
+        transition: background .25s ease, border-color .25s ease, transform .25s cubic-bezier(.3, 1.6, .5, 1), box-shadow .25s ease;
+    }
+
+    .hr-social a:hover {
+        background: var(--hr-accent);
+        border-color: var(--hr-accent);
+        color: #fff;
+        box-shadow: 0 8px 22px rgba(47, 107, 255, .6);
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    .hr-social a:focus-visible {
+        outline: 2px solid var(--hr-accent);
+        outline-offset: 3px;
+    }
+
+    /* ---------- Foto ---------- */
+    .hr-photo {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 55.5%;
+        height: 84%;
+        width: auto;
+        max-width: none;
+        transform: translateX(-50%) translate3d(calc(var(--mx, 0) * -16px), calc(var(--my, 0) * -9px), 0);
+        pointer-events: none;
+        user-select: none;
+        filter: drop-shadow(0 24px 60px rgba(30, 80, 255, .28));
+        animation: hrPhotoIn 1.2s cubic-bezier(.2, .8, .2, 1) .3s both, hrFloat 7s ease-in-out 1.6s infinite;
+    }
+
+    @keyframes hrPhotoIn {
+        from {
+            opacity: 0;
+            scale: .94;
+        }
+
+        to {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+
+    @keyframes hrFloat {
+
+        0%,
+        100% {
+            translate: 0 0;
+        }
+
+        50% {
+            translate: 0 -10px;
+        }
+    }
+
+    /* ---------- Kartu About Me ---------- */
+    .hr-about {
+        position: relative;
+        overflow: hidden;
+        width: calc(442 * var(--u));
+        padding: calc(28 * var(--u));
+        border-radius: calc(28 * var(--u));
+        background: linear-gradient(160deg, rgba(34, 58, 118, .5), rgba(12, 22, 48, .55));
+        border: 1px solid rgba(120, 160, 255, .22);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 24px 70px rgba(0, 10, 40, .45), inset 0 1px 0 rgba(255, 255, 255, .06);
+        transition: transform .25s ease-out, border-color .3s ease, box-shadow .3s ease;
+        will-change: transform;
+        animation: hrIn .9s cubic-bezier(.2, .8, .2, 1) .6s both;
+    }
+
+    .hr-about:hover {
+        border-color: rgba(120, 160, 255, .45);
+        box-shadow: 0 30px 80px rgba(20, 60, 200, .3), inset 0 1px 0 rgba(255, 255, 255, .08);
+    }
+
+    .hr-about::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background: radial-gradient(260px circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .12), transparent 60%);
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+
+    .hr-about:hover::after {
+        opacity: 1;
+    }
+
+    .hr-about h2 {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 0 0 calc(16 * var(--u));
+        font-size: calc(26 * var(--u));
+        font-weight: 700;
+    }
+
+    .hr-about h2::before {
+        content: "";
+        width: calc(6 * var(--u));
+        height: calc(32 * var(--u));
+        border-radius: 3px;
+        background: var(--hr-accent);
+    }
+
+    .hr-about>p {
+        margin: 0;
+        font-size: calc(17.5 * var(--u));
+        line-height: 1.65;
+        color: var(--hr-body);
+    }
+
+    .hr-about hr {
+        margin: calc(24 * var(--u)) 0 calc(20 * var(--u));
+        border: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, .14);
+    }
+
+    .hr-about h3 {
+        margin: 0 0 calc(14 * var(--u));
+        font-size: calc(19 * var(--u));
+        font-weight: 600;
+        color: var(--hr-text);
+    }
+
+    /* ---------- Animasi masuk ---------- */
+    @keyframes hrUp {
+        from {
+            opacity: 0;
+            translate: 0 26px;
+        }
+
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    @keyframes hrIn {
+        from {
+            opacity: 0;
+            translate: 50px 0;
+        }
+
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    @keyframes hrLine {
+        from {
+            translate: 0 110%;
+        }
+
+        to {
+            translate: 0 0;
+        }
+    }
+
+    @keyframes hrGrow {
+        from {
+            scale: 0 1;
+        }
+
+        to {
+            scale: 1 1;
+        }
+    }
+
+    @keyframes hrPop {
+        from {
+            opacity: 0;
+            scale: .3;
+        }
+
+        to {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .hr *,
+        .hr-photo {
+            animation: none !important;
+            transition: none !important;
+        }
+
+        .hr-orbit-dot {
+            display: none;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .hr {
+            --u: 1px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding: 100px 6vw 70px;
+        }
+
+        .hr-inner {
+            display: contents;
+        }
+
+        .hr-left {
+            order: 1;
+            max-width: none;
+        }
+
+        .hr-photo {
+            order: 2;
+            position: relative;
+            left: auto;
+            bottom: auto;
+            transform: none;
+            height: auto;
+            width: min(380px, 85%);
+            align-self: center;
+        }
+
+        .hr-about {
+            order: 3;
+            width: 100%;
+            max-width: none;
+            min-width: 0;
+        }
+
+        .hr-name {
+            font-size: clamp(2.6rem, 11vw, 4.6rem);
+        }
+
+        .hr-role {
+            max-width: none;
+            min-height: 1.4em;
+            font-size: 1.1rem;
+        }
+
+        .hr-about>p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<section class="hr" id="home">
+
+    <div class="hr-spot" aria-hidden="true"></div>
+
+    <!-- dekorasi latar -->
+    <svg class="hr-decor" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+            <radialGradient id="hrGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#1d4ed8" stop-opacity=".55" />
+                <stop offset="1" stop-color="#1d4ed8" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="hrBlue" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#3b82ff" stop-opacity=".95" />
+                <stop offset="1" stop-color="#1437b5" stop-opacity=".35" />
+            </linearGradient>
+            <linearGradient id="hrOrbit" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#3b82ff" stop-opacity="0" />
+                <stop offset=".45" stop-color="#3b82ff" stop-opacity=".95" />
+                <stop offset="1" stop-color="#3b82ff" stop-opacity=".1" />
+            </linearGradient>
+            <linearGradient id="hrWatermark" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3b6fe0" stop-opacity=".28" />
+                <stop offset="1" stop-color="#3b6fe0" stop-opacity="0" />
+            </linearGradient>
+        </defs>
+
+        <g class="hr-pulse">
+            <ellipse cx="800" cy="700" rx="620" ry="430" fill="url(#hrGlow)" />
+            <ellipse cx="300" cy="900" rx="520" ry="200" fill="url(#hrGlow)" opacity=".6" />
+        </g>
+
+        <polygon points="0,0 130,0 0,230" fill="#0e1b3d" opacity=".85" />
+        <polygon points="0,0 55,0 0,105" fill="#1b3c96" opacity=".55" />
+
+        <polygon points="1425,95 1275,320 1370,320 1425,235 1485,320 1580,320" fill="url(#hrWatermark)" />
+        <polygon points="1490,120 1672,120 1672,330 1590,330" fill="url(#hrWatermark)" opacity=".7" />
+
+        <!-- orbit -->
+        <g fill="none" stroke="url(#hrOrbit)" stroke-width="2">
+            <g transform="rotate(18 925 395)">
+                <ellipse cx="925" cy="395" rx="165" ry="270" />
+                <circle class="hr-orbit-dot" r="5" fill="#8db6ff" stroke="none">
+                    <animateMotion dur="9s" repeatCount="indefinite"
+                        path="M1090 395 a165 270 0 1 1 -330 0 a165 270 0 1 1 330 0" />
+                </circle>
+            </g>
+            <g class="hr-spin">
+                <ellipse cx="900" cy="440" rx="275" ry="115" transform="rotate(-38 900 440)" stroke-width="1.6" />
+            </g>
+            <ellipse cx="640" cy="565" rx="95" ry="52" transform="rotate(-40 640 565)" stroke-width="1.6" />
+        </g>
+
+        <!-- bintang kilap -->
+        <path class="hr-twinkle" transform="translate(665 251)" fill="#3b82ff"
+            d="M0,-15 C2,-5 5,-2 15,0 C5,2 2,5 0,15 C-2,5 -5,2 -15,0 C-5,-2 -2,-5 0,-15Z" />
+        <path class="hr-twinkle d2" transform="translate(1103 407) scale(.6)" fill="#3b82ff"
+            d="M0,-15 C2,-5 5,-2 15,0 C5,2 2,5 0,15 C-2,5 -5,2 -15,0 C-5,-2 -2,-5 0,-15Z" />
+
+        <!-- kanan bawah -->
+        <polygon points="1520,862 1672,700 1672,862" fill="url(#hrBlue)" opacity=".9" />
+        <polygon points="1600,941 1672,860 1672,941" fill="#2f6bff" opacity=".35" />
+        <path d="M1332 905 L1376 862 H1645" fill="none" stroke="#3b82ff" stroke-opacity=".55" stroke-width="1.5" />
+        <path d="M1455 884 H1645" stroke="#3b82ff" stroke-opacity=".3" stroke-width="1.5" />
+        <g fill="#2f6bff">
+            <polygon points="1388,889 1401,873 1414,873 1401,889" />
+            <polygon points="1408,889 1421,873 1434,873 1421,889" />
+            <polygon points="1428,889 1441,873 1454,873 1441,889" />
+        </g>
+    </svg>
+
+    <!-- foto profil (PNG transparan / tanpa background) -->
+    <img class="hr-photo" src="assets/images/profile.png" alt="Muhamad Nur Salam" width="800" height="1000"
+        fetchpriority="high">
+
+    <div class="hr-inner">
+        <!-- kiri -->
+        <div class="hr-left">
+            <p class="hr-hello">HALO, SAYA <span></span></p>
+            <h1 class="hr-name">
+                <span class="hr-line"><span>Muhamad</span></span>
+                <span class="hr-line"><span><em>Nur</em> Salam</span></span>
+            </h1>
+            <p class="hr-role"><span id="hrRole">Network Engineer | IT Infrastructure | Cyber</span><span
+                    class="hr-caret" id="hrCaret"></span></p>
+
+            <div class="hr-cta">
+                <a class="hr-btn hr-btn-primary" href="#about">Tentang Saya <i class="fa-solid fa-arrow-right"></i></a>
+                <a class="hr-btn hr-btn-ghost" href="cv-muhamad-nur-salam.pdf" download>Unduh CV <i
+                        class="fa-solid fa-download"></i></a>
             </div>
-            <div class="bg-benner-img-three">
-                <picture>
-                    <source srcset="assets/images/profile.webp" type="image/webp">
-                    <img class="tmp-scroll-trigger tmp-zoom-in animation-order-2" src="assets/images/profile.png" alt="Muhamad Nur Salam" loading="eager">
-                </picture>
-            </div>
-            <h2 class="texts-one up-down-2">Network Engineer</h2>
-            <h2 class="texts-two up-down">IT Infrastructure</h2>
         </div>
+
+        <!-- kanan: kartu About Me -->
+        <aside class="hr-about" id="hrCard" aria-label="Tentang saya">
+            <h2>About Me</h2>
+            <p>Mahasiswa S1 Teknik Informatika Universitas Pasundan dengan minat utama pada Network Engineering, IT
+                Infrastructure, dan Cybersecurity. Memiliki pemahaman dalam konfigurasi &amp; troubleshooting jaringan,
+                administrasi sistem Linux, teknik komputer, serta software development.</p>
+            <hr>
+            <h3>Find me on</h3>
+            <div class="hr-social">
+                <a style="--i:0" href="https://github.com/Lam89-Pass" target="_blank" rel="noopener"
+                    aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a style="--i:1" href="mailto:EMAILKAMU@gmail.com" aria-label="Email"><i
+                        class="fa-solid fa-envelope"></i></a>
+                <a style="--i:2" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener"
+                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a style="--i:3" href="https://discord.com/users/ID_DISCORD" target="_blank" rel="noopener"
+                    aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a style="--i:4" href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener"
+                    aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a style="--i:5" href="https://instagram.com/USERNAME" target="_blank" rel="noopener"
+                    aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </aside>
     </div>
-</div>
+</section>
+
+<script>
+    (function () {
+        var hero = document.getElementById("home");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+        /* efek ketik pada role */
+        var role = document.getElementById("hrRole");
+        var caret = document.getElementById("hrCaret");
+        var full = role.textContent.trim();
+        if (reduce) { caret.classList.add("is-done"); }
+        else {
+            role.textContent = "";
+            var i = 0;
+            setTimeout(function type() {
+                role.textContent = full.slice(0, ++i);
+                if (i < full.length) { setTimeout(type, 45); }
+                else { setTimeout(function () { caret.classList.add("is-done"); }, 2500); }
+            }, 1100);
+        }
+
+        if (reduce || !fine) return;
+
+        /* parallax + spotlight mengikuti mouse */
+        var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+        function loop() {
+            cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+            hero.style.setProperty("--mx", cx.toFixed(3));
+            hero.style.setProperty("--my", cy.toFixed(3));
+            raf = (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) ? requestAnimationFrame(loop) : 0;
+        }
+        hero.addEventListener("mousemove", function (e) {
+            var r = hero.getBoundingClientRect();
+            tx = ((e.clientX - r.left) / r.width) * 2 - 1;
+            ty = ((e.clientY - r.top) / r.height) * 2 - 1;
+            hero.style.setProperty("--sx", (e.clientX - r.left) + "px");
+            hero.style.setProperty("--sy", (e.clientY - r.top) + "px");
+            if (!raf) raf = requestAnimationFrame(loop);
+        });
+        hero.addEventListener("mouseleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
+
+        /* kartu miring (tilt) + kilau */
+        var card = document.getElementById("hrCard");
+        card.addEventListener("mousemove", function (e) {
+            var r = card.getBoundingClientRect();
+            var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+            card.style.transform = "perspective(900px) rotateX(" + ((0.5 - y) * 8).toFixed(2) + "deg) rotateY(" + ((x - 0.5) * 8).toFixed(2) + "deg)";
+            card.style.setProperty("--gx", (x * 100) + "%");
+            card.style.setProperty("--gy", (y * 100) + "%");
+        });
+        card.addEventListener("mouseleave", function () { card.style.transform = ""; });
+
+        /* tombol magnetik */
+        hero.querySelectorAll(".hr-btn").forEach(function (b) {
+            b.addEventListener("mousemove", function (e) {
+                var r = b.getBoundingClientRect();
+                b.style.translate = ((e.clientX - r.left - r.width / 2) * 0.22) + "px " + ((e.clientY - r.top - r.height / 2) * 0.32) + "px";
+            });
+            b.addEventListener("mouseleave", function () { b.style.translate = ""; });
+        });
+    })();
+</script>
 <!-- END SECTION: hero.html -->
 
     <!-- BEGIN SECTION: highlights.html -->
-<!-- Highlight Cards / Competency Overview -->
-<section class="service-area tmp-section-gapTop">
-    <div class="container">
-        <div class="row justify-content-center g-4">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
-                    <div class="service-card-icon">
-                        <i class="fa-solid fa-network-wired"></i>
-                    </div>
-                    <h4 class="service-title"><a href="#section_expertise">Network Engineering &amp; Troubleshooting</a>
-                    </h4>
-                    <p class="service-para">Pemahaman kuat dalam subnetting, VLAN, routing OSPF, konfigurasi router
-                        Mikrotik, cabling, dan simulasi Cisco Packet Tracer.</p>
-                </div>
-            </div>
+<!-- =====================================================
+  src/sections/highlights.html
+  Judul "IT Infrastructure" + 5 kartu kompetensi inti (tema sama dengan hero)
+  Butuh Font Awesome & font Plus Jakarta Sans (sudah dimuat di header.html)
+===================================================== -->
+<style>
+    .hl {
+        --u: clamp(.78px, calc(100vw / 2200), 1.4px);
+        --hl-accent: #2f6bff;
+        --hl-text: #ffffff;
+        --hl-sub: #b7c0d4;
+        position: relative;
+        overflow: hidden;
+        padding: calc(110 * var(--u)) 3.5vw calc(120 * var(--u)) 7.2vw;
+        background: #060b16;
+        color: var(--hl-text);
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
 
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
-                    <div class="service-card-icon">
-                        <i class="fa-solid fa-server"></i>
-                    </div>
-                    <h4 class="service-title"><a href="#section_expertise">IT Infrastructure &amp; Linux SysAdmin</a>
-                    </h4>
-                    <p class="service-para">Administrasi sistem operasi Linux, konfigurasi Web Server (Nginx/Apache),
-                        virtualisasi sistem, Docker containerization, dan dasar AWS.</p>
-                </div>
-            </div>
+    .hl *,
+    .hl *::before,
+    .hl *::after {
+        box-sizing: border-box;
+    }
 
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
-                    <div class="service-card-icon">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <h4 class="service-title"><a href="#section_experiences">Software Engineering &amp; QA Testing</a>
-                    </h4>
-                    <p class="service-para">Pengembangan web modern berbasis React.js, Next.js, Laravel, Golang, serta
-                        pengujian perangkat lunak terstruktur dengan Postman &amp; Git.</p>
-                </div>
-            </div>
+    /* latar: grid tipis + cahaya biru + garis pemisah dengan hero */
+    .hl::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 55% 45% at 85% 12%, rgba(29, 78, 216, .28), transparent 70%),
+            radial-gradient(ellipse 50% 40% at 10% 90%, rgba(29, 78, 216, .22), transparent 70%),
+            linear-gradient(rgba(120, 160, 255, .045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .045) 1px, transparent 1px);
+        background-size: auto, auto, 90px 90px, 90px 90px;
+        pointer-events: none;
+    }
 
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
-                    <div class="service-card-icon">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-                    <h4 class="service-title"><a href="#section_experiences">Computer Hardware &amp; IT Maintenance</a>
-                    </h4>
-                    <p class="service-para">Pengalaman teknisi komputer dalam pemeriksaan, diagnosis hardware/software,
-                        perakitan, upgrade komponen, dan instalasi sistem operasi.</p>
-                </div>
-            </div>
+    .hl::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 7.2vw;
+        right: 3.5vw;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(80, 130, 255, .55), transparent);
+    }
 
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
-                    <div class="service-card-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h4 class="service-title"><a href="#section_certifications">Cybersecurity &amp; Network Analysis</a>
-                    </h4>
-                    <p class="service-para">Pemahaman dasar keamanan informasi, analisis paket data dengan Wireshark,
-                        pemindaian port menggunakan Nmap, serta OSINT.</p>
-                </div>
-            </div>
+    .hl-wrap {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ---------- Judul ---------- */
+    .hl-head {
+        margin-bottom: calc(56 * var(--u));
+        max-width: calc(760 * var(--u));
+    }
+
+    .hl-label {
+        display: flex;
+        align-items: center;
+        gap: calc(22 * var(--u));
+        margin: 0 0 calc(10 * var(--u));
+        font-size: calc(19 * var(--u));
+        font-weight: 600;
+        letter-spacing: .3em;
+    }
+
+    .hl-label span {
+        width: calc(68 * var(--u));
+        height: 3px;
+        border-radius: 3px;
+        background: var(--hl-accent);
+        transform-origin: left;
+    }
+
+    .hl-title {
+        margin: 0;
+        font-size: calc(70 * var(--u));
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -.025em;
+    }
+
+    .hl-title em {
+        font-style: italic;
+        padding-right: .08em;
+        background: linear-gradient(90deg, #2f6bff, #78adff, #2f6bff);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: hlShine 4.5s linear infinite;
+    }
+
+    @keyframes hlShine {
+        to {
+            background-position: -200% 0;
+        }
+    }
+
+    .hl-sub {
+        margin: calc(20 * var(--u)) 0 0;
+        font-size: calc(21 * var(--u));
+        line-height: 1.5;
+        font-weight: 500;
+        color: var(--hl-sub);
+    }
+
+    /* ---------- Grid kartu ---------- */
+    .hl-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: calc(26 * var(--u));
+    }
+
+    .hl-card {
+        grid-column: span 2;
+    }
+
+    .hl-card:nth-child(4) {
+        grid-column: 2 / span 2;
+    }
+
+    .hl-card:nth-child(5) {
+        grid-column: 4 / span 2;
+    }
+
+    .hl-card {
+        position: relative;
+        overflow: hidden;
+        padding: calc(30 * var(--u));
+        border-radius: calc(28 * var(--u));
+        background: linear-gradient(160deg, rgba(34, 58, 118, .5), rgba(12, 22, 48, .55));
+        border: 1px solid rgba(120, 160, 255, .22);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 20px 60px rgba(0, 10, 40, .4), inset 0 1px 0 rgba(255, 255, 255, .06);
+        transition:
+            opacity .8s var(--d, 0s) ease,
+            translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1),
+            transform .35s cubic-bezier(.2, .8, .2, 1),
+            border-color .3s ease, box-shadow .3s ease;
+    }
+
+    /* cahaya yang mengikuti kursor di dalam kartu */
+    .hl-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background: radial-gradient(300px circle at var(--cx, 50%) var(--cy, 0%), rgba(70, 130, 255, .22), transparent 65%);
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+
+    .hl-card:hover {
+        transform: translateY(calc(-8 * var(--u)));
+        border-color: rgba(110, 160, 255, .55);
+        box-shadow: 0 28px 70px rgba(20, 60, 200, .35), inset 0 1px 0 rgba(255, 255, 255, .1);
+    }
+
+    .hl-card:hover::before {
+        opacity: 1;
+    }
+
+    .hl-ico {
+        position: relative;
+        width: calc(60 * var(--u));
+        height: calc(60 * var(--u));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: calc(24 * var(--u));
+        border-radius: calc(18 * var(--u));
+        background: rgba(47, 107, 255, .16);
+        border: 1px solid rgba(110, 160, 255, .3);
+        color: #6ea0ff;
+        font-size: calc(26 * var(--u));
+        transition: background .3s ease, color .3s ease, box-shadow .3s ease, transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .hl-card:hover .hl-ico {
+        background: linear-gradient(135deg, #1f5bff, #3a86ff);
+        color: #fff;
+        box-shadow: 0 10px 28px rgba(47, 107, 255, .6);
+        transform: rotate(-6deg) scale(1.08);
+    }
+
+    .hl-card h3 {
+        margin: 0 0 calc(12 * var(--u));
+        font-size: calc(23 * var(--u));
+        font-weight: 700;
+        line-height: 1.25;
+    }
+
+    .hl-card p {
+        margin: 0;
+        font-size: calc(17 * var(--u));
+        line-height: 1.7;
+        color: #c3cbdd;
+    }
+
+    /* ---------- Animasi masuk saat di-scroll ---------- */
+    .hl.js-on .hl-reveal {
+        opacity: 0;
+        translate: 0 34px;
+    }
+
+    .hl.js-on .hl-reveal.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    .hl.js-on .hl-head.hl-reveal {
+        transition: opacity .8s ease, translate .8s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .hl.js-on .hl-label span {
+        scale: 0 1;
+        transition: scale .9s cubic-bezier(.2, .8, .2, 1) .3s;
+    }
+
+    .hl.js-on .hl-head.is-in .hl-label span {
+        scale: 1 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .hl *,
+        .hl *::before {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .hl.js-on .hl-reveal {
+            opacity: 1;
+            translate: 0 0;
+        }
+
+        .hl.js-on .hl-label span {
+            scale: 1 1;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .hl {
+            --u: 1px;
+            padding: 80px 6vw 90px;
+        }
+
+        .hl::after {
+            left: 6vw;
+            right: 6vw;
+        }
+
+        .hl-title {
+            font-size: clamp(2.2rem, 9vw, 3.6rem);
+        }
+
+        .hl-sub {
+            font-size: 1.05rem;
+        }
+
+        .hl-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hl-card,
+        .hl-card:nth-child(4),
+        .hl-card:nth-child(5) {
+            grid-column: auto;
+        }
+
+        .hl-card:nth-child(5) {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 680px) {
+        .hl-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hl-card:nth-child(5) {
+            grid-column: auto;
+        }
+    }
+</style>
+
+<section class="hl" id="highlights">
+    <div class="hl-wrap">
+        <div class="hl-head hl-reveal">
+            <p class="hl-label">FOKUS SAYA <span></span></p>
+            <h2 class="hl-title">IT <em>Infrastructure</em></h2>
+            <p class="hl-sub">Jaringan, infrastruktur, dan keamanan siber: dari konfigurasi sampai troubleshooting.</p>
+        </div>
+
+        <div class="hl-grid">
+            <article class="hl-card hl-reveal" style="--i:0">
+                <div class="hl-ico"><i class="fa-solid fa-network-wired"></i></div>
+                <h3>Network Engineering &amp; Troubleshooting</h3>
+                <p>Pemahaman kuat dalam subnetting, VLAN, routing OSPF, konfigurasi router Mikrotik, cabling, dan
+                    simulasi Cisco Packet Tracer.</p>
+            </article>
+
+            <article class="hl-card hl-reveal" style="--i:1">
+                <div class="hl-ico"><i class="fa-solid fa-server"></i></div>
+                <h3>IT Infrastructure &amp; Linux SysAdmin</h3>
+                <p>Administrasi sistem operasi Linux, konfigurasi Web Server (Nginx/Apache), virtualisasi sistem, Docker
+                    containerization, dan dasar AWS.</p>
+            </article>
+
+            <article class="hl-card hl-reveal" style="--i:2">
+                <div class="hl-ico"><i class="fa-solid fa-code"></i></div>
+                <h3>Software Engineering &amp; QA Testing</h3>
+                <p>Pengembangan web modern berbasis React.js, Next.js, Laravel, Golang, serta pengujian perangkat lunak
+                    terstruktur dengan Postman &amp; Git.</p>
+            </article>
+
+            <article class="hl-card hl-reveal" style="--i:3">
+                <div class="hl-ico"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h3>Computer Hardware &amp; IT Maintenance</h3>
+                <p>Pengalaman teknisi komputer dalam pemeriksaan, diagnosis hardware/software, perakitan, upgrade
+                    komponen, dan instalasi sistem operasi.</p>
+            </article>
+
+            <article class="hl-card hl-reveal" style="--i:4">
+                <div class="hl-ico"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Cybersecurity &amp; Network Analysis</h3>
+                <p>Pemahaman dasar keamanan informasi, analisis paket data dengan Wireshark, pemindaian port menggunakan
+                    Nmap, serta OSINT.</p>
+            </article>
         </div>
     </div>
 </section>
+
+<script>
+    (function () {
+        var sec = document.getElementById("highlights");
+        var items = sec.querySelectorAll(".hl-reveal");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* animasi masuk bertahap saat section terlihat */
+        sec.classList.add("js-on");
+        items.forEach(function (el) {
+            var i = el.style.getPropertyValue("--i");
+            if (i !== "") { el.style.setProperty("--d", (parseInt(i, 10) * 0.12) + "s"); }
+        });
+        if (reduce || !("IntersectionObserver" in window)) {
+            items.forEach(function (el) { el.classList.add("is-in"); });
+        } else {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+                });
+            }, { threshold: 0.15 });
+            items.forEach(function (el) { io.observe(el); });
+        }
+
+        /* cahaya mengikuti kursor di dalam kartu */
+        if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            sec.querySelectorAll(".hl-card").forEach(function (card) {
+                card.addEventListener("mousemove", function (e) {
+                    var r = card.getBoundingClientRect();
+                    card.style.setProperty("--cx", (e.clientX - r.left) + "px");
+                    card.style.setProperty("--cy", (e.clientY - r.top) + "px");
+                });
+            });
+        }
+    })();
+</script>
 <!-- END SECTION: highlights.html -->
 
     <!-- BEGIN SECTION: about.html -->
-<!-- About Us Section -->
-<section class="about-us-area tmp-section-gapTop" id="section_about">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="about-us-left-content-wrap bg-vactor-one">
-                    <div class="years-of-experience-card tmp-scroll-trigger tmp-fade-in animation-order-1"
-                        style="position: relative; overflow: hidden;">
-                        <picture>
-                            <source srcset="assets/images/profile-2.webp" type="image/webp">
-                            <img src="assets/images/profile-2.png" alt="Muhamad Nur Salam"
-                                style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 0;">
-                        </picture>
-                        <div
-                            style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,15,40,0.35) 0%, rgba(10,15,40,0.85) 100%); z-index: 1;">
-                        </div>
-                        <h2 class="counter card-title" style="position: relative; z-index: 2;"><span class="odometer"
-                                data-count="4">00</span>+
-                        </h2>
-                        <p class="card-para" style="position: relative; z-index: 2;">Pengalaman Kerja &amp; Organisasi
-                        </p>
-                    </div>
-                    <div class="design-card tmp-scroll-trigger tmp-fade-in animation-order-2">
-                        <div class="design-card-img">
-                            <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-title">IPK 3.53 / 4.00</h3>
-                            <p class="card-para">S1 Teknik Informatika UNPAS (2024–2028)</p>
-                        </div>
-                    </div>
-                    <div class="design-card tmp-scroll-trigger tmp-fade-in animation-order-3" style="margin-top: 20px;">
-                        <div class="design-card-img">
-                            <div class="icon"><i class="fa-solid fa-certificate"></i></div>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-title">12+ Pelatihan Teknis</h3>
-                            <p class="card-para">LSP BNSP, ADINUSA, DTS, Aguna &amp; WPU</p>
-                        </div>
+<!-- =====================================================
+  src/sections/about.html
+  Tentang saya: foto + angka (hitung naik), garis "topologi" statistik, teks, kontak
+  Ikon memakai Font Awesome (sudah dimuat di header.html)
+===================================================== -->
+<style>
+    .ab {
+        --u: clamp(.78px, calc(100vw / 2200), 1.4px);
+        --ab-accent: #2f6bff;
+        --ab-sub: #b7c0d4;
+        --ab-body: #c3cbdd;
+        position: relative;
+        overflow: hidden;
+        padding: calc(120 * var(--u)) 3.5vw calc(120 * var(--u)) 7.2vw;
+        background: #060b16;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .ab *,
+    .ab *::before,
+    .ab *::after {
+        box-sizing: border-box;
+    }
+
+    .ab::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 45% 50% at 12% 55%, rgba(29, 78, 216, .3), transparent 70%),
+            radial-gradient(ellipse 40% 35% at 95% 8%, rgba(29, 78, 216, .2), transparent 70%),
+            linear-gradient(rgba(120, 160, 255, .04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .04) 1px, transparent 1px);
+        background-size: auto, auto, 90px 90px, 90px 90px;
+        pointer-events: none;
+    }
+
+    .ab::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 7.2vw;
+        right: 3.5vw;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(80, 130, 255, .55), transparent);
+    }
+
+    .ab-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: calc(520 * var(--u)) minmax(0, 1fr);
+        gap: calc(100 * var(--u));
+        align-items: center;
+    }
+
+    /* ---------- Kolom kiri ---------- */
+    .ab-photo-wrap {
+        position: relative;
+    }
+
+    .ab-ring {
+        position: absolute;
+        z-index: 0;
+        left: -22%;
+        top: -8%;
+        width: 144%;
+        height: 116%;
+        pointer-events: none;
+        overflow: visible;
+    }
+
+    .ab-ring .spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: abSpin 70s linear infinite;
+    }
+
+    @keyframes abSpin {
+        to {
+            rotate: 360deg;
+        }
+    }
+
+    .ab-photo {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        aspect-ratio: 5 / 6;
+        border-radius: calc(32 * var(--u));
+        border: 1px solid rgba(120, 160, 255, .28);
+        background: #0c1630;
+        box-shadow: 0 30px 80px rgba(0, 10, 40, .55);
+    }
+
+    .ab-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 12%;
+        transition: transform .8s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ab-photo:hover img {
+        transform: scale(1.04);
+    }
+
+    .ab-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(6, 11, 22, .96) 0%, rgba(6, 11, 22, .55) 32%, transparent 58%);
+        pointer-events: none;
+    }
+
+    .ab-photo-cap {
+        position: absolute;
+        z-index: 2;
+        left: calc(34 * var(--u));
+        right: calc(34 * var(--u));
+        bottom: calc(30 * var(--u));
+    }
+
+    .ab-photo-cap strong {
+        display: block;
+        font-size: calc(88 * var(--u));
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -.03em;
+    }
+
+    .ab-photo-cap strong sup {
+        font-size: .6em;
+        color: #6ea0ff;
+        vertical-align: .25em;
+        margin-left: .04em;
+    }
+
+    .ab-photo-cap span {
+        display: block;
+        margin-top: calc(8 * var(--u));
+        font-size: calc(23 * var(--u));
+        font-weight: 600;
+        line-height: 1.3;
+        color: #e4e9f5;
+    }
+
+    /* garis topologi statistik */
+    .ab-stats {
+        position: relative;
+        z-index: 1;
+        list-style: none;
+        margin: calc(34 * var(--u)) 0 0;
+        padding: 0;
+    }
+
+    .ab-stats::before {
+        content: "";
+        position: absolute;
+        left: calc(30 * var(--u));
+        top: calc(-34 * var(--u));
+        bottom: calc(30 * var(--u));
+        width: 2px;
+        background: linear-gradient(to bottom, rgba(80, 130, 255, .9), rgba(80, 130, 255, .15));
+    }
+
+    .ab-stats::after {
+        content: "";
+        position: absolute;
+        left: calc(30 * var(--u));
+        top: calc(-34 * var(--u));
+        width: 8px;
+        height: 8px;
+        margin-left: -3px;
+        border-radius: 50%;
+        background: #9cc0ff;
+        box-shadow: 0 0 14px 3px rgba(90, 150, 255, .9);
+        animation: abTravel 4.5s ease-in-out infinite;
+    }
+
+    @keyframes abTravel {
+        0% {
+            translate: 0 0;
+            opacity: 0;
+        }
+
+        12% {
+            opacity: 1;
+        }
+
+        88% {
+            opacity: 1;
+        }
+
+        100% {
+            translate: 0 calc(240 * var(--u));
+            opacity: 0;
+        }
+    }
+
+    .ab-stats li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: calc(26 * var(--u));
+        padding: calc(14 * var(--u)) 0;
+    }
+
+    .ab-node {
+        position: relative;
+        z-index: 1;
+        flex: none;
+        width: calc(60 * var(--u));
+        height: calc(60 * var(--u));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #0a1429;
+        border: 1px solid rgba(110, 160, 255, .5);
+        color: #6ea0ff;
+        font-size: calc(24 * var(--u));
+        box-shadow: 0 0 0 calc(6 * var(--u)) #060b16, 0 0 22px rgba(47, 107, 255, .35);
+        transition: background .3s ease, color .3s ease, box-shadow .3s ease, transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .ab-stats li:hover .ab-node {
+        background: linear-gradient(135deg, #1f5bff, #3a86ff);
+        color: #fff;
+        box-shadow: 0 0 0 calc(6 * var(--u)) #060b16, 0 0 30px rgba(47, 107, 255, .8);
+        transform: scale(1.1);
+    }
+
+    .ab-stats strong {
+        display: block;
+        font-size: calc(34 * var(--u));
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -.01em;
+    }
+
+    .ab-stats p {
+        margin: calc(4 * var(--u)) 0 0;
+        font-size: calc(17 * var(--u));
+        line-height: 1.5;
+        color: var(--ab-sub);
+    }
+
+    /* ---------- Kolom kanan ---------- */
+    .ab-right {
+        max-width: calc(800 * var(--u));
+    }
+
+    .ab-kicker {
+        display: flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        margin: 0;
+        font-size: calc(26 * var(--u));
+        font-weight: 700;
+    }
+
+    .ab-kicker::before {
+        content: "";
+        width: calc(6 * var(--u));
+        height: calc(32 * var(--u));
+        border-radius: 3px;
+        background: var(--ab-accent);
+    }
+
+    .ab-title {
+        margin: calc(24 * var(--u)) 0 calc(32 * var(--u));
+        font-size: calc(48 * var(--u));
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -.02em;
+    }
+
+    .ab-title i {
+        font-style: normal;
+        font-weight: 400;
+        color: var(--ab-accent);
+        padding: 0 .1em;
+    }
+
+    .ab-text p {
+        margin: 0 0 calc(22 * var(--u));
+        font-size: calc(19 * var(--u));
+        line-height: 1.75;
+        color: var(--ab-body);
+    }
+
+    .ab-text strong {
+        color: #fff;
+        font-weight: 700;
+    }
+
+    /* panel kontak */
+    .ab-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: calc(38 * var(--u));
+        border-radius: calc(26 * var(--u));
+        background: linear-gradient(160deg, rgba(34, 58, 118, .5), rgba(12, 22, 48, .55));
+        border: 1px solid rgba(120, 160, 255, .22);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 20px 60px rgba(0, 10, 40, .4), inset 0 1px 0 rgba(255, 255, 255, .06);
+        overflow: hidden;
+    }
+
+    .ab-meta>* {
+        display: block;
+        padding: calc(24 * var(--u)) calc(30 * var(--u));
+        color: inherit;
+        text-decoration: none;
+        transition: background .3s ease;
+    }
+
+    .ab-meta>*+* {
+        border-left: 1px solid rgba(120, 160, 255, .2);
+    }
+
+    .ab-meta a:hover {
+        background: rgba(47, 107, 255, .14);
+    }
+
+    .ab-meta small {
+        display: flex;
+        align-items: center;
+        gap: calc(10 * var(--u));
+        font-size: calc(16 * var(--u));
+        color: var(--ab-sub);
+    }
+
+    .ab-meta small i {
+        color: #6ea0ff;
+        font-size: calc(17 * var(--u));
+    }
+
+    .ab-meta b {
+        display: block;
+        margin-top: calc(8 * var(--u));
+        font-size: calc(20 * var(--u));
+        font-weight: 700;
+        overflow-wrap: anywhere;
+    }
+
+    .ab-meta a:focus-visible {
+        outline: 2px solid var(--ab-accent);
+        outline-offset: -3px;
+    }
+
+    /* ---------- Animasi masuk ---------- */
+    .ab.js-on .ab-reveal {
+        opacity: 0;
+        translate: 0 34px;
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ab.js-on .ab-reveal.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    .ab.js-on .ab-photo img {
+        scale: 1.18;
+        transition: scale 1.8s cubic-bezier(.2, .8, .2, 1), transform .8s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ab.js-on .ab-photo.is-in img {
+        scale: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .ab *,
+        .ab *::before,
+        .ab *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .ab.js-on .ab-reveal {
+            opacity: 1;
+            translate: 0 0;
+        }
+
+        .ab.js-on .ab-photo img {
+            scale: 1;
+        }
+
+        .ab-stats::after {
+            display: none;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .ab {
+            --u: 1px;
+            padding: 80px 6vw 90px;
+        }
+
+        .ab::after {
+            left: 6vw;
+            right: 6vw;
+        }
+
+        .ab-grid {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .ab-photo-wrap,
+        .ab-stats {
+            max-width: 520px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ab-stats {
+            margin-top: 34px;
+        }
+
+        .ab-ring {
+            display: none;
+        }
+
+        .ab-title {
+            font-size: clamp(1.7rem, 6.2vw, 2.5rem);
+        }
+
+        .ab-text p {
+            font-size: 1.02rem;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .ab-meta {
+            grid-template-columns: 1fr;
+        }
+
+        .ab-meta>*+* {
+            border-left: 0;
+            border-top: 1px solid rgba(120, 160, 255, .2);
+        }
+    }
+</style>
+
+<section class="ab" id="about">
+    <div class="ab-grid">
+
+        <!-- kiri: foto + statistik -->
+        <div class="ab-left">
+            <div class="ab-photo-wrap ab-reveal">
+                <svg class="ab-ring" viewBox="0 0 800 800" fill="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="abOrbit" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#3b82ff" stop-opacity="0" />
+                            <stop offset=".5" stop-color="#3b82ff" stop-opacity=".9" />
+                            <stop offset="1" stop-color="#3b82ff" stop-opacity=".1" />
+                        </linearGradient>
+                    </defs>
+                    <g class="spin">
+                        <ellipse cx="400" cy="400" rx="330" ry="250" transform="rotate(-32 400 400)"
+                            stroke="url(#abOrbit)" stroke-width="2" />
+                    </g>
+                    <ellipse cx="400" cy="400" rx="285" ry="345" transform="rotate(14 400 400)" stroke="url(#abOrbit)"
+                        stroke-width="1.5" opacity=".7" />
+                </svg>
+                <div class="ab-photo">
+                    <img src="assets/images/profile-2.png" alt="Muhamad Nur Salam" loading="lazy">
+                    <div class="ab-photo-cap">
+                        <strong><span class="ab-num" data-to="4" data-dec="0">4</span><sup>+</sup></strong>
+                        <span>Pengalaman Kerja &amp; Organisasi</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="about-us-right-content-wrap">
-                    <div class="section-head text-align-left mb--30">
-                        <div class="section-sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                            <span class="subtitle">Tentang Saya</span>
-                        </div>
-                        <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Mahasiswa S1
-                            Teknik Informatika | Network &amp; Infrastructure Enthusiast</h2>
-                        <p class="description tmp-scroll-trigger tmp-fade-in animation-order-3">
-                            Saya adalah mahasiswa S1 Teknik Informatika di <strong>Universitas Pasundan</strong> dengan
-                            fokus dan minat mendalam pada <strong>Network Engineering</strong>, <strong>IT
-                                Infrastructure</strong>, dan <strong>Cybersecurity</strong>.<br><br>
-                            Memiliki pemahaman komprehensif dalam konfigurasi dan troubleshooting jaringan, subnetting,
-                            VLAN, routing, Mikrotik, virtualisasi, serta administrasi sistem Linux. Dilengkapi
-                            pengalaman kerja nyata sebagai Teknisi Komputer dalam menangani diagnosis, perbaikan,
-                            instalasi, dan pemeliharaan perangkat keras maupun perangkat lunak.<br><br>
-                            Pengalaman tersebut diperkaya dengan keterlibatan dalam software development, quality
-                            assurance, asisten praktikum mata kuliah Internet &amp; Web Technology, serta kepemimpinan
-                            sebagai Head of Event di Google Developer Group on Campus UNPAS.
-                        </p>
+
+            <ul class="ab-stats">
+                <li class="ab-reveal" style="--d:.15s">
+                    <span class="ab-node"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <strong>IPK <span class="ab-num" data-to="3.53" data-dec="2">3.53</span> / 4.00</strong>
+                        <p>S1 Teknik Informatika UNPAS (2024-2028)</p>
                     </div>
-                    <div class="about-us-section-card row g-3">
-                        <div class="col-sm-6">
-                            <div
-                                style="background: rgba(42, 59, 119, 0.4); border: 1px solid rgba(241, 228, 209, 0.2); border-radius: 8px; padding: 14px 18px;">
-                                <span style="font-size: 13px; color: #F1E4D1; display: block;"><i
-                                        class="fa-solid fa-location-dot" style="margin-right: 6px;"></i> Domisili</span>
-                                <strong style="color: #fff; font-size: 15px;">Dago, Kota Bandung</strong>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div
-                                style="background: rgba(42, 59, 119, 0.4); border: 1px solid rgba(241, 228, 209, 0.2); border-radius: 8px; padding: 14px 18px;">
-                                <span style="font-size: 13px; color: #F1E4D1; display: block;"><i
-                                        class="fa-solid fa-envelope" style="margin-right: 6px;"></i> Kontak Email</span>
-                                <strong
-                                    style="color: #fff; font-size: 14px; word-break: break-all;">aaallaaamm03@gmail.com</strong>
-                            </div>
-                        </div>
+                </li>
+                <li class="ab-reveal" style="--d:.3s">
+                    <span class="ab-node"><i class="fa-solid fa-certificate"></i></span>
+                    <div>
+                        <strong><span class="ab-num" data-to="12" data-dec="0">12</span>+ Pelatihan Teknis</strong>
+                        <p>LSP BNSP, ADINUS, DTS, Agung &amp; WPU</p>
                     </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- kanan: teks -->
+        <div class="ab-right">
+            <p class="ab-kicker ab-reveal">Tentang Saya</p>
+            <h2 class="ab-title ab-reveal" style="--d:.1s">Mahasiswa S1 Teknik Informatika <i>|</i> Network &amp;
+                Infrastructure Enthusiast</h2>
+
+            <div class="ab-text">
+                <p class="ab-reveal" style="--d:.2s">Saya adalah mahasiswa S1 Teknik Informatika di <strong>Universitas
+                        Pasundan</strong> dengan fokus dan minat mendalam pada <strong>Network Engineering</strong>,
+                    <strong>IT Infrastructure</strong>, dan <strong>Cybersecurity</strong>.</p>
+                <p class="ab-reveal" style="--d:.3s">Memiliki pemahaman komprehensif dalam konfigurasi dan
+                    troubleshooting jaringan, subnetting, VLAN, routing, Mikrotik, virtualisasi, serta administrasi
+                    sistem Linux. Dilengkapi pengalaman kerja nyata sebagai Teknisi Komputer dalam menangani diagnosis,
+                    perbaikan, instalasi, dan pemeliharaan perangkat keras maupun perangkat lunak.</p>
+                <p class="ab-reveal" style="--d:.4s">Pengalaman tersebut diperkaya dengan keterlibatan dalam software
+                    development, quality assurance, asisten praktikum mata kuliah Internet &amp; Web Technology, serta
+                    kepemimpinan sebagai Head of Event di Google Developer Group on Campus UNPAS.</p>
+            </div>
+
+            <div class="ab-meta ab-reveal" style="--d:.5s">
+                <div>
+                    <small><i class="fa-solid fa-location-dot"></i> Domisili</small>
+                    <b>Dago, Kota Bandung</b>
                 </div>
+                <a href="mailto:aaallaaamm03@gmail.com">
+                    <small><i class="fa-solid fa-envelope"></i> Kontak Email</small>
+                    <b>aaallaaamm03@gmail.com</b>
+                </a>
             </div>
         </div>
+
     </div>
 </section>
+
+<script>
+    (function () {
+        var sec = document.getElementById("about");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var reveals = sec.querySelectorAll(".ab-reveal");
+        var photo = sec.querySelector(".ab-photo");
+
+        sec.classList.add("js-on");
+
+        /* hitung naik untuk angka */
+        function count(el) {
+            var to = parseFloat(el.getAttribute("data-to")), dec = parseInt(el.getAttribute("data-dec"), 10) || 0;
+            if (reduce) { el.textContent = to.toFixed(dec); return; }
+            var t0 = null, dur = 1400;
+            function step(t) {
+                if (t0 === null) t0 = t;
+                var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+                el.textContent = (to * e).toFixed(dec);
+                if (p < 1) requestAnimationFrame(step);
+            }
+            el.textContent = (0).toFixed(dec);
+            requestAnimationFrame(step);
+        }
+
+        if (reduce || !("IntersectionObserver" in window)) {
+            reveals.forEach(function (el) { el.classList.add("is-in"); });
+            photo.classList.add("is-in");
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (!en.isIntersecting) return;
+                en.target.classList.add("is-in");
+                if (en.target.contains(photo)) photo.classList.add("is-in");
+                en.target.querySelectorAll(".ab-num").forEach(count);
+                io.unobserve(en.target);
+            });
+        }, { threshold: 0.2 });
+        reveals.forEach(function (el) { io.observe(el); });
+    })();
+</script>
 <!-- END SECTION: about.html -->
 
     <!-- BEGIN SECTION: skills.html -->
-<!-- Technical Skills & Expertise Section -->
-<section class="tmp-skill-area tmp-section-gapTop as-section" id="section_expertise">
-    <div class="container">
-        <div class="section-head mb--60">
-            <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <span class="subtitle">Keahlian &amp; Kompetensi</span>
+<!-- =====================================================
+  src/sections/skills.html
+  Keahlian & Kompetensi: satu panel kaca, 4 baris keahlian, tiap skill punya "lampu port" LED
+  Ikon memakai Font Awesome (sudah dimuat di header.html)
+===================================================== -->
+<style>
+    .sk {
+        --u: clamp(.78px, calc(100vw / 2200), 1.4px);
+        --sk-accent: #2f6bff;
+        --sk-sub: #b7c0d4;
+        position: relative;
+        overflow: hidden;
+        padding: calc(120 * var(--u)) 3.5vw calc(120 * var(--u)) 7.2vw;
+        background: #060b16;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .sk *,
+    .sk *::before,
+    .sk *::after {
+        box-sizing: border-box;
+    }
+
+    .sk::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 50% 40% at 90% 85%, rgba(29, 78, 216, .28), transparent 70%),
+            radial-gradient(ellipse 40% 40% at 5% 10%, rgba(29, 78, 216, .18), transparent 70%),
+            linear-gradient(rgba(120, 160, 255, .04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .04) 1px, transparent 1px);
+        background-size: auto, auto, 90px 90px, 90px 90px;
+        pointer-events: none;
+    }
+
+    .sk::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 7.2vw;
+        right: 3.5vw;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(80, 130, 255, .55), transparent);
+    }
+
+    .sk-wrap {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ---------- Judul ---------- */
+    .sk-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: calc(80 * var(--u));
+        margin-bottom: calc(56 * var(--u));
+    }
+
+    .sk-kicker {
+        display: flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        margin: 0 0 calc(22 * var(--u));
+        font-size: calc(26 * var(--u));
+        font-weight: 700;
+    }
+
+    .sk-kicker::before {
+        content: "";
+        width: calc(6 * var(--u));
+        height: calc(32 * var(--u));
+        border-radius: 3px;
+        background: var(--sk-accent);
+    }
+
+    .sk-title {
+        margin: 0;
+        max-width: calc(820 * var(--u));
+        font-size: calc(62 * var(--u));
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -.025em;
+    }
+
+    .sk-sub {
+        margin: 0;
+        max-width: calc(470 * var(--u));
+        font-size: calc(20 * var(--u));
+        line-height: 1.65;
+        color: var(--sk-sub);
+    }
+
+    /* ---------- Panel ---------- */
+    .sk-panel {
+        border-radius: calc(32 * var(--u));
+        background: linear-gradient(160deg, rgba(34, 58, 118, .45), rgba(12, 22, 48, .55));
+        border: 1px solid rgba(120, 160, 255, .22);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 28px 80px rgba(0, 10, 40, .5), inset 0 1px 0 rgba(255, 255, 255, .06);
+        overflow: hidden;
+    }
+
+    .sk-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: calc(400 * var(--u)) minmax(0, 1fr);
+        gap: calc(48 * var(--u));
+        align-items: center;
+        padding: calc(38 * var(--u)) calc(46 * var(--u));
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .sk-row+.sk-row {
+        border-top: 1px solid rgba(120, 160, 255, .16);
+    }
+
+    /* cahaya mengikuti kursor */
+    .sk-row::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(420px circle at var(--cx, 20%) var(--cy, 50%), rgba(60, 120, 255, .16), transparent 65%);
+        opacity: 0;
+        transition: opacity .35s ease;
+    }
+
+    .sk-row:hover::before {
+        opacity: 1;
+    }
+
+    .sk-who {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: calc(24 * var(--u));
+    }
+
+    .sk-node {
+        flex: none;
+        width: calc(64 * var(--u));
+        height: calc(64 * var(--u));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #0a1429;
+        border: 1px solid rgba(110, 160, 255, .5);
+        color: #6ea0ff;
+        font-size: calc(26 * var(--u));
+        box-shadow: 0 0 22px rgba(47, 107, 255, .3);
+        transition: background .3s ease, color .3s ease, box-shadow .3s ease, transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .sk-row:hover .sk-node {
+        background: linear-gradient(135deg, #1f5bff, #3a86ff);
+        color: #fff;
+        box-shadow: 0 0 30px rgba(47, 107, 255, .8);
+        transform: scale(1.1) rotate(-6deg);
+    }
+
+    .sk-who h3 {
+        margin: 0;
+        font-size: calc(28 * var(--u));
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .sk-count {
+        display: block;
+        margin-top: calc(6 * var(--u));
+        font-size: calc(16 * var(--u));
+        color: var(--sk-sub);
+    }
+
+    .sk-chips {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(12 * var(--u));
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .sk-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(11 * var(--u));
+        padding: calc(11 * var(--u)) calc(22 * var(--u));
+        border-radius: 999px;
+        font-size: calc(17 * var(--u));
+        font-weight: 500;
+        color: #dbe4ff;
+        background: rgba(47, 107, 255, .1);
+        border: 1px solid rgba(110, 160, 255, .28);
+        cursor: default;
+        transition:
+            opacity .5s var(--cd, 0s) ease,
+            scale .5s var(--cd, 0s) cubic-bezier(.3, 1.6, .5, 1),
+            transform .25s cubic-bezier(.3, 1.6, .5, 1),
+            border-color .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+
+    /* lampu LED port */
+    .sk-chip::before {
+        content: "";
+        width: calc(8 * var(--u));
+        height: calc(8 * var(--u));
+        flex: none;
+        border-radius: 50%;
+        background: #4f8cff;
+        box-shadow: 0 0 calc(8 * var(--u)) 1px rgba(79, 140, 255, .9);
+        animation: skBlink 3.2s ease-in-out infinite;
+        animation-delay: var(--k, 0s);
+    }
+
+    @keyframes skBlink {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .3;
+        }
+    }
+
+    .sk-chip:hover {
+        transform: translateY(calc(-4 * var(--u)));
+        background: rgba(47, 107, 255, .28);
+        border-color: rgba(130, 175, 255, .8);
+        box-shadow: 0 10px 26px rgba(47, 107, 255, .35);
+        color: #fff;
+    }
+
+    .sk-chip:hover::before {
+        background: #a9c9ff;
+        animation: none;
+        opacity: 1;
+        box-shadow: 0 0 calc(12 * var(--u)) 3px rgba(150, 195, 255, .95);
+    }
+
+    /* ---------- Animasi masuk ---------- */
+    .sk.js-on .sk-reveal {
+        opacity: 0;
+        translate: 0 34px;
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .sk.js-on .sk-reveal.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    .sk.js-on .sk-row.sk-reveal {
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .sk.js-on .sk-chip {
+        opacity: 0;
+        scale: .6;
+    }
+
+    .sk.js-on .sk-row.is-in .sk-chip {
+        opacity: 1;
+        scale: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .sk *,
+        .sk *::before {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .sk.js-on .sk-reveal,
+        .sk.js-on .sk-chip {
+            opacity: 1;
+            translate: 0 0;
+            scale: 1;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .sk {
+            --u: 1px;
+            padding: 80px 6vw 90px;
+        }
+
+        .sk::after {
+            left: 6vw;
+            right: 6vw;
+        }
+
+        .sk-head {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .sk-title {
+            font-size: clamp(2rem, 8vw, 3.2rem);
+        }
+
+        .sk-sub {
+            font-size: 1.02rem;
+        }
+
+        .sk-row {
+            grid-template-columns: 1fr;
+            gap: 22px;
+            padding: 28px 24px;
+        }
+
+        .sk-who h3 {
+            font-size: 1.3rem;
+        }
+
+        .sk-chip {
+            font-size: .92rem;
+            padding: 9px 16px;
+        }
+    }
+</style>
+
+<section class="sk" id="skills">
+    <div class="sk-wrap">
+
+        <div class="sk-head sk-reveal">
+            <div>
+                <p class="sk-kicker">Keahlian &amp; Kompetensi</p>
+                <h2 class="sk-title">Kemampuan Teknis yang Saya Kuasai</h2>
             </div>
-            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Kemampuan Teknis yang Saya
-                Kuasai</h2>
-            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Empat pilar keahlian
-                yang saya bangun melalui pendidikan formal, pelatihan teknis, dan pengalaman kerja langsung.</p>
+            <p class="sk-sub">Empat pilar keahlian yang saya bangun melalui pendidikan formal, pelatihan teknis, dan
+                pengalaman kerja langsung.</p>
         </div>
 
-        <style>
-            .sk-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 22px;
-            }
+        <div class="sk-panel">
 
-            @media (max-width: 767px) {
-                .sk-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            .sk-card {
-                background: rgba(42, 59, 119, 0.35);
-                border: 1px solid rgba(241, 228, 209, 0.18);
-                border-radius: 16px;
-                padding: 28px 26px;
-                height: 100%;
-                transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-            }
-
-            .sk-card:hover {
-                transform: translateY(-6px);
-                border-color: rgba(241, 228, 209, 0.45);
-                background: rgba(42, 59, 119, 0.55);
-            }
-
-            .sk-icon {
-                width: 54px;
-                height: 54px;
-                border-radius: 14px;
-                background: rgba(241, 228, 209, 0.12);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #F1E4D1;
-                font-size: 22px;
-                margin-bottom: 18px;
-            }
-
-            .sk-card h3 {
-                color: #fff;
-                font-size: 19px;
-                margin-bottom: 16px;
-                font-weight: 700;
-            }
-
-            .sk-tags {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-        </style>
-
-        <div class="sk-grid">
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <div class="sk-icon"><i class="fa-solid fa-network-wired"></i></div>
-                <h3>Jaringan &amp; Infrastruktur</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Subnetting</span>
-                    <span class="skill-tag">VLAN</span>
-                    <span class="skill-tag">OSPF</span>
-                    <span class="skill-tag">Mikrotik</span>
-                    <span class="skill-tag">Cisco Packet Tracer</span>
-                    <span class="skill-tag">Cabelling</span>
+            <div class="sk-row sk-reveal" style="--d:.05s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-network-wired"></i></span>
+                    <div>
+                        <h3>Jaringan &amp; Infrastruktur</h3><span class="sk-count">6 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Subnetting</li>
+                    <li class="sk-chip">VLAN</li>
+                    <li class="sk-chip">OSPF</li>
+                    <li class="sk-chip">Mikrotik</li>
+                    <li class="sk-chip">Cisco Packet Tracer</li>
+                    <li class="sk-chip">Cabling</li>
+                </ul>
             </div>
 
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-2">
-                <div class="sk-icon"><i class="fa-solid fa-server"></i></div>
-                <h3>Sistem &amp; Server</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Basic Linux</span>
-                    <span class="skill-tag">Sistem Operasi</span>
-                    <span class="skill-tag">Web Server</span>
-                    <span class="skill-tag">Virtualization</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">CI/CD</span>
+            <div class="sk-row sk-reveal" style="--d:.15s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-server"></i></span>
+                    <div>
+                        <h3>Sistem &amp; Server</h3><span class="sk-count">7 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Basic Linux</li>
+                    <li class="sk-chip">Sistem Operasi</li>
+                    <li class="sk-chip">Web Server</li>
+                    <li class="sk-chip">Virtualization</li>
+                    <li class="sk-chip">Docker</li>
+                    <li class="sk-chip">AWS</li>
+                    <li class="sk-chip">CI/CD</li>
+                </ul>
             </div>
 
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-3">
-                <div class="sk-icon"><i class="fa-solid fa-code"></i></div>
-                <h3>Software Engineering</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Go (Golang)</span>
-                    <span class="skill-tag">React JS</span>
-                    <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">Laravel</span>
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">Git &amp; GitHub</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">PostgreSQL</span>
+            <div class="sk-row sk-reveal" style="--d:.25s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-code"></i></span>
+                    <div>
+                        <h3>Software Engineering</h3><span class="sk-count">8 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Go (Golang)</li>
+                    <li class="sk-chip">React JS</li>
+                    <li class="sk-chip">Next.js</li>
+                    <li class="sk-chip">Laravel</li>
+                    <li class="sk-chip">Postman</li>
+                    <li class="sk-chip">Git &amp; GitHub</li>
+                    <li class="sk-chip">MySQL</li>
+                    <li class="sk-chip">PostgreSQL</li>
+                </ul>
             </div>
 
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-4">
-                <div class="sk-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3>Keamanan &amp; Soft Skill</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Basic Nmap</span>
-                    <span class="skill-tag">Basic Wireshark</span>
-                    <span class="skill-tag">Self Learning</span>
-                    <span class="skill-tag">Communication</span>
-                    <span class="skill-tag">Inisiatif</span>
-                    <span class="skill-tag">Teamwork</span>
-                    <span class="skill-tag">Adaptability</span>
+            <div class="sk-row sk-reveal" style="--d:.35s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-shield-halved"></i></span>
+                    <div>
+                        <h3>Keamanan &amp; Soft Skill</h3><span class="sk-count">7 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Basic Nmap</li>
+                    <li class="sk-chip">Basic Wireshark</li>
+                    <li class="sk-chip">Self Learning</li>
+                    <li class="sk-chip">Communication</li>
+                    <li class="sk-chip">Inisiatif</li>
+                    <li class="sk-chip">Teamwork</li>
+                    <li class="sk-chip">Adaptability</li>
+                </ul>
             </div>
+
         </div>
     </div>
 </section>
+
+<script>
+    (function () {
+        var sec = document.getElementById("skills");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var reveals = sec.querySelectorAll(".sk-reveal");
+
+        sec.classList.add("js-on");
+
+        /* jumlah skill otomatis + jeda animasi tiap chip */
+        sec.querySelectorAll(".sk-row").forEach(function (row) {
+            var chips = row.querySelectorAll(".sk-chip");
+            var count = row.querySelector(".sk-count");
+            if (count) count.textContent = chips.length + " keahlian";
+            chips.forEach(function (c, i) {
+                c.style.setProperty("--cd", (0.3 + i * 0.07) + "s");
+                c.style.setProperty("--k", ((i * 0.55) % 3.2).toFixed(2) + "s");
+            });
+        });
+
+        if (reduce || !("IntersectionObserver" in window)) {
+            reveals.forEach(function (el) { el.classList.add("is-in"); });
+        } else {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+                });
+            }, { threshold: 0.18 });
+            reveals.forEach(function (el) { io.observe(el); });
+        }
+
+        /* cahaya mengikuti kursor di tiap baris */
+        if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            sec.querySelectorAll(".sk-row").forEach(function (row) {
+                row.addEventListener("mousemove", function (e) {
+                    var r = row.getBoundingClientRect();
+                    row.style.setProperty("--cx", (e.clientX - r.left) + "px");
+                    row.style.setProperty("--cy", (e.clientY - r.top) + "px");
+                });
+            });
+        }
+    })();
+</script>
 <!-- END SECTION: skills.html -->
 
     <!-- BEGIN SECTION: experience.html -->
-<!-- Work Experience & Leadership Section -->
-<section class="tmp-section-gapTop" id="section_experiences">
-    <div class="container">
-        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Pengalaman Kerja &amp;
-            Organisasi
-            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png"
-                    alt="custom-line"></span>
-        </h2>
+<!-- =====================================================
+  src/sections/experience.html
+  Pengalaman Kerja & Organisasi: timeline, tanggal di kiri, garis terisi mengikuti scroll
+  Ikon memakai Font Awesome (sudah dimuat di header.html)
+===================================================== -->
+<style>
+    .ex {
+        --u: clamp(.78px, calc(100vw / 2200), 1.4px);
+        --ex-accent: #2f6bff;
+        --ex-sub: #b7c0d4;
+        --ex-body: #c3cbdd;
+        position: relative;
+        overflow: hidden;
+        padding: calc(120 * var(--u)) 3.5vw calc(120 * var(--u)) 7.2vw;
+        background: #060b16;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
 
-        <style>
-            .v2-timeline {
-                position: relative;
-                margin-top: 10px;
-            }
+    .ex *,
+    .ex *::before,
+    .ex *::after {
+        box-sizing: border-box;
+    }
 
-            .v2-timeline::before {
-                content: "";
-                position: absolute;
-                left: 27px;
-                top: 10px;
-                bottom: 10px;
-                width: 2px;
-                background: linear-gradient(to bottom, rgba(241, 228, 209, 0.6), rgba(241, 228, 209, 0.05));
-            }
+    .ex::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 40% 45% at 8% 40%, rgba(29, 78, 216, .26), transparent 70%),
+            radial-gradient(ellipse 45% 40% at 95% 90%, rgba(29, 78, 216, .22), transparent 70%),
+            linear-gradient(rgba(120, 160, 255, .04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .04) 1px, transparent 1px);
+        background-size: auto, auto, 90px 90px, 90px 90px;
+        pointer-events: none;
+    }
 
-            .v2-t-item {
-                position: relative;
-                padding-left: 76px;
-                margin-bottom: 34px;
-            }
+    .ex::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 7.2vw;
+        right: 3.5vw;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(80, 130, 255, .55), transparent);
+    }
 
-            .v2-t-item:last-child {
-                margin-bottom: 0;
-            }
+    .ex-wrap {
+        position: relative;
+        z-index: 1;
+    }
 
-            .v2-t-dot {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                background: #162660;
-                border: 2px solid #F1E4D1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #F1E4D1;
-                font-size: 20px;
-                z-index: 2;
-            }
+    /* ---------- Judul ---------- */
+    .ex-title {
+        display: flex;
+        align-items: center;
+        gap: calc(28 * var(--u));
+        margin: 0 0 calc(70 * var(--u));
+        font-size: calc(58 * var(--u));
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -.025em;
+    }
 
-            .v2-t-card {
-                background: rgba(42, 59, 119, 0.35);
-                border: 1px solid rgba(241, 228, 209, 0.18);
-                border-radius: 14px;
-                padding: 24px 26px;
-                transition: border-color 0.25s ease, background 0.25s ease;
-            }
+    .ex-title::after {
+        content: "";
+        flex: 1;
+        max-width: calc(260 * var(--u));
+        height: 2px;
+        background: linear-gradient(90deg, #2f6bff, transparent);
+        border-radius: 2px;
+    }
 
-            .v2-t-card:hover {
-                border-color: rgba(241, 228, 209, 0.4);
-                background: rgba(42, 59, 119, 0.5);
-            }
+    /* ---------- Timeline ---------- */
+    .ex-list {
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-            .v2-t-role {
-                color: #F1E4D1;
-                font-weight: 700;
-                font-size: 14.5px;
-                margin-bottom: 4px;
-            }
+    .ex-line {
+        display: block;
+        position: absolute;
+        left: calc(220 * var(--u) + 40 * var(--u) + 32 * var(--u) - 1px);
+        top: calc(32 * var(--u));
+        bottom: calc(40 * var(--u));
+        width: 2px;
+        border-radius: 2px;
+        background: rgba(120, 160, 255, .18);
+    }
 
-            .v2-t-org {
-                color: #fff;
-                font-size: 18px;
-                font-weight: 700;
-                margin-bottom: 8px;
-            }
+    .ex-line i {
+        display: block;
+        width: 100%;
+        height: var(--p, 100%);
+        border-radius: 2px;
+        background: linear-gradient(to bottom, #4f8cff, #2f6bff);
+        box-shadow: 0 0 14px rgba(70, 130, 255, .9);
+    }
 
-            .v2-t-meta {
-                color: rgba(255, 255, 255, 0.6);
-                font-size: 13px;
-                margin-bottom: 16px;
-            }
+    .ex-item {
+        display: grid;
+        grid-template-columns: calc(220 * var(--u)) calc(64 * var(--u)) minmax(0, 1fr);
+        column-gap: calc(40 * var(--u));
+        padding-bottom: calc(64 * var(--u));
+    }
 
-            .v2-t-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
+    .ex-item:last-child {
+        padding-bottom: 0;
+    }
 
-            .v2-t-list li {
-                position: relative;
-                padding-left: 20px;
-                margin-bottom: 8px;
-                color: rgba(255, 255, 255, 0.85);
-                line-height: 1.7;
-                font-size: 14.5px;
-            }
+    .ex-date {
+        padding-top: calc(18 * var(--u));
+        text-align: right;
+        font-size: calc(19 * var(--u));
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--ex-sub);
+    }
 
-            .v2-t-list li:last-child {
-                margin-bottom: 0;
-            }
+    .ex-now {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(8 * var(--u));
+        margin-top: calc(8 * var(--u));
+        padding: calc(5 * var(--u)) calc(14 * var(--u));
+        border-radius: 999px;
+        font-size: calc(14 * var(--u));
+        font-weight: 700;
+        color: #cfe0ff;
+        background: rgba(47, 107, 255, .22);
+        border: 1px solid rgba(110, 160, 255, .55);
+    }
 
-            .v2-t-list li::before {
-                content: "\f00c";
-                font-family: "Font Awesome 6 Free";
-                font-weight: 900;
-                position: absolute;
-                left: 0;
-                top: 2px;
-                color: #F1E4D1;
-                font-size: 11px;
-            }
+    .ex-now::before {
+        content: "";
+        width: calc(7 * var(--u));
+        height: calc(7 * var(--u));
+        border-radius: 50%;
+        background: #7fb0ff;
+        box-shadow: 0 0 10px 2px rgba(120, 175, 255, .9);
+        animation: exBlink 1.6s ease-in-out infinite;
+    }
 
-            @media (max-width: 575px) {
-                .v2-timeline::before {
-                    left: 22px;
-                }
+    @keyframes exBlink {
+        50% {
+            opacity: .3;
+        }
+    }
 
-                .v2-t-item {
-                    padding-left: 60px;
-                }
+    .ex-node {
+        position: relative;
+        z-index: 1;
+        width: calc(64 * var(--u));
+        height: calc(64 * var(--u));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #0a1429;
+        border: 1px solid rgba(110, 160, 255, .35);
+        color: #6f7fa3;
+        font-size: calc(26 * var(--u));
+        box-shadow: 0 0 0 calc(8 * var(--u)) #060b16;
+        transition: background .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease, transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
 
-                .v2-t-dot {
-                    width: 44px;
-                    height: 44px;
-                    font-size: 16px;
-                }
-            }
-        </style>
+    .ex-item.is-on .ex-node,
+    .ex:not(.js-on) .ex-node {
+        color: #6ea0ff;
+        border-color: rgba(110, 160, 255, .8);
+        box-shadow: 0 0 0 calc(8 * var(--u)) #060b16, 0 0 24px rgba(47, 107, 255, .55);
+    }
 
-        <div class="v2-timeline">
-            <!-- 1. Google Developer Group on Campus -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <div class="v2-t-dot"><i class="fa-solid fa-people-group"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Head of Event Departement</div>
-                    <h3 class="v2-t-org">Google Developer Group on Campus – UNPAS</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jul 2026 – Sekarang &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
+    .ex-item:hover .ex-node {
+        background: linear-gradient(135deg, #1f5bff, #3a86ff);
+        color: #fff;
+        border-color: #5b95ff;
+        box-shadow: 0 0 0 calc(8 * var(--u)) #060b16, 0 0 32px rgba(47, 107, 255, .85);
+        transform: scale(1.08) rotate(-6deg);
+    }
+
+    .ex-item.is-live .ex-node::after {
+        content: "";
+        position: absolute;
+        inset: calc(-8 * var(--u));
+        border-radius: 50%;
+        border: 2px solid rgba(80, 140, 255, .6);
+        animation: exPing 2.2s ease-out infinite;
+    }
+
+    @keyframes exPing {
+        from {
+            transform: scale(.85);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(1.45);
+            opacity: 0;
+        }
+    }
+
+    .ex-body {
+        padding-top: calc(6 * var(--u));
+    }
+
+    .ex-role {
+        margin: 0;
+        font-size: calc(19 * var(--u));
+        font-weight: 600;
+        color: #6ea0ff;
+    }
+
+    .ex-org {
+        margin: calc(6 * var(--u)) 0 0;
+        font-size: calc(32 * var(--u));
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -.01em;
+    }
+
+    .ex-loc {
+        display: flex;
+        align-items: center;
+        gap: calc(10 * var(--u));
+        margin: calc(10 * var(--u)) 0 0;
+        font-size: calc(16 * var(--u));
+        color: var(--ex-sub);
+    }
+
+    .ex-loc i {
+        color: #6ea0ff;
+    }
+
+    .ex-points {
+        list-style: none;
+        margin: calc(24 * var(--u)) 0 0;
+        padding: 0;
+        max-width: calc(980 * var(--u));
+    }
+
+    .ex-points li {
+        position: relative;
+        padding: 0 0 0 calc(30 * var(--u));
+        margin-bottom: calc(13 * var(--u));
+        font-size: calc(18 * var(--u));
+        line-height: 1.65;
+        color: var(--ex-body);
+        transition: color .25s ease, translate .25s ease;
+    }
+
+    .ex-points li:last-child {
+        margin-bottom: 0;
+    }
+
+    .ex-points li::before {
+        content: "\f054";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: .42em;
+        font-size: calc(12 * var(--u));
+        color: var(--ex-accent);
+    }
+
+    .ex-points li:hover {
+        color: #fff;
+        translate: calc(4 * var(--u)) 0;
+    }
+
+    /* ---------- Animasi masuk ---------- */
+    .ex.js-on .ex-reveal {
+        opacity: 0;
+        translate: 0 34px;
+        transition: opacity .8s ease, translate .8s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ex.js-on .ex-reveal.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .ex *,
+        .ex *::before,
+        .ex *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .ex.js-on .ex-reveal {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .ex {
+            --u: 1px;
+            padding: 80px 6vw 90px;
+        }
+
+        .ex::after {
+            left: 6vw;
+            right: 6vw;
+        }
+
+        .ex-title {
+            font-size: clamp(1.9rem, 7.5vw, 3rem);
+        }
+
+        .ex-title::after {
+            display: none;
+        }
+
+        .ex-line {
+            left: 23px;
+        }
+
+        .ex-item {
+            grid-template-columns: 48px minmax(0, 1fr);
+            column-gap: 20px;
+        }
+
+        .ex-node {
+            width: 48px;
+            height: 48px;
+            font-size: 19px;
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            align-self: start;
+        }
+
+        .ex-date {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: left;
+            padding: 4px 0 0;
+            font-size: .92rem;
+        }
+
+        .ex-body {
+            grid-column: 2;
+            grid-row: 2;
+            padding-top: 6px;
+        }
+
+        .ex-org {
+            font-size: 1.3rem;
+        }
+
+        .ex-role {
+            font-size: .95rem;
+        }
+
+        .ex-points li {
+            font-size: .95rem;
+        }
+    }
+</style>
+
+<section class="ex" id="experience">
+    <div class="ex-wrap">
+        <h2 class="ex-title ex-reveal">Pengalaman Kerja &amp; Organisasi</h2>
+
+        <ol class="ex-list" id="exList">
+            <li class="ex-line" aria-hidden="true"><i></i></li>
+
+            <li class="ex-item is-live">
+                <div class="ex-date ex-reveal">Jul 2026 - Sekarang<br><span class="ex-now">Sekarang</span></div>
+                <span class="ex-node"><i class="fa-solid fa-people-group"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Head of Event Departement</p>
+                    <h3 class="ex-org">Google Developer Group on Campus – UNPAS</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
                         <li>Mengoordinasikan persiapan dan pelaksanaan kegiatan serta acara komunitas teknologi di
                             kampus.</li>
-                        <li>Bertugas sebagai MC dan moderator dalam kegiatan, serta mendukung komunikasi efektif
-                            antara panitia, pembicara, dan peserta.</li>
+                        <li>Bertugas sebagai MC dan moderator dalam kegiatan, serta mendukung komunikasi efektif antara
+                            panitia, pembicara, dan peserta.</li>
                         <li>Berkolaborasi dengan seluruh anggota tim untuk memastikan jalannya kegiatan berlangsung
                             sesuai target dan rencana.</li>
                     </ul>
                 </div>
-            </div>
+            </li>
 
-            <!-- 2. PT Berkah Teknologi Terdepan -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-2">
-                <div class="v2-t-dot"><i class="fa-solid fa-code"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Junior Software Engineer</div>
-                    <h3 class="v2-t-org">PT Berkah Teknologi Terdepan</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jun 2026 – Sep 2026 &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
+            <li class="ex-item">
+                <div class="ex-date ex-reveal">Jun 2026 - Sep 2026</div>
+                <span class="ex-node"><i class="fa-solid fa-code"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Junior Software Engineer</p>
+                    <h3 class="ex-org">PT Berkah Teknologi Terdepan</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
                         <li>Melakukan pengujian perangkat lunak (Quality Assurance), mengidentifikasi masalah
                             (bug/issue), dan menyusun dokumentasi hasil pengujian.</li>
                         <li>Mengembangkan dan meredesain website menggunakan React.js, Next.js, Laravel, dan Golang.
@@ -884,42 +3184,37 @@
                         <li>Membuat dan mengembangkan plugin sesuai kebutuhan pengembangan aplikasi sistem.</li>
                         <li>Menggunakan Git dan GitHub untuk pengelolaan kode, Docker untuk lingkungan pengembangan,
                             serta Postman dalam proses pengujian API.</li>
-                        <li>Menyusun dokumentasi teknis terkait alur pengembangan dan prosedur pengujian software.
-                        </li>
+                        <li>Menyusun dokumentasi teknis terkait alur pengembangan dan prosedur pengujian software.</li>
                     </ul>
                 </div>
-            </div>
+            </li>
 
-            <!-- 3. Asisten Dosen UNPAS -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-3">
-                <div class="v2-t-dot"><i class="fa-solid fa-chalkboard-user"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Teaching Assistant – Internet and Web Technology</div>
-                    <h3 class="v2-t-org">Teknik Informatika – Universitas Pasundan</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Dec 2025 – Dec 2025 &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
-                        <li>Membantu dosen dalam pelaksanaan kegiatan pembelajaran praktikum dan pendampingan
-                            akademik mahasiswa.</li>
+            <li class="ex-item">
+                <div class="ex-date ex-reveal">Dec 2025 - Dec 2025</div>
+                <span class="ex-node"><i class="fa-solid fa-chalkboard-user"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Teaching Assistant - Internet and Web Technology</p>
+                    <h3 class="ex-org">Teknik Informatika – Universitas Pasundan</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
+                        <li>Membantu dosen dalam pelaksanaan kegiatan pembelajaran praktikum dan pendampingan akademik
+                            mahasiswa.</li>
                         <li>Memberikan arahan dan bimbingan kepada mahasiswa dalam memahami materi terkait teknologi
                             internet dan web development.</li>
                         <li>Menjadi penguji tugas besar mahasiswa berupa produk website serta mengevaluasi hasil
                             pengerjaan kode dan implementasinya.</li>
                     </ul>
                 </div>
-            </div>
+            </li>
 
-            <!-- 4. SND Computer BEC -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-4">
-                <div class="v2-t-dot"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Teknisi Komputer</div>
-                    <h3 class="v2-t-org">SND Computer BEC</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jan 2023 – Mei 2023 &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
+            <li class="ex-item">
+                <div class="ex-date ex-reveal">Jan 2023 - Mei 2023</div>
+                <span class="ex-node"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Teknisi Komputer</p>
+                    <h3 class="ex-org">SND Computer BEC</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
                         <li>Melakukan pemeriksaan, diagnosis menyeluruh, dan troubleshooting permasalahan hardware
                             maupun software pada komputer dan laptop.</li>
                         <li>Melakukan instalasi sistem operasi (Windows/Linux), aplikasi esensial, serta konfigurasi
@@ -928,10 +3223,71 @@
                             penggantian komponen yang rusak.</li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ol>
     </div>
 </section>
+
+<script>
+    (function () {
+        var sec = document.getElementById("experience");
+        var list = document.getElementById("exList");
+        var line = list.querySelector(".ex-line");
+        var fill = line.firstElementChild;
+        var items = Array.prototype.slice.call(list.querySelectorAll(".ex-item"));
+        var nodes = items.map(function (it) { return it.querySelector(".ex-node"); });
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var ticking = false;
+
+        sec.classList.add("js-on");
+
+        /* garis dari pusat node pertama sampai pusat node terakhir */
+        function layoutLine() {
+            var a = nodes[0], b = nodes[nodes.length - 1];
+            var top = a.offsetTop + a.offsetHeight / 2;
+            var bottom = b.offsetTop + b.offsetHeight / 2;
+            line.style.top = top + "px";
+            line.style.bottom = "auto";
+            line.style.height = (bottom - top) + "px";
+        }
+
+        /* garis terisi + node menyala mengikuti posisi scroll */
+        function update() {
+            ticking = false;
+            var mid = window.innerHeight * 0.6;
+            var lineRect = line.getBoundingClientRect();
+            var h = lineRect.height;
+            var p = Math.max(0, Math.min(h, mid - lineRect.top));
+            if (reduce) p = h;
+            fill.style.height = p + "px";
+            items.forEach(function (it, i) {
+                var r = nodes[i].getBoundingClientRect();
+                var on = reduce || (r.top + r.height / 2 <= mid);
+                it.classList.toggle("is-on", on);
+            });
+        }
+        function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+        layoutLine(); update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", function () { layoutLine(); update(); });
+        window.addEventListener("load", function () { layoutLine(); update(); });
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function () { layoutLine(); update(); }); }
+
+        /* muncul bertahap saat di-scroll */
+        var reveals = sec.querySelectorAll(".ex-reveal");
+        if (reduce || !("IntersectionObserver" in window)) {
+            reveals.forEach(function (el) { el.classList.add("is-in"); });
+        } else {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+                });
+            }, { threshold: 0.12 });
+            reveals.forEach(function (el) { io.observe(el); });
+        }
+    })();
+</script>
 <!-- END SECTION: experience.html -->
 
     <!-- BEGIN SECTION: education.html -->

@@ -1,166 +1,403 @@
-<!-- Work Experience & Leadership Section -->
-<section class="tmp-section-gapTop" id="section_experiences">
-    <div class="container">
-        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Pengalaman Kerja &amp;
-            Organisasi
-            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png"
-                    alt="custom-line"></span>
-        </h2>
+<!-- =====================================================
+  src/sections/experience.html
+  Pengalaman Kerja & Organisasi: timeline, tanggal di kiri, garis terisi mengikuti scroll
+  Ikon memakai Font Awesome (sudah dimuat di header.html)
+===================================================== -->
+<style>
+    .ex {
+        --u: clamp(.78px, calc(100vw / 2200), 1.4px);
+        --ex-accent: #2f6bff;
+        --ex-sub: #b7c0d4;
+        --ex-body: #c3cbdd;
+        position: relative;
+        overflow: hidden;
+        padding: calc(120 * var(--u)) 3.5vw calc(120 * var(--u)) 7.2vw;
+        background: #060b16;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
 
-        <style>
-            .v2-timeline {
-                position: relative;
-                margin-top: 10px;
-            }
+    .ex *,
+    .ex *::before,
+    .ex *::after {
+        box-sizing: border-box;
+    }
 
-            .v2-timeline::before {
-                content: "";
-                position: absolute;
-                left: 27px;
-                top: 10px;
-                bottom: 10px;
-                width: 2px;
-                background: linear-gradient(to bottom, rgba(241, 228, 209, 0.6), rgba(241, 228, 209, 0.05));
-            }
+    .ex::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 40% 45% at 8% 40%, rgba(29, 78, 216, .26), transparent 70%),
+            radial-gradient(ellipse 45% 40% at 95% 90%, rgba(29, 78, 216, .22), transparent 70%),
+            linear-gradient(rgba(120, 160, 255, .04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .04) 1px, transparent 1px);
+        background-size: auto, auto, 90px 90px, 90px 90px;
+        pointer-events: none;
+    }
 
-            .v2-t-item {
-                position: relative;
-                padding-left: 76px;
-                margin-bottom: 34px;
-            }
+    .ex::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 7.2vw;
+        right: 3.5vw;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(80, 130, 255, .55), transparent);
+    }
 
-            .v2-t-item:last-child {
-                margin-bottom: 0;
-            }
+    .ex-wrap {
+        position: relative;
+        z-index: 1;
+    }
 
-            .v2-t-dot {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                background: #162660;
-                border: 2px solid #F1E4D1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #F1E4D1;
-                font-size: 20px;
-                z-index: 2;
-            }
+    /* ---------- Judul ---------- */
+    .ex-title {
+        display: flex;
+        align-items: center;
+        gap: calc(28 * var(--u));
+        margin: 0 0 calc(70 * var(--u));
+        font-size: calc(58 * var(--u));
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -.025em;
+    }
 
-            .v2-t-card {
-                background: rgba(42, 59, 119, 0.35);
-                border: 1px solid rgba(241, 228, 209, 0.18);
-                border-radius: 14px;
-                padding: 24px 26px;
-                transition: border-color 0.25s ease, background 0.25s ease;
-            }
+    .ex-title::after {
+        content: "";
+        flex: 1;
+        max-width: calc(260 * var(--u));
+        height: 2px;
+        background: linear-gradient(90deg, #2f6bff, transparent);
+        border-radius: 2px;
+    }
 
-            .v2-t-card:hover {
-                border-color: rgba(241, 228, 209, 0.4);
-                background: rgba(42, 59, 119, 0.5);
-            }
+    /* ---------- Timeline ---------- */
+    .ex-list {
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-            .v2-t-role {
-                color: #F1E4D1;
-                font-weight: 700;
-                font-size: 14.5px;
-                margin-bottom: 4px;
-            }
+    .ex-line {
+        display: block;
+        position: absolute;
+        left: calc(220 * var(--u) + 40 * var(--u) + 32 * var(--u) - 1px);
+        top: calc(32 * var(--u));
+        bottom: calc(40 * var(--u));
+        width: 2px;
+        border-radius: 2px;
+        background: rgba(120, 160, 255, .18);
+    }
 
-            .v2-t-org {
-                color: #fff;
-                font-size: 18px;
-                font-weight: 700;
-                margin-bottom: 8px;
-            }
+    .ex-line i {
+        display: block;
+        width: 100%;
+        height: var(--p, 100%);
+        border-radius: 2px;
+        background: linear-gradient(to bottom, #4f8cff, #2f6bff);
+        box-shadow: 0 0 14px rgba(70, 130, 255, .9);
+    }
 
-            .v2-t-meta {
-                color: rgba(255, 255, 255, 0.6);
-                font-size: 13px;
-                margin-bottom: 16px;
-            }
+    .ex-item {
+        display: grid;
+        grid-template-columns: calc(220 * var(--u)) calc(64 * var(--u)) minmax(0, 1fr);
+        column-gap: calc(40 * var(--u));
+        padding-bottom: calc(64 * var(--u));
+    }
 
-            .v2-t-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
+    .ex-item:last-child {
+        padding-bottom: 0;
+    }
 
-            .v2-t-list li {
-                position: relative;
-                padding-left: 20px;
-                margin-bottom: 8px;
-                color: rgba(255, 255, 255, 0.85);
-                line-height: 1.7;
-                font-size: 14.5px;
-            }
+    .ex-date {
+        padding-top: calc(18 * var(--u));
+        text-align: right;
+        font-size: calc(19 * var(--u));
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--ex-sub);
+    }
 
-            .v2-t-list li:last-child {
-                margin-bottom: 0;
-            }
+    .ex-now {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(8 * var(--u));
+        margin-top: calc(8 * var(--u));
+        padding: calc(5 * var(--u)) calc(14 * var(--u));
+        border-radius: 999px;
+        font-size: calc(14 * var(--u));
+        font-weight: 700;
+        color: #cfe0ff;
+        background: rgba(47, 107, 255, .22);
+        border: 1px solid rgba(110, 160, 255, .55);
+    }
 
-            .v2-t-list li::before {
-                content: "\f00c";
-                font-family: "Font Awesome 6 Free";
-                font-weight: 900;
-                position: absolute;
-                left: 0;
-                top: 2px;
-                color: #F1E4D1;
-                font-size: 11px;
-            }
+    .ex-now::before {
+        content: "";
+        width: calc(7 * var(--u));
+        height: calc(7 * var(--u));
+        border-radius: 50%;
+        background: #7fb0ff;
+        box-shadow: 0 0 10px 2px rgba(120, 175, 255, .9);
+        animation: exBlink 1.6s ease-in-out infinite;
+    }
 
-            @media (max-width: 575px) {
-                .v2-timeline::before {
-                    left: 22px;
-                }
+    @keyframes exBlink {
+        50% {
+            opacity: .3;
+        }
+    }
 
-                .v2-t-item {
-                    padding-left: 60px;
-                }
+    .ex-node {
+        position: relative;
+        z-index: 1;
+        width: calc(64 * var(--u));
+        height: calc(64 * var(--u));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #0a1429;
+        border: 1px solid rgba(110, 160, 255, .35);
+        color: #6f7fa3;
+        font-size: calc(26 * var(--u));
+        box-shadow: 0 0 0 calc(8 * var(--u)) #060b16;
+        transition: background .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease, transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
 
-                .v2-t-dot {
-                    width: 44px;
-                    height: 44px;
-                    font-size: 16px;
-                }
-            }
-        </style>
+    .ex-item.is-on .ex-node,
+    .ex:not(.js-on) .ex-node {
+        color: #6ea0ff;
+        border-color: rgba(110, 160, 255, .8);
+        box-shadow: 0 0 0 calc(8 * var(--u)) #060b16, 0 0 24px rgba(47, 107, 255, .55);
+    }
 
-        <div class="v2-timeline">
-            <!-- 1. Google Developer Group on Campus -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <div class="v2-t-dot"><i class="fa-solid fa-people-group"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Head of Event Departement</div>
-                    <h3 class="v2-t-org">Google Developer Group on Campus – UNPAS</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jul 2026 – Sekarang &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
+    .ex-item:hover .ex-node {
+        background: linear-gradient(135deg, #1f5bff, #3a86ff);
+        color: #fff;
+        border-color: #5b95ff;
+        box-shadow: 0 0 0 calc(8 * var(--u)) #060b16, 0 0 32px rgba(47, 107, 255, .85);
+        transform: scale(1.08) rotate(-6deg);
+    }
+
+    .ex-item.is-live .ex-node::after {
+        content: "";
+        position: absolute;
+        inset: calc(-8 * var(--u));
+        border-radius: 50%;
+        border: 2px solid rgba(80, 140, 255, .6);
+        animation: exPing 2.2s ease-out infinite;
+    }
+
+    @keyframes exPing {
+        from {
+            transform: scale(.85);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(1.45);
+            opacity: 0;
+        }
+    }
+
+    .ex-body {
+        padding-top: calc(6 * var(--u));
+    }
+
+    .ex-role {
+        margin: 0;
+        font-size: calc(19 * var(--u));
+        font-weight: 600;
+        color: #6ea0ff;
+    }
+
+    .ex-org {
+        margin: calc(6 * var(--u)) 0 0;
+        font-size: calc(32 * var(--u));
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -.01em;
+    }
+
+    .ex-loc {
+        display: flex;
+        align-items: center;
+        gap: calc(10 * var(--u));
+        margin: calc(10 * var(--u)) 0 0;
+        font-size: calc(16 * var(--u));
+        color: var(--ex-sub);
+    }
+
+    .ex-loc i {
+        color: #6ea0ff;
+    }
+
+    .ex-points {
+        list-style: none;
+        margin: calc(24 * var(--u)) 0 0;
+        padding: 0;
+        max-width: calc(980 * var(--u));
+    }
+
+    .ex-points li {
+        position: relative;
+        padding: 0 0 0 calc(30 * var(--u));
+        margin-bottom: calc(13 * var(--u));
+        font-size: calc(18 * var(--u));
+        line-height: 1.65;
+        color: var(--ex-body);
+        transition: color .25s ease, translate .25s ease;
+    }
+
+    .ex-points li:last-child {
+        margin-bottom: 0;
+    }
+
+    .ex-points li::before {
+        content: "\f054";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: .42em;
+        font-size: calc(12 * var(--u));
+        color: var(--ex-accent);
+    }
+
+    .ex-points li:hover {
+        color: #fff;
+        translate: calc(4 * var(--u)) 0;
+    }
+
+    /* ---------- Animasi masuk ---------- */
+    .ex.js-on .ex-reveal {
+        opacity: 0;
+        translate: 0 34px;
+        transition: opacity .8s ease, translate .8s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ex.js-on .ex-reveal.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .ex *,
+        .ex *::before,
+        .ex *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .ex.js-on .ex-reveal {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .ex {
+            --u: 1px;
+            padding: 80px 6vw 90px;
+        }
+
+        .ex::after {
+            left: 6vw;
+            right: 6vw;
+        }
+
+        .ex-title {
+            font-size: clamp(1.9rem, 7.5vw, 3rem);
+        }
+
+        .ex-title::after {
+            display: none;
+        }
+
+        .ex-line {
+            left: 23px;
+        }
+
+        .ex-item {
+            grid-template-columns: 48px minmax(0, 1fr);
+            column-gap: 20px;
+        }
+
+        .ex-node {
+            width: 48px;
+            height: 48px;
+            font-size: 19px;
+            grid-column: 1;
+            grid-row: 1 / span 2;
+            align-self: start;
+        }
+
+        .ex-date {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: left;
+            padding: 4px 0 0;
+            font-size: .92rem;
+        }
+
+        .ex-body {
+            grid-column: 2;
+            grid-row: 2;
+            padding-top: 6px;
+        }
+
+        .ex-org {
+            font-size: 1.3rem;
+        }
+
+        .ex-role {
+            font-size: .95rem;
+        }
+
+        .ex-points li {
+            font-size: .95rem;
+        }
+    }
+</style>
+
+<section class="ex" id="experience">
+    <div class="ex-wrap">
+        <h2 class="ex-title ex-reveal">Pengalaman Kerja &amp; Organisasi</h2>
+
+        <ol class="ex-list" id="exList">
+            <li class="ex-line" aria-hidden="true"><i></i></li>
+
+            <li class="ex-item is-live">
+                <div class="ex-date ex-reveal">Jul 2026 - Sekarang<br><span class="ex-now">Sekarang</span></div>
+                <span class="ex-node"><i class="fa-solid fa-people-group"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Head of Event Departement</p>
+                    <h3 class="ex-org">Google Developer Group on Campus – UNPAS</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
                         <li>Mengoordinasikan persiapan dan pelaksanaan kegiatan serta acara komunitas teknologi di
                             kampus.</li>
-                        <li>Bertugas sebagai MC dan moderator dalam kegiatan, serta mendukung komunikasi efektif
-                            antara panitia, pembicara, dan peserta.</li>
+                        <li>Bertugas sebagai MC dan moderator dalam kegiatan, serta mendukung komunikasi efektif antara
+                            panitia, pembicara, dan peserta.</li>
                         <li>Berkolaborasi dengan seluruh anggota tim untuk memastikan jalannya kegiatan berlangsung
                             sesuai target dan rencana.</li>
                     </ul>
                 </div>
-            </div>
+            </li>
 
-            <!-- 2. PT Berkah Teknologi Terdepan -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-2">
-                <div class="v2-t-dot"><i class="fa-solid fa-code"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Junior Software Engineer</div>
-                    <h3 class="v2-t-org">PT Berkah Teknologi Terdepan</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jun 2026 – Sep 2026 &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
+            <li class="ex-item">
+                <div class="ex-date ex-reveal">Jun 2026 - Sep 2026</div>
+                <span class="ex-node"><i class="fa-solid fa-code"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Junior Software Engineer</p>
+                    <h3 class="ex-org">PT Berkah Teknologi Terdepan</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
                         <li>Melakukan pengujian perangkat lunak (Quality Assurance), mengidentifikasi masalah
                             (bug/issue), dan menyusun dokumentasi hasil pengujian.</li>
                         <li>Mengembangkan dan meredesain website menggunakan React.js, Next.js, Laravel, dan Golang.
@@ -168,42 +405,37 @@
                         <li>Membuat dan mengembangkan plugin sesuai kebutuhan pengembangan aplikasi sistem.</li>
                         <li>Menggunakan Git dan GitHub untuk pengelolaan kode, Docker untuk lingkungan pengembangan,
                             serta Postman dalam proses pengujian API.</li>
-                        <li>Menyusun dokumentasi teknis terkait alur pengembangan dan prosedur pengujian software.
-                        </li>
+                        <li>Menyusun dokumentasi teknis terkait alur pengembangan dan prosedur pengujian software.</li>
                     </ul>
                 </div>
-            </div>
+            </li>
 
-            <!-- 3. Asisten Dosen UNPAS -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-3">
-                <div class="v2-t-dot"><i class="fa-solid fa-chalkboard-user"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Teaching Assistant – Internet and Web Technology</div>
-                    <h3 class="v2-t-org">Teknik Informatika – Universitas Pasundan</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Dec 2025 – Dec 2025 &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
-                        <li>Membantu dosen dalam pelaksanaan kegiatan pembelajaran praktikum dan pendampingan
-                            akademik mahasiswa.</li>
+            <li class="ex-item">
+                <div class="ex-date ex-reveal">Dec 2025 - Dec 2025</div>
+                <span class="ex-node"><i class="fa-solid fa-chalkboard-user"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Teaching Assistant - Internet and Web Technology</p>
+                    <h3 class="ex-org">Teknik Informatika – Universitas Pasundan</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
+                        <li>Membantu dosen dalam pelaksanaan kegiatan pembelajaran praktikum dan pendampingan akademik
+                            mahasiswa.</li>
                         <li>Memberikan arahan dan bimbingan kepada mahasiswa dalam memahami materi terkait teknologi
                             internet dan web development.</li>
                         <li>Menjadi penguji tugas besar mahasiswa berupa produk website serta mengevaluasi hasil
                             pengerjaan kode dan implementasinya.</li>
                     </ul>
                 </div>
-            </div>
+            </li>
 
-            <!-- 4. SND Computer BEC -->
-            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-4">
-                <div class="v2-t-dot"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                <div class="v2-t-card">
-                    <div class="v2-t-role">Teknisi Komputer</div>
-                    <h3 class="v2-t-org">SND Computer BEC</h3>
-                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jan 2023 – Mei 2023 &nbsp;•&nbsp;
-                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
-                    </div>
-                    <ul class="v2-t-list">
+            <li class="ex-item">
+                <div class="ex-date ex-reveal">Jan 2023 - Mei 2023</div>
+                <span class="ex-node"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                <div class="ex-body ex-reveal">
+                    <p class="ex-role">Teknisi Komputer</p>
+                    <h3 class="ex-org">SND Computer BEC</h3>
+                    <p class="ex-loc"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
+                    <ul class="ex-points">
                         <li>Melakukan pemeriksaan, diagnosis menyeluruh, dan troubleshooting permasalahan hardware
                             maupun software pada komputer dan laptop.</li>
                         <li>Melakukan instalasi sistem operasi (Windows/Linux), aplikasi esensial, serta konfigurasi
@@ -212,7 +444,68 @@
                             penggantian komponen yang rusak.</li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ol>
     </div>
 </section>
+
+<script>
+    (function () {
+        var sec = document.getElementById("experience");
+        var list = document.getElementById("exList");
+        var line = list.querySelector(".ex-line");
+        var fill = line.firstElementChild;
+        var items = Array.prototype.slice.call(list.querySelectorAll(".ex-item"));
+        var nodes = items.map(function (it) { return it.querySelector(".ex-node"); });
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var ticking = false;
+
+        sec.classList.add("js-on");
+
+        /* garis dari pusat node pertama sampai pusat node terakhir */
+        function layoutLine() {
+            var a = nodes[0], b = nodes[nodes.length - 1];
+            var top = a.offsetTop + a.offsetHeight / 2;
+            var bottom = b.offsetTop + b.offsetHeight / 2;
+            line.style.top = top + "px";
+            line.style.bottom = "auto";
+            line.style.height = (bottom - top) + "px";
+        }
+
+        /* garis terisi + node menyala mengikuti posisi scroll */
+        function update() {
+            ticking = false;
+            var mid = window.innerHeight * 0.6;
+            var lineRect = line.getBoundingClientRect();
+            var h = lineRect.height;
+            var p = Math.max(0, Math.min(h, mid - lineRect.top));
+            if (reduce) p = h;
+            fill.style.height = p + "px";
+            items.forEach(function (it, i) {
+                var r = nodes[i].getBoundingClientRect();
+                var on = reduce || (r.top + r.height / 2 <= mid);
+                it.classList.toggle("is-on", on);
+            });
+        }
+        function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+        layoutLine(); update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", function () { layoutLine(); update(); });
+        window.addEventListener("load", function () { layoutLine(); update(); });
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function () { layoutLine(); update(); }); }
+
+        /* muncul bertahap saat di-scroll */
+        var reveals = sec.querySelectorAll(".ex-reveal");
+        if (reduce || !("IntersectionObserver" in window)) {
+            reveals.forEach(function (el) { el.classList.add("is-in"); });
+        } else {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+                });
+            }, { threshold: 0.12 });
+            reveals.forEach(function (el) { io.observe(el); });
+        }
+    })();
+</script>

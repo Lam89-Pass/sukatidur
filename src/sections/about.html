@@ -1,87 +1,577 @@
-<!-- About Us Section -->
-<section class="about-us-area tmp-section-gapTop" id="section_about">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="about-us-left-content-wrap bg-vactor-one">
-                    <div class="years-of-experience-card tmp-scroll-trigger tmp-fade-in animation-order-1"
-                        style="position: relative; overflow: hidden;">
-                        <picture>
-                            <source srcset="assets/images/profile-2.webp" type="image/webp">
-                            <img src="assets/images/profile-2.png" alt="Muhamad Nur Salam"
-                                style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 0;">
-                        </picture>
-                        <div
-                            style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,15,40,0.35) 0%, rgba(10,15,40,0.85) 100%); z-index: 1;">
-                        </div>
-                        <h2 class="counter card-title" style="position: relative; z-index: 2;"><span class="odometer"
-                                data-count="4">00</span>+
-                        </h2>
-                        <p class="card-para" style="position: relative; z-index: 2;">Pengalaman Kerja &amp; Organisasi
-                        </p>
-                    </div>
-                    <div class="design-card tmp-scroll-trigger tmp-fade-in animation-order-2">
-                        <div class="design-card-img">
-                            <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-title">IPK 3.53 / 4.00</h3>
-                            <p class="card-para">S1 Teknik Informatika UNPAS (2024–2028)</p>
-                        </div>
-                    </div>
-                    <div class="design-card tmp-scroll-trigger tmp-fade-in animation-order-3" style="margin-top: 20px;">
-                        <div class="design-card-img">
-                            <div class="icon"><i class="fa-solid fa-certificate"></i></div>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-title">12+ Pelatihan Teknis</h3>
-                            <p class="card-para">LSP BNSP, ADINUSA, DTS, Aguna &amp; WPU</p>
-                        </div>
+<!-- =====================================================
+  src/sections/about.html
+  Tentang saya: foto + angka (hitung naik), garis "topologi" statistik, teks, kontak
+  Ikon memakai Font Awesome (sudah dimuat di header.html)
+===================================================== -->
+<style>
+    .ab {
+        --u: clamp(.78px, calc(100vw / 2200), 1.4px);
+        --ab-accent: #2f6bff;
+        --ab-sub: #b7c0d4;
+        --ab-body: #c3cbdd;
+        position: relative;
+        overflow: hidden;
+        padding: calc(120 * var(--u)) 3.5vw calc(120 * var(--u)) 7.2vw;
+        background: #060b16;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .ab *,
+    .ab *::before,
+    .ab *::after {
+        box-sizing: border-box;
+    }
+
+    .ab::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 45% 50% at 12% 55%, rgba(29, 78, 216, .3), transparent 70%),
+            radial-gradient(ellipse 40% 35% at 95% 8%, rgba(29, 78, 216, .2), transparent 70%),
+            linear-gradient(rgba(120, 160, 255, .04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .04) 1px, transparent 1px);
+        background-size: auto, auto, 90px 90px, 90px 90px;
+        pointer-events: none;
+    }
+
+    .ab::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 7.2vw;
+        right: 3.5vw;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(80, 130, 255, .55), transparent);
+    }
+
+    .ab-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: calc(520 * var(--u)) minmax(0, 1fr);
+        gap: calc(100 * var(--u));
+        align-items: center;
+    }
+
+    /* ---------- Kolom kiri ---------- */
+    .ab-photo-wrap {
+        position: relative;
+    }
+
+    .ab-ring {
+        position: absolute;
+        z-index: 0;
+        left: -22%;
+        top: -8%;
+        width: 144%;
+        height: 116%;
+        pointer-events: none;
+        overflow: visible;
+    }
+
+    .ab-ring .spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: abSpin 70s linear infinite;
+    }
+
+    @keyframes abSpin {
+        to {
+            rotate: 360deg;
+        }
+    }
+
+    .ab-photo {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        aspect-ratio: 5 / 6;
+        border-radius: calc(32 * var(--u));
+        border: 1px solid rgba(120, 160, 255, .28);
+        background: #0c1630;
+        box-shadow: 0 30px 80px rgba(0, 10, 40, .55);
+    }
+
+    .ab-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 12%;
+        transition: transform .8s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ab-photo:hover img {
+        transform: scale(1.04);
+    }
+
+    .ab-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(6, 11, 22, .96) 0%, rgba(6, 11, 22, .55) 32%, transparent 58%);
+        pointer-events: none;
+    }
+
+    .ab-photo-cap {
+        position: absolute;
+        z-index: 2;
+        left: calc(34 * var(--u));
+        right: calc(34 * var(--u));
+        bottom: calc(30 * var(--u));
+    }
+
+    .ab-photo-cap strong {
+        display: block;
+        font-size: calc(88 * var(--u));
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -.03em;
+    }
+
+    .ab-photo-cap strong sup {
+        font-size: .6em;
+        color: #6ea0ff;
+        vertical-align: .25em;
+        margin-left: .04em;
+    }
+
+    .ab-photo-cap span {
+        display: block;
+        margin-top: calc(8 * var(--u));
+        font-size: calc(23 * var(--u));
+        font-weight: 600;
+        line-height: 1.3;
+        color: #e4e9f5;
+    }
+
+    /* garis topologi statistik */
+    .ab-stats {
+        position: relative;
+        z-index: 1;
+        list-style: none;
+        margin: calc(34 * var(--u)) 0 0;
+        padding: 0;
+    }
+
+    .ab-stats::before {
+        content: "";
+        position: absolute;
+        left: calc(30 * var(--u));
+        top: calc(-34 * var(--u));
+        bottom: calc(30 * var(--u));
+        width: 2px;
+        background: linear-gradient(to bottom, rgba(80, 130, 255, .9), rgba(80, 130, 255, .15));
+    }
+
+    .ab-stats::after {
+        content: "";
+        position: absolute;
+        left: calc(30 * var(--u));
+        top: calc(-34 * var(--u));
+        width: 8px;
+        height: 8px;
+        margin-left: -3px;
+        border-radius: 50%;
+        background: #9cc0ff;
+        box-shadow: 0 0 14px 3px rgba(90, 150, 255, .9);
+        animation: abTravel 4.5s ease-in-out infinite;
+    }
+
+    @keyframes abTravel {
+        0% {
+            translate: 0 0;
+            opacity: 0;
+        }
+
+        12% {
+            opacity: 1;
+        }
+
+        88% {
+            opacity: 1;
+        }
+
+        100% {
+            translate: 0 calc(240 * var(--u));
+            opacity: 0;
+        }
+    }
+
+    .ab-stats li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: calc(26 * var(--u));
+        padding: calc(14 * var(--u)) 0;
+    }
+
+    .ab-node {
+        position: relative;
+        z-index: 1;
+        flex: none;
+        width: calc(60 * var(--u));
+        height: calc(60 * var(--u));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #0a1429;
+        border: 1px solid rgba(110, 160, 255, .5);
+        color: #6ea0ff;
+        font-size: calc(24 * var(--u));
+        box-shadow: 0 0 0 calc(6 * var(--u)) #060b16, 0 0 22px rgba(47, 107, 255, .35);
+        transition: background .3s ease, color .3s ease, box-shadow .3s ease, transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .ab-stats li:hover .ab-node {
+        background: linear-gradient(135deg, #1f5bff, #3a86ff);
+        color: #fff;
+        box-shadow: 0 0 0 calc(6 * var(--u)) #060b16, 0 0 30px rgba(47, 107, 255, .8);
+        transform: scale(1.1);
+    }
+
+    .ab-stats strong {
+        display: block;
+        font-size: calc(34 * var(--u));
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -.01em;
+    }
+
+    .ab-stats p {
+        margin: calc(4 * var(--u)) 0 0;
+        font-size: calc(17 * var(--u));
+        line-height: 1.5;
+        color: var(--ab-sub);
+    }
+
+    /* ---------- Kolom kanan ---------- */
+    .ab-right {
+        max-width: calc(800 * var(--u));
+    }
+
+    .ab-kicker {
+        display: flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        margin: 0;
+        font-size: calc(26 * var(--u));
+        font-weight: 700;
+    }
+
+    .ab-kicker::before {
+        content: "";
+        width: calc(6 * var(--u));
+        height: calc(32 * var(--u));
+        border-radius: 3px;
+        background: var(--ab-accent);
+    }
+
+    .ab-title {
+        margin: calc(24 * var(--u)) 0 calc(32 * var(--u));
+        font-size: calc(48 * var(--u));
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -.02em;
+    }
+
+    .ab-title i {
+        font-style: normal;
+        font-weight: 400;
+        color: var(--ab-accent);
+        padding: 0 .1em;
+    }
+
+    .ab-text p {
+        margin: 0 0 calc(22 * var(--u));
+        font-size: calc(19 * var(--u));
+        line-height: 1.75;
+        color: var(--ab-body);
+    }
+
+    .ab-text strong {
+        color: #fff;
+        font-weight: 700;
+    }
+
+    /* panel kontak */
+    .ab-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: calc(38 * var(--u));
+        border-radius: calc(26 * var(--u));
+        background: linear-gradient(160deg, rgba(34, 58, 118, .5), rgba(12, 22, 48, .55));
+        border: 1px solid rgba(120, 160, 255, .22);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 20px 60px rgba(0, 10, 40, .4), inset 0 1px 0 rgba(255, 255, 255, .06);
+        overflow: hidden;
+    }
+
+    .ab-meta>* {
+        display: block;
+        padding: calc(24 * var(--u)) calc(30 * var(--u));
+        color: inherit;
+        text-decoration: none;
+        transition: background .3s ease;
+    }
+
+    .ab-meta>*+* {
+        border-left: 1px solid rgba(120, 160, 255, .2);
+    }
+
+    .ab-meta a:hover {
+        background: rgba(47, 107, 255, .14);
+    }
+
+    .ab-meta small {
+        display: flex;
+        align-items: center;
+        gap: calc(10 * var(--u));
+        font-size: calc(16 * var(--u));
+        color: var(--ab-sub);
+    }
+
+    .ab-meta small i {
+        color: #6ea0ff;
+        font-size: calc(17 * var(--u));
+    }
+
+    .ab-meta b {
+        display: block;
+        margin-top: calc(8 * var(--u));
+        font-size: calc(20 * var(--u));
+        font-weight: 700;
+        overflow-wrap: anywhere;
+    }
+
+    .ab-meta a:focus-visible {
+        outline: 2px solid var(--ab-accent);
+        outline-offset: -3px;
+    }
+
+    /* ---------- Animasi masuk ---------- */
+    .ab.js-on .ab-reveal {
+        opacity: 0;
+        translate: 0 34px;
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ab.js-on .ab-reveal.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    .ab.js-on .ab-photo img {
+        scale: 1.18;
+        transition: scale 1.8s cubic-bezier(.2, .8, .2, 1), transform .8s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .ab.js-on .ab-photo.is-in img {
+        scale: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .ab *,
+        .ab *::before,
+        .ab *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .ab.js-on .ab-reveal {
+            opacity: 1;
+            translate: 0 0;
+        }
+
+        .ab.js-on .ab-photo img {
+            scale: 1;
+        }
+
+        .ab-stats::after {
+            display: none;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .ab {
+            --u: 1px;
+            padding: 80px 6vw 90px;
+        }
+
+        .ab::after {
+            left: 6vw;
+            right: 6vw;
+        }
+
+        .ab-grid {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .ab-photo-wrap,
+        .ab-stats {
+            max-width: 520px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ab-stats {
+            margin-top: 34px;
+        }
+
+        .ab-ring {
+            display: none;
+        }
+
+        .ab-title {
+            font-size: clamp(1.7rem, 6.2vw, 2.5rem);
+        }
+
+        .ab-text p {
+            font-size: 1.02rem;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .ab-meta {
+            grid-template-columns: 1fr;
+        }
+
+        .ab-meta>*+* {
+            border-left: 0;
+            border-top: 1px solid rgba(120, 160, 255, .2);
+        }
+    }
+</style>
+
+<section class="ab" id="about">
+    <div class="ab-grid">
+
+        <!-- kiri: foto + statistik -->
+        <div class="ab-left">
+            <div class="ab-photo-wrap ab-reveal">
+                <svg class="ab-ring" viewBox="0 0 800 800" fill="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="abOrbit" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#3b82ff" stop-opacity="0" />
+                            <stop offset=".5" stop-color="#3b82ff" stop-opacity=".9" />
+                            <stop offset="1" stop-color="#3b82ff" stop-opacity=".1" />
+                        </linearGradient>
+                    </defs>
+                    <g class="spin">
+                        <ellipse cx="400" cy="400" rx="330" ry="250" transform="rotate(-32 400 400)"
+                            stroke="url(#abOrbit)" stroke-width="2" />
+                    </g>
+                    <ellipse cx="400" cy="400" rx="285" ry="345" transform="rotate(14 400 400)" stroke="url(#abOrbit)"
+                        stroke-width="1.5" opacity=".7" />
+                </svg>
+                <div class="ab-photo">
+                    <img src="assets/images/profile-2.png" alt="Muhamad Nur Salam" loading="lazy">
+                    <div class="ab-photo-cap">
+                        <strong><span class="ab-num" data-to="4" data-dec="0">4</span><sup>+</sup></strong>
+                        <span>Pengalaman Kerja &amp; Organisasi</span>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="about-us-right-content-wrap">
-                    <div class="section-head text-align-left mb--30">
-                        <div class="section-sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                            <span class="subtitle">Tentang Saya</span>
-                        </div>
-                        <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Mahasiswa S1
-                            Teknik Informatika | Network &amp; Infrastructure Enthusiast</h2>
-                        <p class="description tmp-scroll-trigger tmp-fade-in animation-order-3">
-                            Saya adalah mahasiswa S1 Teknik Informatika di <strong>Universitas Pasundan</strong> dengan
-                            fokus dan minat mendalam pada <strong>Network Engineering</strong>, <strong>IT
-                                Infrastructure</strong>, dan <strong>Cybersecurity</strong>.<br><br>
-                            Memiliki pemahaman komprehensif dalam konfigurasi dan troubleshooting jaringan, subnetting,
-                            VLAN, routing, Mikrotik, virtualisasi, serta administrasi sistem Linux. Dilengkapi
-                            pengalaman kerja nyata sebagai Teknisi Komputer dalam menangani diagnosis, perbaikan,
-                            instalasi, dan pemeliharaan perangkat keras maupun perangkat lunak.<br><br>
-                            Pengalaman tersebut diperkaya dengan keterlibatan dalam software development, quality
-                            assurance, asisten praktikum mata kuliah Internet &amp; Web Technology, serta kepemimpinan
-                            sebagai Head of Event di Google Developer Group on Campus UNPAS.
-                        </p>
+
+            <ul class="ab-stats">
+                <li class="ab-reveal" style="--d:.15s">
+                    <span class="ab-node"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <div>
+                        <strong>IPK <span class="ab-num" data-to="3.53" data-dec="2">3.53</span> / 4.00</strong>
+                        <p>S1 Teknik Informatika UNPAS (2024-2028)</p>
                     </div>
-                    <div class="about-us-section-card row g-3">
-                        <div class="col-sm-6">
-                            <div
-                                style="background: rgba(42, 59, 119, 0.4); border: 1px solid rgba(241, 228, 209, 0.2); border-radius: 8px; padding: 14px 18px;">
-                                <span style="font-size: 13px; color: #F1E4D1; display: block;"><i
-                                        class="fa-solid fa-location-dot" style="margin-right: 6px;"></i> Domisili</span>
-                                <strong style="color: #fff; font-size: 15px;">Dago, Kota Bandung</strong>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div
-                                style="background: rgba(42, 59, 119, 0.4); border: 1px solid rgba(241, 228, 209, 0.2); border-radius: 8px; padding: 14px 18px;">
-                                <span style="font-size: 13px; color: #F1E4D1; display: block;"><i
-                                        class="fa-solid fa-envelope" style="margin-right: 6px;"></i> Kontak Email</span>
-                                <strong
-                                    style="color: #fff; font-size: 14px; word-break: break-all;">aaallaaamm03@gmail.com</strong>
-                            </div>
-                        </div>
+                </li>
+                <li class="ab-reveal" style="--d:.3s">
+                    <span class="ab-node"><i class="fa-solid fa-certificate"></i></span>
+                    <div>
+                        <strong><span class="ab-num" data-to="12" data-dec="0">12</span>+ Pelatihan Teknis</strong>
+                        <p>LSP BNSP, ADINUS, DTS, Agung &amp; WPU</p>
                     </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- kanan: teks -->
+        <div class="ab-right">
+            <p class="ab-kicker ab-reveal">Tentang Saya</p>
+            <h2 class="ab-title ab-reveal" style="--d:.1s">Mahasiswa S1 Teknik Informatika <i>|</i> Network &amp;
+                Infrastructure Enthusiast</h2>
+
+            <div class="ab-text">
+                <p class="ab-reveal" style="--d:.2s">Saya adalah mahasiswa S1 Teknik Informatika di <strong>Universitas
+                        Pasundan</strong> dengan fokus dan minat mendalam pada <strong>Network Engineering</strong>,
+                    <strong>IT Infrastructure</strong>, dan <strong>Cybersecurity</strong>.</p>
+                <p class="ab-reveal" style="--d:.3s">Memiliki pemahaman komprehensif dalam konfigurasi dan
+                    troubleshooting jaringan, subnetting, VLAN, routing, Mikrotik, virtualisasi, serta administrasi
+                    sistem Linux. Dilengkapi pengalaman kerja nyata sebagai Teknisi Komputer dalam menangani diagnosis,
+                    perbaikan, instalasi, dan pemeliharaan perangkat keras maupun perangkat lunak.</p>
+                <p class="ab-reveal" style="--d:.4s">Pengalaman tersebut diperkaya dengan keterlibatan dalam software
+                    development, quality assurance, asisten praktikum mata kuliah Internet &amp; Web Technology, serta
+                    kepemimpinan sebagai Head of Event di Google Developer Group on Campus UNPAS.</p>
+            </div>
+
+            <div class="ab-meta ab-reveal" style="--d:.5s">
+                <div>
+                    <small><i class="fa-solid fa-location-dot"></i> Domisili</small>
+                    <b>Dago, Kota Bandung</b>
                 </div>
+                <a href="mailto:aaallaaamm03@gmail.com">
+                    <small><i class="fa-solid fa-envelope"></i> Kontak Email</small>
+                    <b>aaallaaamm03@gmail.com</b>
+                </a>
             </div>
         </div>
+
     </div>
 </section>
+
+<script>
+    (function () {
+        var sec = document.getElementById("about");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var reveals = sec.querySelectorAll(".ab-reveal");
+        var photo = sec.querySelector(".ab-photo");
+
+        sec.classList.add("js-on");
+
+        /* hitung naik untuk angka */
+        function count(el) {
+            var to = parseFloat(el.getAttribute("data-to")), dec = parseInt(el.getAttribute("data-dec"), 10) || 0;
+            if (reduce) { el.textContent = to.toFixed(dec); return; }
+            var t0 = null, dur = 1400;
+            function step(t) {
+                if (t0 === null) t0 = t;
+                var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+                el.textContent = (to * e).toFixed(dec);
+                if (p < 1) requestAnimationFrame(step);
+            }
+            el.textContent = (0).toFixed(dec);
+            requestAnimationFrame(step);
+        }
+
+        if (reduce || !("IntersectionObserver" in window)) {
+            reveals.forEach(function (el) { el.classList.add("is-in"); });
+            photo.classList.add("is-in");
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (!en.isIntersecting) return;
+                en.target.classList.add("is-in");
+                if (en.target.contains(photo)) photo.classList.add("is-in");
+                en.target.querySelectorAll(".ab-num").forEach(count);
+                io.unobserve(en.target);
+            });
+        }, { threshold: 0.2 });
+        reveals.forEach(function (el) { io.observe(el); });
+    })();
+</script>

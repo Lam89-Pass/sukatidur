@@ -1,127 +1,465 @@
-<!-- Technical Skills & Expertise Section -->
-<section class="tmp-skill-area tmp-section-gapTop as-section" id="section_expertise">
-    <div class="container">
-        <div class="section-head mb--60">
-            <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <span class="subtitle">Keahlian &amp; Kompetensi</span>
+<!-- =====================================================
+  src/sections/skills.html
+  Keahlian & Kompetensi: satu panel kaca, 4 baris keahlian, tiap skill punya "lampu port" LED
+  Ikon memakai Font Awesome (sudah dimuat di header.html)
+===================================================== -->
+<style>
+    .sk {
+        --u: clamp(.78px, calc(100vw / 2200), 1.4px);
+        --sk-accent: #2f6bff;
+        --sk-sub: #b7c0d4;
+        position: relative;
+        overflow: hidden;
+        padding: calc(120 * var(--u)) 3.5vw calc(120 * var(--u)) 7.2vw;
+        background: #060b16;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .sk *,
+    .sk *::before,
+    .sk *::after {
+        box-sizing: border-box;
+    }
+
+    .sk::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 50% 40% at 90% 85%, rgba(29, 78, 216, .28), transparent 70%),
+            radial-gradient(ellipse 40% 40% at 5% 10%, rgba(29, 78, 216, .18), transparent 70%),
+            linear-gradient(rgba(120, 160, 255, .04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(120, 160, 255, .04) 1px, transparent 1px);
+        background-size: auto, auto, 90px 90px, 90px 90px;
+        pointer-events: none;
+    }
+
+    .sk::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 7.2vw;
+        right: 3.5vw;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(80, 130, 255, .55), transparent);
+    }
+
+    .sk-wrap {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ---------- Judul ---------- */
+    .sk-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: calc(80 * var(--u));
+        margin-bottom: calc(56 * var(--u));
+    }
+
+    .sk-kicker {
+        display: flex;
+        align-items: center;
+        gap: calc(14 * var(--u));
+        margin: 0 0 calc(22 * var(--u));
+        font-size: calc(26 * var(--u));
+        font-weight: 700;
+    }
+
+    .sk-kicker::before {
+        content: "";
+        width: calc(6 * var(--u));
+        height: calc(32 * var(--u));
+        border-radius: 3px;
+        background: var(--sk-accent);
+    }
+
+    .sk-title {
+        margin: 0;
+        max-width: calc(820 * var(--u));
+        font-size: calc(62 * var(--u));
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -.025em;
+    }
+
+    .sk-sub {
+        margin: 0;
+        max-width: calc(470 * var(--u));
+        font-size: calc(20 * var(--u));
+        line-height: 1.65;
+        color: var(--sk-sub);
+    }
+
+    /* ---------- Panel ---------- */
+    .sk-panel {
+        border-radius: calc(32 * var(--u));
+        background: linear-gradient(160deg, rgba(34, 58, 118, .45), rgba(12, 22, 48, .55));
+        border: 1px solid rgba(120, 160, 255, .22);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 28px 80px rgba(0, 10, 40, .5), inset 0 1px 0 rgba(255, 255, 255, .06);
+        overflow: hidden;
+    }
+
+    .sk-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: calc(400 * var(--u)) minmax(0, 1fr);
+        gap: calc(48 * var(--u));
+        align-items: center;
+        padding: calc(38 * var(--u)) calc(46 * var(--u));
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .sk-row+.sk-row {
+        border-top: 1px solid rgba(120, 160, 255, .16);
+    }
+
+    /* cahaya mengikuti kursor */
+    .sk-row::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(420px circle at var(--cx, 20%) var(--cy, 50%), rgba(60, 120, 255, .16), transparent 65%);
+        opacity: 0;
+        transition: opacity .35s ease;
+    }
+
+    .sk-row:hover::before {
+        opacity: 1;
+    }
+
+    .sk-who {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: calc(24 * var(--u));
+    }
+
+    .sk-node {
+        flex: none;
+        width: calc(64 * var(--u));
+        height: calc(64 * var(--u));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #0a1429;
+        border: 1px solid rgba(110, 160, 255, .5);
+        color: #6ea0ff;
+        font-size: calc(26 * var(--u));
+        box-shadow: 0 0 22px rgba(47, 107, 255, .3);
+        transition: background .3s ease, color .3s ease, box-shadow .3s ease, transform .4s cubic-bezier(.3, 1.6, .5, 1);
+    }
+
+    .sk-row:hover .sk-node {
+        background: linear-gradient(135deg, #1f5bff, #3a86ff);
+        color: #fff;
+        box-shadow: 0 0 30px rgba(47, 107, 255, .8);
+        transform: scale(1.1) rotate(-6deg);
+    }
+
+    .sk-who h3 {
+        margin: 0;
+        font-size: calc(28 * var(--u));
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .sk-count {
+        display: block;
+        margin-top: calc(6 * var(--u));
+        font-size: calc(16 * var(--u));
+        color: var(--sk-sub);
+    }
+
+    .sk-chips {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(12 * var(--u));
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .sk-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(11 * var(--u));
+        padding: calc(11 * var(--u)) calc(22 * var(--u));
+        border-radius: 999px;
+        font-size: calc(17 * var(--u));
+        font-weight: 500;
+        color: #dbe4ff;
+        background: rgba(47, 107, 255, .1);
+        border: 1px solid rgba(110, 160, 255, .28);
+        cursor: default;
+        transition:
+            opacity .5s var(--cd, 0s) ease,
+            scale .5s var(--cd, 0s) cubic-bezier(.3, 1.6, .5, 1),
+            transform .25s cubic-bezier(.3, 1.6, .5, 1),
+            border-color .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+
+    /* lampu LED port */
+    .sk-chip::before {
+        content: "";
+        width: calc(8 * var(--u));
+        height: calc(8 * var(--u));
+        flex: none;
+        border-radius: 50%;
+        background: #4f8cff;
+        box-shadow: 0 0 calc(8 * var(--u)) 1px rgba(79, 140, 255, .9);
+        animation: skBlink 3.2s ease-in-out infinite;
+        animation-delay: var(--k, 0s);
+    }
+
+    @keyframes skBlink {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .3;
+        }
+    }
+
+    .sk-chip:hover {
+        transform: translateY(calc(-4 * var(--u)));
+        background: rgba(47, 107, 255, .28);
+        border-color: rgba(130, 175, 255, .8);
+        box-shadow: 0 10px 26px rgba(47, 107, 255, .35);
+        color: #fff;
+    }
+
+    .sk-chip:hover::before {
+        background: #a9c9ff;
+        animation: none;
+        opacity: 1;
+        box-shadow: 0 0 calc(12 * var(--u)) 3px rgba(150, 195, 255, .95);
+    }
+
+    /* ---------- Animasi masuk ---------- */
+    .sk.js-on .sk-reveal {
+        opacity: 0;
+        translate: 0 34px;
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .sk.js-on .sk-reveal.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    .sk.js-on .sk-row.sk-reveal {
+        transition: opacity .8s var(--d, 0s) ease, translate .8s var(--d, 0s) cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .sk.js-on .sk-chip {
+        opacity: 0;
+        scale: .6;
+    }
+
+    .sk.js-on .sk-row.is-in .sk-chip {
+        opacity: 1;
+        scale: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .sk *,
+        .sk *::before {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .sk.js-on .sk-reveal,
+        .sk.js-on .sk-chip {
+            opacity: 1;
+            translate: 0 0;
+            scale: 1;
+        }
+    }
+
+    /* ---------- Tablet & HP ---------- */
+    @media (max-width: 1100px) {
+        .sk {
+            --u: 1px;
+            padding: 80px 6vw 90px;
+        }
+
+        .sk::after {
+            left: 6vw;
+            right: 6vw;
+        }
+
+        .sk-head {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .sk-title {
+            font-size: clamp(2rem, 8vw, 3.2rem);
+        }
+
+        .sk-sub {
+            font-size: 1.02rem;
+        }
+
+        .sk-row {
+            grid-template-columns: 1fr;
+            gap: 22px;
+            padding: 28px 24px;
+        }
+
+        .sk-who h3 {
+            font-size: 1.3rem;
+        }
+
+        .sk-chip {
+            font-size: .92rem;
+            padding: 9px 16px;
+        }
+    }
+</style>
+
+<section class="sk" id="skills">
+    <div class="sk-wrap">
+
+        <div class="sk-head sk-reveal">
+            <div>
+                <p class="sk-kicker">Keahlian &amp; Kompetensi</p>
+                <h2 class="sk-title">Kemampuan Teknis yang Saya Kuasai</h2>
             </div>
-            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Kemampuan Teknis yang Saya
-                Kuasai</h2>
-            <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Empat pilar keahlian
-                yang saya bangun melalui pendidikan formal, pelatihan teknis, dan pengalaman kerja langsung.</p>
+            <p class="sk-sub">Empat pilar keahlian yang saya bangun melalui pendidikan formal, pelatihan teknis, dan
+                pengalaman kerja langsung.</p>
         </div>
 
-        <style>
-            .sk-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 22px;
-            }
+        <div class="sk-panel">
 
-            @media (max-width: 767px) {
-                .sk-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            .sk-card {
-                background: rgba(42, 59, 119, 0.35);
-                border: 1px solid rgba(241, 228, 209, 0.18);
-                border-radius: 16px;
-                padding: 28px 26px;
-                height: 100%;
-                transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-            }
-
-            .sk-card:hover {
-                transform: translateY(-6px);
-                border-color: rgba(241, 228, 209, 0.45);
-                background: rgba(42, 59, 119, 0.55);
-            }
-
-            .sk-icon {
-                width: 54px;
-                height: 54px;
-                border-radius: 14px;
-                background: rgba(241, 228, 209, 0.12);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #F1E4D1;
-                font-size: 22px;
-                margin-bottom: 18px;
-            }
-
-            .sk-card h3 {
-                color: #fff;
-                font-size: 19px;
-                margin-bottom: 16px;
-                font-weight: 700;
-            }
-
-            .sk-tags {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-        </style>
-
-        <div class="sk-grid">
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <div class="sk-icon"><i class="fa-solid fa-network-wired"></i></div>
-                <h3>Jaringan &amp; Infrastruktur</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Subnetting</span>
-                    <span class="skill-tag">VLAN</span>
-                    <span class="skill-tag">OSPF</span>
-                    <span class="skill-tag">Mikrotik</span>
-                    <span class="skill-tag">Cisco Packet Tracer</span>
-                    <span class="skill-tag">Cabelling</span>
+            <div class="sk-row sk-reveal" style="--d:.05s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-network-wired"></i></span>
+                    <div>
+                        <h3>Jaringan &amp; Infrastruktur</h3><span class="sk-count">6 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Subnetting</li>
+                    <li class="sk-chip">VLAN</li>
+                    <li class="sk-chip">OSPF</li>
+                    <li class="sk-chip">Mikrotik</li>
+                    <li class="sk-chip">Cisco Packet Tracer</li>
+                    <li class="sk-chip">Cabling</li>
+                </ul>
             </div>
 
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-2">
-                <div class="sk-icon"><i class="fa-solid fa-server"></i></div>
-                <h3>Sistem &amp; Server</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Basic Linux</span>
-                    <span class="skill-tag">Sistem Operasi</span>
-                    <span class="skill-tag">Web Server</span>
-                    <span class="skill-tag">Virtualization</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">CI/CD</span>
+            <div class="sk-row sk-reveal" style="--d:.15s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-server"></i></span>
+                    <div>
+                        <h3>Sistem &amp; Server</h3><span class="sk-count">7 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Basic Linux</li>
+                    <li class="sk-chip">Sistem Operasi</li>
+                    <li class="sk-chip">Web Server</li>
+                    <li class="sk-chip">Virtualization</li>
+                    <li class="sk-chip">Docker</li>
+                    <li class="sk-chip">AWS</li>
+                    <li class="sk-chip">CI/CD</li>
+                </ul>
             </div>
 
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-3">
-                <div class="sk-icon"><i class="fa-solid fa-code"></i></div>
-                <h3>Software Engineering</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Go (Golang)</span>
-                    <span class="skill-tag">React JS</span>
-                    <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">Laravel</span>
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">Git &amp; GitHub</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">PostgreSQL</span>
+            <div class="sk-row sk-reveal" style="--d:.25s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-code"></i></span>
+                    <div>
+                        <h3>Software Engineering</h3><span class="sk-count">8 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Go (Golang)</li>
+                    <li class="sk-chip">React JS</li>
+                    <li class="sk-chip">Next.js</li>
+                    <li class="sk-chip">Laravel</li>
+                    <li class="sk-chip">Postman</li>
+                    <li class="sk-chip">Git &amp; GitHub</li>
+                    <li class="sk-chip">MySQL</li>
+                    <li class="sk-chip">PostgreSQL</li>
+                </ul>
             </div>
 
-            <div class="sk-card tmp-scroll-trigger tmp-fade-in animation-order-4">
-                <div class="sk-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3>Keamanan &amp; Soft Skill</h3>
-                <div class="sk-tags">
-                    <span class="skill-tag">Basic Nmap</span>
-                    <span class="skill-tag">Basic Wireshark</span>
-                    <span class="skill-tag">Self Learning</span>
-                    <span class="skill-tag">Communication</span>
-                    <span class="skill-tag">Inisiatif</span>
-                    <span class="skill-tag">Teamwork</span>
-                    <span class="skill-tag">Adaptability</span>
+            <div class="sk-row sk-reveal" style="--d:.35s">
+                <div class="sk-who">
+                    <span class="sk-node"><i class="fa-solid fa-shield-halved"></i></span>
+                    <div>
+                        <h3>Keamanan &amp; Soft Skill</h3><span class="sk-count">7 keahlian</span>
+                    </div>
                 </div>
+                <ul class="sk-chips">
+                    <li class="sk-chip">Basic Nmap</li>
+                    <li class="sk-chip">Basic Wireshark</li>
+                    <li class="sk-chip">Self Learning</li>
+                    <li class="sk-chip">Communication</li>
+                    <li class="sk-chip">Inisiatif</li>
+                    <li class="sk-chip">Teamwork</li>
+                    <li class="sk-chip">Adaptability</li>
+                </ul>
             </div>
+
         </div>
     </div>
 </section>
+
+<script>
+    (function () {
+        var sec = document.getElementById("skills");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var reveals = sec.querySelectorAll(".sk-reveal");
+
+        sec.classList.add("js-on");
+
+        /* jumlah skill otomatis + jeda animasi tiap chip */
+        sec.querySelectorAll(".sk-row").forEach(function (row) {
+            var chips = row.querySelectorAll(".sk-chip");
+            var count = row.querySelector(".sk-count");
+            if (count) count.textContent = chips.length + " keahlian";
+            chips.forEach(function (c, i) {
+                c.style.setProperty("--cd", (0.3 + i * 0.07) + "s");
+                c.style.setProperty("--k", ((i * 0.55) % 3.2).toFixed(2) + "s");
+            });
+        });
+
+        if (reduce || !("IntersectionObserver" in window)) {
+            reveals.forEach(function (el) { el.classList.add("is-in"); });
+        } else {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+                });
+            }, { threshold: 0.18 });
+            reveals.forEach(function (el) { io.observe(el); });
+        }
+
+        /* cahaya mengikuti kursor di tiap baris */
+        if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            sec.querySelectorAll(".sk-row").forEach(function (row) {
+                row.addEventListener("mousemove", function (e) {
+                    var r = row.getBoundingClientRect();
+                    row.style.setProperty("--cx", (e.clientX - r.left) + "px");
+                    row.style.setProperty("--cy", (e.clientY - r.top) + "px");
+                });
+            });
+        }
+    })();
+</script>
