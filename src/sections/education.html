@@ -1,38 +1,166 @@
 <!-- Education Section -->
-<section class="education-experience tmp-section-gapTop" id="section_education">
+<section class="tmp-section-gapTop" id="section_education">
     <div class="container">
-        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Riwayat Pendidikan 
-            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png" alt="custom-line"></span>
+        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Riwayat Pendidikan
+            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png"
+                    alt="custom-line"></span>
         </h2>
-        <div class="row g-5">
+
+        <style>
+            .v2-edu-row {
+                display: flex;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .v2-edu-card {
+                flex: 1;
+                background: rgba(42, 59, 119, 0.35);
+                border: 1px solid rgba(241, 228, 209, 0.18);
+                border-radius: 16px;
+                padding: 30px 26px;
+                position: relative;
+            }
+
+            .v2-edu-badge {
+                width: 58px;
+                height: 58px;
+                border-radius: 50%;
+                background: rgba(241, 228, 209, 0.12);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #F1E4D1;
+                font-size: 24px;
+                margin-bottom: 18px;
+            }
+
+            .v2-edu-score {
+                position: absolute;
+                top: 24px;
+                right: 24px;
+                background: #F1E4D1;
+                color: #162660;
+                font-weight: 700;
+                font-size: 12.5px;
+                padding: 5px 14px;
+                border-radius: 20px;
+            }
+
+            .v2-edu-degree {
+                color: #F1E4D1;
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 4px;
+            }
+
+            .v2-edu-school {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+            .v2-edu-meta {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 13px;
+                margin-bottom: 16px;
+            }
+
+            .v2-edu-desc {
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 14.5px;
+                line-height: 1.75;
+                margin: 0;
+            }
+
+            .v2-edu-connector {
+                flex-shrink: 0;
+                width: 64px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .v2-edu-connector::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 50%;
+                height: 2px;
+                background: rgba(241, 228, 209, 0.3);
+                transform: translateY(-50%);
+            }
+
+            .v2-edu-connector i {
+                position: relative;
+                z-index: 1;
+                background: #162660;
+                color: #F1E4D1;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                border: 2px solid rgba(241, 228, 209, 0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+            }
+
+            @media (max-width: 991px) {
+                .v2-edu-row {
+                    flex-direction: column;
+                    gap: 0;
+                }
+
+                .v2-edu-connector {
+                    width: 100%;
+                    height: 56px;
+                }
+
+                .v2-edu-connector::before {
+                    left: 50%;
+                    right: auto;
+                    top: 0;
+                    bottom: 0;
+                    height: auto;
+                    width: 2px;
+                    transform: translateX(-50%);
+                }
+            }
+        </style>
+
+        <div class="v2-edu-row">
             <!-- 1. Universitas Pasundan -->
-            <div class="col-lg-6 col-sm-12">
-                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
-                        <h4 class="edu-sub-title">S1 – Teknik Informatika</h4>
-                        <span style="background: #F1E4D1; color: #162660; font-weight: 700; font-size: 13px; padding: 3px 12px; border-radius: 20px;">IPK 3.53 / 4.00</span>
-                    </div>
-                    <h2 class="edu-title">Universitas Pasundan | 2024 – 2028</h2>
-                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 10px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
-                    <p class="edu-para">
-                        Menempuh pendidikan sarjana dengan fokus utama pada Network Engineering, IT Infrastructure, dan Cybersecurity. Aktif dalam organisasi kemahasiswaan teknologi dan menjadi asisten praktikum.
-                    </p>
+            <div class="v2-edu-card tmp-scroll-trigger tmp-fade-in animation-order-1">
+                <span class="v2-edu-score">IPK 3.53 / 4.00</span>
+                <div class="v2-edu-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="v2-edu-degree">S1 – Teknik Informatika</div>
+                <h3 class="v2-edu-school">Universitas Pasundan</h3>
+                <div class="v2-edu-meta"><i class="fa-solid fa-calendar-days"></i> 2024 – 2028 &nbsp;•&nbsp;
+                    <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
                 </div>
+                <p class="v2-edu-desc">Menempuh pendidikan sarjana dengan fokus utama pada Network Engineering, IT
+                    Infrastructure, dan Cybersecurity. Aktif dalam organisasi kemahasiswaan teknologi dan menjadi
+                    asisten praktikum.</p>
             </div>
 
+            <div class="v2-edu-connector"><i class="fa-solid fa-road"></i></div>
+
             <!-- 2. SMKN 1 Cidaun -->
-            <div class="col-lg-6 col-sm-12">
-                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
-                        <h4 class="edu-sub-title">SMK – Teknik Komputer dan Jaringan (TKJ)</h4>
-                        <span style="background: #F1E4D1; color: #162660; font-weight: 700; font-size: 13px; padding: 3px 12px; border-radius: 20px;">Nilai Akhir 89 / 100</span>
-                    </div>
-                    <h2 class="edu-title">SMK Negeri 1 Cidaun | 2021 – 2024</h2>
-                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 10px;"><i class="fa-solid fa-location-dot"></i> Kab. Cianjur, Jawa Barat, Indonesia</p>
-                    <p class="edu-para">
-                        Mempelajari fondasi teknologi komputer dan jaringan, administrasi server Linux, konfigurasi LAN/WAN, routing, VLAN, perakitan hardware, dan berhasil meraih Sertifikat Kompetensi BNSP/LSP.
-                    </p>
+            <div class="v2-edu-card tmp-scroll-trigger tmp-fade-in animation-order-2">
+                <span class="v2-edu-score">Nilai Akhir 89 / 100</span>
+                <div class="v2-edu-badge"><i class="fa-solid fa-school"></i></div>
+                <div class="v2-edu-degree">SMK – Teknik Komputer dan Jaringan (TKJ)</div>
+                <h3 class="v2-edu-school">SMK Negeri 1 Cidaun</h3>
+                <div class="v2-edu-meta"><i class="fa-solid fa-calendar-days"></i> 2021 – 2024 &nbsp;•&nbsp;
+                    <i class="fa-solid fa-location-dot"></i> Kab. Cianjur, Jawa Barat, Indonesia
                 </div>
+                <p class="v2-edu-desc">Mempelajari fondasi teknologi komputer dan jaringan, administrasi server
+                    Linux, konfigurasi LAN/WAN, routing, VLAN, perakitan hardware, dan berhasil meraih Sertifikat
+                    Kompetensi BNSP/LSP.</p>
             </div>
         </div>
     </div>

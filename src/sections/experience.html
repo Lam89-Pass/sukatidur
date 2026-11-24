@@ -1,64 +1,215 @@
 <!-- Work Experience & Leadership Section -->
-<section class="education-experience tmp-section-gapTop" id="section_experiences">
+<section class="tmp-section-gapTop" id="section_experiences">
     <div class="container">
-        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Pengalaman Kerja &amp; Organisasi 
-            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png" alt="custom-line"></span>
+        <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Pengalaman Kerja &amp;
+            Organisasi
+            <span><img src="https://files.ituaku.com/assets/websites/themes/personal1/images/icons/custom-line.png"
+                    alt="custom-line"></span>
         </h2>
-        <div class="row g-5">
+
+        <style>
+            .v2-timeline {
+                position: relative;
+                margin-top: 10px;
+            }
+
+            .v2-timeline::before {
+                content: "";
+                position: absolute;
+                left: 27px;
+                top: 10px;
+                bottom: 10px;
+                width: 2px;
+                background: linear-gradient(to bottom, rgba(241, 228, 209, 0.6), rgba(241, 228, 209, 0.05));
+            }
+
+            .v2-t-item {
+                position: relative;
+                padding-left: 76px;
+                margin-bottom: 34px;
+            }
+
+            .v2-t-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .v2-t-dot {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: #162660;
+                border: 2px solid #F1E4D1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #F1E4D1;
+                font-size: 20px;
+                z-index: 2;
+            }
+
+            .v2-t-card {
+                background: rgba(42, 59, 119, 0.35);
+                border: 1px solid rgba(241, 228, 209, 0.18);
+                border-radius: 14px;
+                padding: 24px 26px;
+                transition: border-color 0.25s ease, background 0.25s ease;
+            }
+
+            .v2-t-card:hover {
+                border-color: rgba(241, 228, 209, 0.4);
+                background: rgba(42, 59, 119, 0.5);
+            }
+
+            .v2-t-role {
+                color: #F1E4D1;
+                font-weight: 700;
+                font-size: 14.5px;
+                margin-bottom: 4px;
+            }
+
+            .v2-t-org {
+                color: #fff;
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 8px;
+            }
+
+            .v2-t-meta {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 13px;
+                margin-bottom: 16px;
+            }
+
+            .v2-t-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .v2-t-list li {
+                position: relative;
+                padding-left: 20px;
+                margin-bottom: 8px;
+                color: rgba(255, 255, 255, 0.85);
+                line-height: 1.7;
+                font-size: 14.5px;
+            }
+
+            .v2-t-list li:last-child {
+                margin-bottom: 0;
+            }
+
+            .v2-t-list li::before {
+                content: "\f00c";
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                position: absolute;
+                left: 0;
+                top: 2px;
+                color: #F1E4D1;
+                font-size: 11px;
+            }
+
+            @media (max-width: 575px) {
+                .v2-timeline::before {
+                    left: 22px;
+                }
+
+                .v2-t-item {
+                    padding-left: 60px;
+                }
+
+                .v2-t-dot {
+                    width: 44px;
+                    height: 44px;
+                    font-size: 16px;
+                }
+            }
+        </style>
+
+        <div class="v2-timeline">
             <!-- 1. Google Developer Group on Campus -->
-            <div class="col-lg-6 col-sm-12">
-                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <h4 class="edu-sub-title">Head of Event Departement</h4>
-                    <h2 class="edu-title">Google Developer Group on Campus – UNPAS | Jul 2026 – Sekarang</h2>
-                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
-                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
-                        <li>Mengoordinasikan persiapan dan pelaksanaan kegiatan serta acara komunitas teknologi di kampus.</li>
-                        <li>Bertugas sebagai MC dan moderator dalam kegiatan, serta mendukung komunikasi efektif antara panitia, pembicara, dan peserta.</li>
-                        <li>Berkolaborasi dengan seluruh anggota tim untuk memastikan jalannya kegiatan berlangsung sesuai target dan rencana.</li>
+            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-1">
+                <div class="v2-t-dot"><i class="fa-solid fa-people-group"></i></div>
+                <div class="v2-t-card">
+                    <div class="v2-t-role">Head of Event Departement</div>
+                    <h3 class="v2-t-org">Google Developer Group on Campus – UNPAS</h3>
+                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jul 2026 – Sekarang &nbsp;•&nbsp;
+                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
+                    </div>
+                    <ul class="v2-t-list">
+                        <li>Mengoordinasikan persiapan dan pelaksanaan kegiatan serta acara komunitas teknologi di
+                            kampus.</li>
+                        <li>Bertugas sebagai MC dan moderator dalam kegiatan, serta mendukung komunikasi efektif
+                            antara panitia, pembicara, dan peserta.</li>
+                        <li>Berkolaborasi dengan seluruh anggota tim untuk memastikan jalannya kegiatan berlangsung
+                            sesuai target dan rencana.</li>
                     </ul>
                 </div>
             </div>
 
             <!-- 2. PT Berkah Teknologi Terdepan -->
-            <div class="col-lg-6 col-sm-12">
-                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <h4 class="edu-sub-title">Junior Software Engineer</h4>
-                    <h2 class="edu-title">PT Berkah Teknologi Terdepan | Jun 2026 – Sep 2026</h2>
-                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
-                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
-                        <li>Melakukan pengujian perangkat lunak (Quality Assurance), mengidentifikasi masalah (bug/issue), dan menyusun dokumentasi hasil pengujian.</li>
-                        <li>Mengembangkan dan meredesain website menggunakan React.js, Next.js, Laravel, dan Golang.</li>
+            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-2">
+                <div class="v2-t-dot"><i class="fa-solid fa-code"></i></div>
+                <div class="v2-t-card">
+                    <div class="v2-t-role">Junior Software Engineer</div>
+                    <h3 class="v2-t-org">PT Berkah Teknologi Terdepan</h3>
+                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jun 2026 – Sep 2026 &nbsp;•&nbsp;
+                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
+                    </div>
+                    <ul class="v2-t-list">
+                        <li>Melakukan pengujian perangkat lunak (Quality Assurance), mengidentifikasi masalah
+                            (bug/issue), dan menyusun dokumentasi hasil pengujian.</li>
+                        <li>Mengembangkan dan meredesain website menggunakan React.js, Next.js, Laravel, dan Golang.
+                        </li>
                         <li>Membuat dan mengembangkan plugin sesuai kebutuhan pengembangan aplikasi sistem.</li>
-                        <li>Menggunakan Git dan GitHub untuk pengelolaan kode, Docker untuk lingkungan pengembangan, serta Postman dalam proses pengujian API.</li>
-                        <li>Menyusun dokumentasi teknis terkait alur pengembangan dan prosedur pengujian software.</li>
+                        <li>Menggunakan Git dan GitHub untuk pengelolaan kode, Docker untuk lingkungan pengembangan,
+                            serta Postman dalam proses pengujian API.</li>
+                        <li>Menyusun dokumentasi teknis terkait alur pengembangan dan prosedur pengujian software.
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <!-- 3. Asisten Dosen UNPAS -->
-            <div class="col-lg-6 col-sm-12">
-                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    <h4 class="edu-sub-title">Teaching Assistant – Internet and Web Technology</h4>
-                    <h2 class="edu-title">Teknik Informatika – Universitas Pasundan | Dec 2025 – Dec 2025</h2>
-                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
-                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
-                        <li>Membantu dosen dalam pelaksanaan kegiatan pembelajaran praktikum dan pendampingan akademik mahasiswa.</li>
-                        <li>Memberikan arahan dan bimbingan kepada mahasiswa dalam memahami materi terkait teknologi internet dan web development.</li>
-                        <li>Menjadi penguji tugas besar mahasiswa berupa produk website serta mengevaluasi hasil pengerjaan kode dan implementasinya.</li>
+            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-3">
+                <div class="v2-t-dot"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <div class="v2-t-card">
+                    <div class="v2-t-role">Teaching Assistant – Internet and Web Technology</div>
+                    <h3 class="v2-t-org">Teknik Informatika – Universitas Pasundan</h3>
+                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Dec 2025 – Dec 2025 &nbsp;•&nbsp;
+                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
+                    </div>
+                    <ul class="v2-t-list">
+                        <li>Membantu dosen dalam pelaksanaan kegiatan pembelajaran praktikum dan pendampingan
+                            akademik mahasiswa.</li>
+                        <li>Memberikan arahan dan bimbingan kepada mahasiswa dalam memahami materi terkait teknologi
+                            internet dan web development.</li>
+                        <li>Menjadi penguji tugas besar mahasiswa berupa produk website serta mengevaluasi hasil
+                            pengerjaan kode dan implementasinya.</li>
                     </ul>
                 </div>
             </div>
 
             <!-- 4. SND Computer BEC -->
-            <div class="col-lg-6 col-sm-12">
-                <div class="education-experience-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-4">
-                    <h4 class="edu-sub-title">Teknisi Komputer</h4>
-                    <h2 class="edu-title">SND Computer BEC | Jan 2023 – Mei 2023</h2>
-                    <p style="color: #F1E4D1; font-size: 13px; margin-bottom: 8px;"><i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia</p>
-                    <ul class="edu-para" style="list-style-type: disc; padding-left: 20px; line-height: 1.7; color: rgba(255,255,255,0.85);">
-                        <li>Melakukan pemeriksaan, diagnosis menyeluruh, dan troubleshooting permasalahan hardware maupun software pada komputer dan laptop.</li>
-                        <li>Melakukan instalasi sistem operasi (Windows/Linux), aplikasi esensial, serta konfigurasi perangkat komputer klien.</li>
-                        <li>Melakukan pemeliharaan rutin, perakitan, upgrade komponen hardware (RAM, storage SSD), dan penggantian komponen yang rusak.</li>
+            <div class="v2-t-item tmp-scroll-trigger tmp-fade-in animation-order-4">
+                <div class="v2-t-dot"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <div class="v2-t-card">
+                    <div class="v2-t-role">Teknisi Komputer</div>
+                    <h3 class="v2-t-org">SND Computer BEC</h3>
+                    <div class="v2-t-meta"><i class="fa-solid fa-calendar-days"></i> Jan 2023 – Mei 2023 &nbsp;•&nbsp;
+                        <i class="fa-solid fa-location-dot"></i> Kota Bandung, Jawa Barat, Indonesia
+                    </div>
+                    <ul class="v2-t-list">
+                        <li>Melakukan pemeriksaan, diagnosis menyeluruh, dan troubleshooting permasalahan hardware
+                            maupun software pada komputer dan laptop.</li>
+                        <li>Melakukan instalasi sistem operasi (Windows/Linux), aplikasi esensial, serta konfigurasi
+                            perangkat komputer klien.</li>
+                        <li>Melakukan pemeliharaan rutin, perakitan, upgrade komponen hardware (RAM, storage SSD), dan
+                            penggantian komponen yang rusak.</li>
                     </ul>
                 </div>
             </div>
